@@ -1,0 +1,20 @@
+<h1>Aloha!</h1>
+
+<p><img src='https://fishingbooker.com/blog/media/Hawaii-beach.jpg' height='300px'/>
+
+<p><a href='/svn'>/svn<a> is svn server, <a href='/git'>/git</a> is git server.
+
+<p>You will need an account to access them.
+
+<p>To create a svn repo, ssh into aloha, run
+
+<pre>$ sudo svnadmin create /var/svn/test
+$ chown -R www-data:www-data /var/svn/test
+$ chmod -R 775 /var/svn/test</pre>
+
+
+
+<p>To create a git repo, ssh into aloha, run
+
+<pre>$ sudo git-create-repo.sh test
+Git repository 'test' created in /var/git/test.git</pre>
