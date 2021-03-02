@@ -32,6 +32,9 @@ sudo mkdir -p /home/shared/$username
 sudo chown $username:$username /home/shared/$username
 sudo ln -s /home/shared/$username /home/$username/shared
 
+sudo -u $username cp ../slurm-examples/* /home/$username/shared/
+
+
 uid=$(id -u $username)
 gid=$(id -g $username)
 
