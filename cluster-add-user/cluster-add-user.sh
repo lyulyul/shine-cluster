@@ -18,6 +18,7 @@ cat <<HERE > ~/shared/remote-add-user
 sudo addgroup --gid $gid $username
 # It's not documented clearly, but --gid requires the existence of GID.
 sudo adduser --gecos "$gecos" --disabled-login --uid $uid --gid $gid $username
+sudo usermod -aG aptuser $username
 
 sudo ln -s /home/shared/$username /home/$username/shared
 HERE
