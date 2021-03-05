@@ -1,7 +1,26 @@
 #!/bin/bash -e
 
 username=$1
+
+if [[ "$username" == '-t' ]] || [[ "$username" == '--test' ]]; then
+	localAptUserId=$(getent group aptuser | cut -d: -f3)
+	remoteAptUserId=$(ssh eureka 'getent group aptuser' | cut -d: -f3)
+
+	if [[ "$localAptUserId" != "$remoteAptUserId" ]]; then
+		echo "Error: The id of group aptuser is $localAptUserId on local while $remoteAptUserId on remote."
+	fi
+	exit
+fi
+
+
 sudo adduser --conf adduser.conf --disabled-password $username
+
+# When user runs `srun` on aha, the user's groups are captured
+# on aha, then transfered to eureka. 
+# Although we put the user to group aptuser, the sudoers file doesn't
+# have corresponding rules so the user cannot run `sudo apt` on aha.
+# Eureka has the corresponding sudoers rule.
+sudo usermod -aG aptuser $username
 
 # create shared folder
 sudo mkdir -p /home/shared/$username
@@ -18,7 +37,6 @@ cat <<HERE > ~/shared/remote-add-user
 sudo addgroup --gid $gid $username
 # It's not documented clearly, but --gid requires the existence of GID.
 sudo adduser --gecos "$gecos" --disabled-login --uid $uid --gid $gid $username
-sudo usermod -aG aptuser $username
 
 sudo ln -s /home/shared/$username /home/$username/shared
 HERE
