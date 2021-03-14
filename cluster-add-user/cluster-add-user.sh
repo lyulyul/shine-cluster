@@ -43,7 +43,7 @@ sudo ln -s /home/shared/$username /home/$username/shared
 # Although we put the user to group aptuser, the sudoers file doesn't
 # have corresponding rules so the user cannot run `sudo apt` on aha.
 # Eureka has the corresponding sudoers rule.
-sudo usermod -aG aptuser $username
+sudo usermod -aG aptuser,btrfsUsers $username
 
 sudo -u $username cp ../slurm-examples/* /home/$username/shared/
 

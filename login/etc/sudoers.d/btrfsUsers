@@ -1,0 +1,3 @@
+Cmnd_Alias BTRFS_COMMANDS = /usr/local/bin/btrfs-backup-home, /usr/local/bin/myquota
+
+%btrfsUsers ALL=(ALL) NOPASSWD: BTRFS_COMMANDS
