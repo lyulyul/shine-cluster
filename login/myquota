@@ -1,0 +1,9 @@
+#!/bin/bash -e
+
+
+baseId=$(btrfs subvolume show /home/$USER | grep 'Quota group' | grep -o -P '0/\d+')
+sharedId=$(btrfs subvolume show /home/shared/$USER | grep 'Quota group' | grep -o -P '0/\d+')
+totalId="1/$(id -u)"
+output=$(btrfs qgroup show -r  /home/ | tail -n +2 | grep -v '0/5'| sed "s|$baseId|/home/$USER|;s|$sharedId|/home/shared/$USER|;s|$totalId|<total>|;")
+
+printf "Folder UsedSize _ MaxSize\n$output\n" | awk '{printf "%-20s\t%-10s\t%-10s\n", $1,$2,$4}'
