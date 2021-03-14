@@ -42,6 +42,9 @@ if [[ -n "$delete" ]]; then
 	btrfs subvolume delete -c $targetFolder/shared $targetFolder
 elif [[ "$deleteAll" = true ]]; then
 	targetFolder=/home/$username/backups/
+	if [[ ! -e $targetFolder ]]; then
+		exit
+	fi
 	backups=$(ls $targetFolder)
 	for backup in $backups
 	do
