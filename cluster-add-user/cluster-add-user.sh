@@ -1,5 +1,10 @@
 #!/bin/bash -e
 
+if [[ $EUID -eq 0 ]]; then
+	echo "$0 is designed to run without prefixing sudo" >&2
+	exit 1
+fi
+
 username=$1
 
 if [[ "$username" == '-t' ]] || [[ "$username" == '--test' ]]; then
