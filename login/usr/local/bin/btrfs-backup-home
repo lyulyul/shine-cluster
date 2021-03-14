@@ -1,0 +1,12 @@
+#!/bin/bash -e
+
+username=$1
+
+backupName=$(date '+%Y-%m-%d')
+targetFolder=/home/$username/backups/$backupName
+sudo btrfs subvolume snapshot /home/$username $targetFolder
+sudo unlink $targetFolder/shared
+
+
+sudo btrfs subvolume snapshot -r /home/shared/$username $targetFolder/shared
+sudo btrfs property set -t s $targetFolder ro true
