@@ -32,6 +32,11 @@ fi
 # delete operation requires sudo
 if [[ -n "$delete" ]]; then
 	targetFolder=/home/$username/backups/$delete
+	if [[ ! -e $targetFolder ]]; then
+		echo "$targetFolder doesn't exist." >&2
+		exit
+	fi
+	
 	btrfs property set -t s $targetFolder/shared ro false
 	btrfs property set -t s $targetFolder ro false
 	btrfs subvolume delete -c $targetFolder/shared $targetFolder
@@ -41,7 +46,7 @@ elif [[ "$deleteAll" = true ]]; then
 	for backup in $backups
 	do
 		echo "Delete $backup"
-		$0 --delete "$backup"
+		$0 --delete "$backup" $username
 	done
 else
 	backupName=$(date '+%Y-%m-%d')
