@@ -1,3 +1,13 @@
 #!/bin/bash
 
-rm -rf /home/shared/$1
+# $PATH is /bin:/usr/bin:/sbin:/usr/sbin
+
+username=$1
+uid=$2
+gid=$3
+home=$4
+
+/usr/local/bin/btrfs-backup-home --delete-all $username
+btrfs subvolume delete -c /home/shared/$username $home
+
+/usr/local/sbin/remove-stale-qgroup /home
