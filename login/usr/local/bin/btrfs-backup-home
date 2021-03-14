@@ -1,8 +1,19 @@
 #!/bin/bash -e
 
+while [[ "$#" -gt 0 ]]; do
+	case $1 in
+		--tag) tag="$2"; shift ;;
+		*) break;;
+	esac
+	shift
+done
+
 username=$1
 
 backupName=$(date '+%Y-%m-%d')
+if [[ ! -z "$tag" ]]; then
+	backupName=$backupName-$tag
+fi
 targetFolder=/home/$username/backups/$backupName
 sudo btrfs subvolume snapshot /home/$username $targetFolder
 sudo unlink $targetFolder/shared
