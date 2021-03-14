@@ -15,9 +15,15 @@ if [[ ! -z "$tag" ]]; then
 	backupName=$backupName-$tag
 fi
 targetFolder=/home/$username/backups/$backupName
-sudo btrfs subvolume snapshot /home/$username $targetFolder
-sudo unlink $targetFolder/shared
+
+if [[ -e "$targetFolder" ]]; then
+	echo "$targetFolder exists. Specify --tag or delete this backup." >&2
+	exit
+fi
+
+btrfs subvolume snapshot /home/$username $targetFolder
+unlink $targetFolder/shared
 
 
-sudo btrfs subvolume snapshot -r /home/shared/$username $targetFolder/shared
-sudo btrfs property set -t s $targetFolder ro true
+btrfs subvolume snapshot -r /home/shared/$username $targetFolder/shared
+btrfs property set -t s $targetFolder ro true
