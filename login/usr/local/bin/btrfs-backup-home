@@ -1,29 +1,64 @@
 #!/bin/bash -e
 
+if [[ "$EUID" -gt 0 ]] ; then
+	echo "You must run this script with sudo." >&2
+	exit
+fi
+
 while [[ "$#" -gt 0 ]]; do
 	case $1 in
 		--tag) tag="$2"; shift ;;
+		--delete) delete="$2"; shift ;;
+		--delete-all) deleteAll=true ;;
 		*) break;;
 	esac
 	shift
 done
 
-username=$1
-
-backupName=$(date '+%Y-%m-%d')
-if [[ ! -z "$tag" ]]; then
-	backupName=$backupName-$tag
-fi
-targetFolder=/home/$username/backups/$backupName
-
-if [[ -e "$targetFolder" ]]; then
-	echo "$targetFolder exists. Specify --tag or delete this backup." >&2
+if [[ "$(id -Gn $SUDO_USER)" =~ 'sudo' ]]; then
+	if [[ -z "$1" ]]; then
+		username=$SUDO_USER
+	else
+		username=$1
+	fi
+elif [[ ! -z "$1" ]]; then
+	echo "As a regular user, you can't specify backup target." >&2
 	exit
+else
+	username=$SUDO_USER
 fi
 
-btrfs subvolume snapshot /home/$username $targetFolder
-unlink $targetFolder/shared
+
+# delete operation requires sudo
+if [[ -n "$delete" ]]; then
+	targetFolder=/home/$username/backups/$delete
+	btrfs property set -t s $targetFolder/shared ro false
+	btrfs property set -t s $targetFolder ro false
+	btrfs subvolume delete -c $targetFolder/shared $targetFolder
+elif [[ "$deleteAll" = true ]]; then
+	targetFolder=/home/$username/backups/
+	backups=$(ls $targetFolder)
+	for backup in $backups
+	do
+		echo "Delete $backup"
+		$0 --delete "$backup"
+	done
+else
+	backupName=$(date '+%Y-%m-%d')
+	if [[ -n "$tag" ]]; then
+		backupName=$backupName-$tag
+	fi
+	targetFolder=/home/$username/backups/$backupName
+
+	if [[ -e "$targetFolder" ]]; then
+		echo "$targetFolder exists. Specify --tag or delete this backup." >&2
+		exit
+	fi
+
+	btrfs subvolume snapshot /home/$username $targetFolder
+	unlink $targetFolder/shared
 
 
-btrfs subvolume snapshot -r /home/shared/$username $targetFolder/shared
-btrfs property set -t s $targetFolder ro true
+	btrfs subvolume snapshot -r /home/shared/$username $targetFolder/shared
+	btrfs property set -t s $targetFolder ro true
+fi
