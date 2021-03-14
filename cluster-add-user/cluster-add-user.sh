@@ -20,6 +20,24 @@ fi
 
 sudo adduser --conf adduser.conf --disabled-password $username
 
+uid=$(id -u $username)
+gid=$(id -g $username)
+
+sudo btrfs qgroup create 1/$uid /home
+
+sudo mv /home/$username /home/$username-tmp
+
+sudo btrfs subvolume create -i 1/$uid /home/$username
+sudo btrfs subvolume create -i 1/$uid /home/shared/$username
+sudo chown $username: /home/$username
+sudo chown $username: /home/shared/$username
+
+# () opens a new bash
+(shopt -s dotglob; sudo mv /home/$username-tmp/* /home/$username)
+sudo rm -rf /home/$username-tmp
+
+sudo ln -s /home/shared/$username /home/$username/shared
+
 # When user runs `srun` on aha, the user's groups are captured
 # on aha, then transfered to eureka. 
 # Although we put the user to group aptuser, the sudoers file doesn't
@@ -27,16 +45,9 @@ sudo adduser --conf adduser.conf --disabled-password $username
 # Eureka has the corresponding sudoers rule.
 sudo usermod -aG aptuser,conda-cache $username
 
-# create shared folder
-sudo mkdir -p /home/shared/$username
-sudo chown $username:$username /home/shared/$username
-sudo ln -s /home/shared/$username /home/$username/shared
-
 sudo -u $username cp ../slurm-examples/* /home/$username/shared/
 
 
-uid=$(id -u $username)
-gid=$(id -g $username)
 
 gecos=$(getent passwd $username | cut -d ':' -f 5)
 
