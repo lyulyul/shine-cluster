@@ -15,7 +15,10 @@ while [[ "$#" -gt 0 ]]; do
 	shift
 done
 
-if [[ "$(id -Gn $SUDO_USER)" =~ 'sudo' ]]; then
+# [[ "$(id -Gn $SUDO_USER)" =~ "\<sudo\>" ]]
+# does not work because "Any part of the pattern may be quoted to force the quoted portion to be matched as a string."
+# https://www.gnu.org/software/bash/manual/bash.html
+if p='\<sudo\>' && [[ "$(id -Gn $SUDO_USER)" =~ $p ]]; then
 	if [[ -z "$1" ]]; then
 		username=$SUDO_USER
 	else
