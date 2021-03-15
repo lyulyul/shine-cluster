@@ -21,7 +21,7 @@ if [[ "$(id -Gn $SUDO_USER)" =~ 'sudo' ]]; then
 	else
 		username=$1
 	fi
-elif [[ ! -z "$1" ]]; then
+elif [[ ! -z "$1" ]] && [[ "$1" != $SUDO_USER ]]; then
 	echo "As a regular user, you can't specify backup target." >&2
 	exit
 else
