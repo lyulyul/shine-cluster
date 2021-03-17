@@ -1,0 +1,3 @@
+alias -g squeueF='squeue --Format "JobID,Partition,Name,UserName,StateCompact,TimeUsed,TimeLeft,NumCPUs,tres-per-node,Nice,PriorityLong,ReasonList" | column -t'
+
+alias ll='ls -l -h --time-style=long-iso'

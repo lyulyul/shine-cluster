@@ -4,7 +4,7 @@
 # If you use ZSH, you can simply use
 #   watch -n 1 squeueF
 
-alias squeueF='squeue --Format "JobID:8,Partition:11,Name:10,UserName:10,StateCompact:4,TimeUsed:11,NumCPUs:5,tres-per-node:15,ReasonList"'
+alias squeueF='squeue --Format "JobID,Partition,Name,UserName,StateCompact,TimeUsed,NumCPUs,tres-per-node,Nice,PriorityLong,ReasonList" | column -t'
 
 function sit
 {
@@ -37,3 +37,5 @@ if [[ "$ZSH_NAME" ]]; then
 else
 	complete -W "--internet -g" sit
 fi
+
+alias df-real='df -h -x tmpfs -x devtmpfs -x squashfs'
