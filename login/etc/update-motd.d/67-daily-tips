@@ -1,0 +1,27 @@
+#!/bin/bash -e
+
+out=/tmp/daily-tips
+if [[ -f $out ]]; then
+	cat /tmp/daily-tips
+	lastrun=$(stat -c %Y "$out") || lastrun=0
+	# 66400s is 24 hours.
+	expiration=$(expr $lastrun + 86400)
+	if [ $(date +%s) -lt $expiration ]; then
+		exit
+	fi
+fi
+
+shopt -s nullglob
+
+groups=(/etc/daily-tips/*)
+
+i=$(($RANDOM % ${#groups[@]}))
+
+filename=${groups[$i]}
+source $filename
+
+i=$(($RANDOM % ${#tips[@]}))
+
+echo ""> $out
+echo "${tips[$i]}" >> $out
+echo -e "\t\t\t\t\tfrom $(basename $filename)" >> $out
