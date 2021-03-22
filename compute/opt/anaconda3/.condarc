@@ -1,2 +1,4 @@
+pkgs_dirs:
+  - /opt/anaconda3/pkgs
 envs_dirs:
  - ~/shared/.conda/envs
