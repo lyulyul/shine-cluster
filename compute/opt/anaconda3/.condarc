@@ -1,0 +1,2 @@
+envs_dirs:
+ - ~/shared/.conda/envs
