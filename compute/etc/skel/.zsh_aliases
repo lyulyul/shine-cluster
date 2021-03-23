@@ -1,0 +1,8 @@
+alias -g squeueF='squeue --Format "JobID:8,Partition:11,Name:10,UserName:10,StateCompact:4,TimeUsed:11,NumCPUs:5,tres-per-node:15,Nice:6,Priority:17,ReasonList"'
+
+function sit
+{
+	srun --pty "$@" bash -i
+}
+
+alias sit-g='sinteractive --gres=gpu --nice'
