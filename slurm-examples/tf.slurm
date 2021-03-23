@@ -11,6 +11,7 @@
 
 # 使用1个GPU、1个CPU
 #SBATCH --gres=gpu:1
+#SBATCH --nice
 #SBATCH --cpus-per-task=1
 
 # 设置此任务的最长运行时间为7小时56分钟。其他写法参见 https://slurm.schedmd.com/sbatch.html
