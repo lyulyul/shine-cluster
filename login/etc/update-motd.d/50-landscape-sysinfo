@@ -1,0 +1,29 @@
+#!/bin/bash
+
+# https://superuser.com/a/1178598/150076
+PPID1=`cat /proc/$PPID/status | grep PPid | awk '{ print $2 }'`
+PPID2=`cat /proc/$PPID1/status | grep PPid | awk '{ print $2 }'`
+USERNAME=`ps -x | grep $PPID2 | awk '{ print $6 }' |  sed "s/[[:digit:].-]//g"`
+
+# Only sudo user can update software
+if p='\<sudo\>' && [[ ! ("$(id -Gn $USERNAME)" =~ $p) ]]; then
+	exit
+fi
+
+
+# pam_motd does not carry the environment
+[ -f /etc/default/locale ] && . /etc/default/locale
+export LANG
+cores=$(grep -c ^processor /proc/cpuinfo 2>/dev/null)
+[ "$cores" -eq "0" ] && cores=1
+threshold="${cores:-1}.0"
+if [ $(echo "`cut -f1 -d ' ' /proc/loadavg` < $threshold" | bc) -eq 1 ]; then
+    echo
+    echo -n "  System information as of "
+    /bin/date
+    echo
+    /usr/bin/landscape-sysinfo
+else
+    echo
+    echo " System information disabled due to load higher than $threshold"
+fi
