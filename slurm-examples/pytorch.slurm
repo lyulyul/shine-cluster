@@ -18,6 +18,10 @@
 ##SBATCH --time=7:55:44
 #SBATCH --time=01:00
 
+# 邮件提醒
+##SBATCH --mail-type=ALL
+##SBATCH --mail-user=your-email@ipm.edu.mo
+
 source /opt/anaconda3/bin/activate
 conda activate torch
 ./pytorch.py
