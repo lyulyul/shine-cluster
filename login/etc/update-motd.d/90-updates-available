@@ -1,0 +1,15 @@
+#!/bin/bash
+
+stamp="/var/lib/update-notifier/updates-available"
+
+# https://superuser.com/a/1178598/150076
+PPID1=`cat /proc/$PPID/status | grep PPid | awk '{ print $2 }'`
+PPID2=`cat /proc/$PPID1/status | grep PPid | awk '{ print $2 }'`
+USERNAME=`ps -x | grep $PPID2 | awk '{ print $6 }' |  sed "s/[[:digit:].-]//g"`
+
+# Only sudo user can update software
+if p='\<sudo\>' && [[ "$(id -Gn $USERNAME)" =~ $p ]]; then
+	[ ! -r "$stamp" ] || cat "$stamp"
+fi
+
+find $stamp -newermt 'now-7 days' 2> /dev/null | grep -q -m 1 '.' || /usr/share/update-notifier/notify-updates-outdated
