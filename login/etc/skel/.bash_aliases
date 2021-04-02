@@ -8,6 +8,10 @@ alias squeueF='squeue --Format "JobID:8,Partition:11,Name:10,UserName:10,StateCo
 
 function sit
 {
+	if [[ "$ZSH_NAME" ]]; then 
+		setopt local_options SH_WORD_SPLIT
+	fi
+
 	option=
 	while [[ "$#" -gt 0 ]]; do
 		case $1 in
