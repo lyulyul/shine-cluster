@@ -12,6 +12,14 @@ Q as Queue, I as India, Q as Queue, I as India, G as Golf, U as Uniform. 数字0
 If you use NATO code adeptly, people may think you are a respected veteran!
 --Qiqi"
 
+"In Vim, press gg in normal mode to go to the beginning of the file, press $(tput bold)G$(tput sgr0) to go to the end. Press $(tput bold)^$(tput sgr0) to the beginning of the line, $(tput bold)&$(tput sgr0) to the end of the line.
+Press $(tput bold)w$(tput sgr0) to go to the next Word, $(tput bold)b$(tput sgr0) goes Backwords."
+
+"阿基米德被皇帝要求检查皇冠是不是纯金的。阿基米德泡澡时突然想到了浮体原理，不禁高兴的从浴盆跳了出来，赤身裸体跑了出去，边跑还边喊著：“eureka, eureka!”
+eureka是希腊语，意思是$(tput setab 2)我发现了！$(tput setab 0)
+In Civilization VI, you will also see eureka, which was implemented as a technology boost that fast-forwards your technology research progress from 0 to 50%.
+--Qiqi"
+
 "
 $(tput smso)Tatooine is the name of a planet in Star Wars$(tput rmso)			$(tput setaf 11)x  x$(tput setaf 7)
 $(tput smso)the young Skywalker Anakin's home.$(tput rmso)		$(tput setaf 11)o  o         x        x  $(tput setaf 7)
@@ -22,21 +30,3 @@ _______________________________________________________________________________
 --Qiqi"
 
 )
-
-#var=${tips[0]}
-## remove leading whitespace characters
-#var="${var#"${var%%[![:space:]]*}"}"
-## remove trailing whitespace characters
-#var="${var%"${var##*[![:space:]]}"}"
-#
-#echo "$var"
-#
-#lastLine="${var##*$'\n'}"
-#echo $lastLine
-#
-#attribution=$(grep -P '(?<=--).+$' -o  <<<"$lastLine")
-#if [[ -z "$attribution" ]]; then
-#	echo -e "\t\t\t\t\tfrom $(basename "$filename")"
-#else
-#	echo -e "\t\t\t\t\tfrom $attribution, $(basename "$filename")"
-#fi
