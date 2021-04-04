@@ -1,0 +1,42 @@
+#!/bin/bash -e
+
+tips=(
+"Besides ""copy that"", you can say ""roger that"". ""Roger wilco"" means in addition to ""roger that"", you WILl COmply. These are radio communication jardons. 
+
+In United States, ""Say again"", from the same category, is much more often used than ""Pardon"".
+--Qiqi"
+
+"Did you say Beech Tree or Peachtree? Was that Mr. Gota or Mr. Goda? Steven or Stephen? Pirate Way or Pilot Way?
+中国人英语发音不标准，打电话时名字、电话号码、email更是说不清。你可以用北约音标字符。
+Q as Queue, I as India, Q as Queue, I as India, G as Golf, U as Uniform. 数字0有特殊念法。
+If you use NATO code adeptly, people may think you are a respected veteran!
+--Qiqi"
+
+"
+$(tput smso)Tatooine is the name of a planet in Star Wars$(tput rmso)			$(tput setaf 11)x  x$(tput setaf 7)
+$(tput smso)the young Skywalker Anakin's home.$(tput rmso)		$(tput setaf 11)o  o         x        x  $(tput setaf 7)
+$(tput smso)The most famous view on Tatooine$(tput rmso)	     $(tput setaf 11)o        o     x          x $(tput setaf 7)
+$(tput smso)is it's double sunset.$(tput rmso)			    $(tput setaf 11)o          o    x          x $(tput setaf 7)
+					    $(tput setaf 11)o          o     x        x  $(tput setaf 7)
+_______________________________________________________________________________
+--Qiqi"
+
+)
+
+#var=${tips[0]}
+## remove leading whitespace characters
+#var="${var#"${var%%[![:space:]]*}"}"
+## remove trailing whitespace characters
+#var="${var%"${var##*[![:space:]]}"}"
+#
+#echo "$var"
+#
+#lastLine="${var##*$'\n'}"
+#echo $lastLine
+#
+#attribution=$(grep -P '(?<=--).+$' -o  <<<"$lastLine")
+#if [[ -z "$attribution" ]]; then
+#	echo -e "\t\t\t\t\tfrom $(basename "$filename")"
+#else
+#	echo -e "\t\t\t\t\tfrom $attribution, $(basename "$filename")"
+#fi
