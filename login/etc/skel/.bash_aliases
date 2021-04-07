@@ -37,3 +37,5 @@ if [[ "$ZSH_NAME" ]]; then
 else
 	complete -W "--internet -g" sit
 fi
+
+alias df-real='df -h -x tmpfs -x devtmpfs -x squashfs'
