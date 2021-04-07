@@ -13,6 +13,8 @@ if [[ -s $out ]]; then
 	fi
 fi
 
+exec > $out
+
 # Allow * matches nothing so that groups is an empty array.
 shopt -s nullglob
 groups=(/etc/daily-tips/*)
@@ -24,7 +26,7 @@ source "$filename"
 
 i=$(($RANDOM % ${#tips[@]}))
 
-echo "" > $out
+echo ""
 
 var=${tips[$i]}
 # remove leading whitespace characters
@@ -35,10 +37,10 @@ var="${var%"${var##*[![:space:]]}"}"
 
 attribution=$(grep -P '(?<=--).+$' -o  <<< "${var##*$'\n'}" || true)
 if [[ -z "$attribution" ]]; then
-	echo "$var" >> $out
-	echo -e "\t\t\t\t\tfrom $(basename "$filename")" >> $out
+	echo "$var"
+	echo -e "\t\t\t\t\tfrom $(basename "$filename")"
 else
-	echo "${var%$'\n'*}" >> $out
-	echo -e "\t\t\t\t\tfrom $attribution, $(basename "$filename")" >> $out
+	echo "${var%$'\n'*}"
+	echo -e "\t\t\t\t\tfrom $attribution, $(basename "$filename")"
 fi
 
