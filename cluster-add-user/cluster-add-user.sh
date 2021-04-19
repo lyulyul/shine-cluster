@@ -25,7 +25,7 @@ sudo adduser --conf adduser.conf --disabled-password $username
 # Although we put the user to group aptuser, the sudoers file doesn't
 # have corresponding rules so the user cannot run `sudo apt` on aha.
 # Eureka has the corresponding sudoers rule.
-sudo usermod -aG aptuser $username
+sudo usermod -aG aptuser,conda-cache $username
 
 # create shared folder
 sudo mkdir -p /home/shared/$username
@@ -45,6 +45,7 @@ cat <<HERE > ~/shared/remote-add-user
 sudo addgroup --gid $gid $username
 # It's not documented clearly, but --gid requires the existence of GID.
 sudo adduser --gecos "$gecos" --disabled-login --uid $uid --gid $gid $username
+sudo usermod -aG conda-cache $username
 
 sudo ln -s /home/shared/$username /home/$username/shared
 HERE
