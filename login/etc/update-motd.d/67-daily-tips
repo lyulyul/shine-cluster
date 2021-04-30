@@ -1,5 +1,7 @@
 #!/bin/bash -e
 
+export TERM=xterm-256color
+
 out=/tmp/daily-tips
 if [[ -s $out ]]; then
 	cat /tmp/daily-tips
