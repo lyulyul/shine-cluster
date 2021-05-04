@@ -6,7 +6,7 @@ out=/tmp/daily-tips
 if [[ -s $out ]]; then
 	cat /tmp/daily-tips
 	lastrun=$(stat -c %Y "$out") || lastrun=0
-	# 66400s is 24 hours.
+	# 86400s is 24 hours.
 	expiration=$(expr $lastrun + 86400)
 	if [ $(date +%s) -lt $expiration ]; then
 		exit
