@@ -96,6 +96,7 @@ syn match	shSlurmOption	contained	'--dependency=' nextgroup=shSlurmString
 syn match	shSlurmOption	contained	'--distribution=' nextgroup=shSlurmDist
 syn match	shSlurmOption	contained	'--error=' nextgroup=shSlurmString
 syn match	shSlurmOption	contained	'--exclude=' nextgroup=shSlurmString
+syn match	shSlurmOption	contained	'--exclusive'
 syn match	shSlurmOption	contained	'--exclusive=' nextgroup=shSlurmString
 syn match	shSlurmOption	contained	'--export=' nextgroup=shSlurmString
 syn match	shSlurmOption	contained	'--export-file=' nextgroup=shSlurmString
