@@ -1,0 +1,29 @@
+#! /bin/bash
+
+# exec >> /tmp/email-test                                                                      
+# exec 2>&1
+# 
+# echo "$@" 
+# echo 
+# echo '$1=' "$1" 
+# echo '$2=' "$2"
+# echo '$3=' "$3"
+# echo envs=
+# printenv
+
+if [[ "$1" != "-s" ]]; then
+	echo "Incorrect arguments. Please call $0 in this format:" >&2
+	echo "$0 -s message receiver" >&2
+	exit 1
+fi
+
+message=$2
+receiver=$3
+
+if [[ ! "$receiver" == *"@"* ]]; then
+	echo "$receiver is not valid email address." >&2
+	exit 2
+fi
+
+
+sendemail -f aha@ipm.edu.mo -t "$receiver" -s mail.ipm.edu.mo -u 'Slurm Notification' -m "$message"
