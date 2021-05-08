@@ -1,0 +1,27 @@
+#!/usr/bin/zsh -e
+
+if (( $@[(Ie)--help] )); then
+	echo "$0 check [user]"
+	echo ""
+	echo "Check if disk quota exemption is enabled for a given user. The default is the current user. "
+	echo "If exemption is enabled, the program prints the expiration date. Otherwise the program exits with exit code 1."
+	exit
+fi
+
+if [[ $1 == 'check' ]]; then
+	if (( $#  == 1)) || [[ ! -d /home/$@[-1] ]]; then
+		user=$USER
+		uid=$UID
+	else
+		user=$@[-1]
+		uid=$(id -u $user)
+	fi
+
+	find /etc/diskquota/exemptions/$uid -type f  -mtime +90 -delete || true
+	
+	if [[ -e /etc/diskquota/exemptions/$uid ]]; then
+		echo $(date --date="$(stat -c %y /etc/diskquota/exemptions/$uid) + 90 days" +%F)
+	else
+		exit 1
+	fi
+fi
