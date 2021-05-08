@@ -1,0 +1,98 @@
+#!/usr/bin/zsh -e
+
+if (( $@[(Ie)--help] )); then
+	echo "$0 [options] [user]"
+	echo ""
+	echo "Print the disk usage of a given user. The default is the current user."
+	echo $'\nOptions
+
+--raw\traw numbers in bytes
+--total\tonly print used size.
+--all\tprint all users
+'
+	exit
+fi
+
+(( $argv[(Ie)--raw] )) && qgroupOptions='--raw'
+
+database=$(btrfs qgroup show -r -c $=qgroupOptions  /home/ | tail -n +3)
+local awkProgram='$1 ~ id {print name, $2, $3, $4} '
+
+printUser() {
+	local user=$1
+	local totalId=$2
+	local useShorthand=$3
+	local onlyTotal=$4
+
+	if [[ ! -d /home/$user ]]; then
+		echo "/home/$user does not exist." >&2
+		return
+	fi
+
+	IFS=',' read -r -A children <<<$(echo $database | grep -E "^$totalId" | awk '{print $5}')
+	baseId=$(btrfs subvolume show /home/$user | grep 'Quota group' | grep -o -P '0/\d+')
+	sharedId=$(btrfs subvolume show /home/shared/$user | grep 'Quota group' | grep -o -P '0/\d+')
+
+	# Remove basedId and sharedId from array children.
+	children[(Ie)$baseId]=()
+	children[(Ie)$sharedId]=()
+
+
+	if [[ $onlyTotal == false ]]; then
+		if [[ $useShorthand == true ]]; then
+			tilde="~"
+		else
+			tilde="~$user"
+		fi
+
+		echo $database | awk -v id=$baseId -v name=$tilde $awkProgram
+		echo $database | awk -v id=$sharedId -v name=$tilde/shared $awkProgram
+
+		if (( ${#children} > 0 )); then
+			subvolumeDatabase=$(btrfs subvolume list /home)
+
+			for id in $children
+			do
+				local p=$(echo $subvolumeDatabase | awk "/ID ${id#0/} / {print gensub(/[^/]+\//,\"/\",1, \$9)}")
+				echo $database | awk -v id=$id -v name=$tilde$p $awkProgram
+			done
+		fi
+	fi
+
+	if [[ $useShorthand == true ]]; then
+		totalName='<total>'
+	else
+		totalName="<$user-total>"
+	fi
+	echo $database | awk -v id=$totalId -v name=$totalName $awkProgram
+}
+
+{
+echo "Folder UsedSize - MaxSize"
+if (( $argv[(Ie)--total] == 0 )); then
+	onlyTotal=false
+else
+	onlyTotal=true
+fi
+if (( $@[(Ie)--all] )); then
+	# show all users
+	
+	# Refer to the limit in cluster-add-user/adduser.conf
+	while IFS=: read user pw uid other; do
+		if (( uid >=5000 && uid <= 59999 )); then
+			printUser $user 1/$uid false $onlyTotal
+		fi
+	done < /etc/passwd
+	
+else
+	if (( $#  == 0)) || [[ ! -d /home/$@[-1] ]]; then
+		user=$SUDO_USER
+		totalId="1/$SUDO_UID"
+	else
+		user=$@[-1]
+		totalId="1/$(id -u $user)"
+	fi
+
+	printUser $user $totalId true $onlyTotal
+fi
+} | column -t
