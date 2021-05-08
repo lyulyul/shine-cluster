@@ -5,23 +5,33 @@ if (( $@[(Ie)--help] )); then
 	echo ""
 	echo "Check if disk quota exemption is enabled for a given user. The default is the current user. "
 	echo "If exemption is enabled, the program prints the expiration date. Otherwise the program exits with exit code 1."
+	echo "You may use uid instead of username."
 	exit
 fi
 
 if [[ $1 == 'check' ]]; then
-	if (( $#  == 1)) || [[ ! -d /home/$@[-1] ]]; then
-		user=$USER
-		uid=$UID
-	else
-		user=$@[-1]
-		uid=$(id -u $user)
+	if (( $#  > 1)) ; then
+		if [[ -d /home/$@[-1] ]]; then
+			user=$@[-1]
+			uid=$(id -u $user)
+		elif [[ $@[-1] = <-> ]]; then
+			uid=$@[-1]
+		fi
 	fi
 
-	find /etc/diskquota/exemptions/$uid -type f  -mtime +90 -delete || true
+	if [[ -z $uid ]]; then
+		uid=$UID
+	fi
+
+
+	find /etc/diskquota/exemptions/ -name $uid -type f  -mtime +90 -delete
 	
 	if [[ -e /etc/diskquota/exemptions/$uid ]]; then
 		echo $(date --date="$(stat -c %y /etc/diskquota/exemptions/$uid) + 90 days" +%F)
 	else
 		exit 1
 	fi
+else
+	echo "Wrong usage. Pass --help to show help." >&2
+	exit 2
 fi
