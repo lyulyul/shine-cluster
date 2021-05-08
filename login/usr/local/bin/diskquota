@@ -9,4 +9,7 @@ elif [[ $1 == "limit" ]]; then
 elif [[ $1 == "exempt" ]]; then
 	shift
 	source /usr/local/bin/diskquota-exempt
+elif [[ $1 == "update" ]]; then
+	shift
+	source /usr/local/bin/diskquota-update
 fi
