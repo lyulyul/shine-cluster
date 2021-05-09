@@ -27,3 +27,7 @@ jobs:
         run: |
           find . \( -name .git \) -prune -o -type f -exec grep -l -E '^#!.+bash' '{}' \; | xargs -n 1 -I '{}' bash -n "{}"
           find . \( -name .git \) -prune -o -type f -exec grep -l -E '^#!.+zsh' '{}' \; | xargs -n 1 -I '{}' zsh -n "{}"
+
+      - name: Check sudoers
+        run: visudo --check --strict login/etc/sudoers.d/*
+
