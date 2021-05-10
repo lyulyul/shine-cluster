@@ -4,6 +4,8 @@ import tensorflow as tf
 
 
 print(f'tensorflow version is {tf.__version__}.')
+sys_details = tf.sysconfig.get_build_info()
+print(f'CUDA version is {sys_details["cuda_version"]}')
 print()
 
 print("Number of physical GPUs: ", len(tf.config.experimental.list_physical_devices('GPU')))
