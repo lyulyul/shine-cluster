@@ -1,0 +1,39 @@
+#! /usr/bin/zsh
+
+if (( EUID == 0 )); then
+	# If I write `find /etc/diskquota/limit`
+	# find may report error: No such file or directory
+	sudo find /etc/diskquota -name limit -type f  -mtime +7 -delete
+fi
+
+if [[ -s /etc/diskquota/limit ]]; then
+	limitKB=$(cat /etc/diskquota/limit)
+else
+	local sizes=()
+	local exemptedUsers=0
+	while read folder size _; do 
+		user=${${folder#<}%-total>}
+		if diskquota exempt check $user > /dev/null; then
+			(( exemptedUsers+=1 ))
+		else
+			sizes+=($size)
+		fi
+	done <<< $(diskquota show --all --total --raw| tail -n +2)
+
+	sizes=( ${(nO)sizes} )
+	repeat $exemptedUsers; sizes+=($sizes[1])
+
+	# The first "-" means to read from stdin.
+	# The second "-" means to output to stdout instead of stderr.
+	limitKB=$(printf '%s\n' $sizes | 
+	gnuplot -e 'stats "-" nooutput; set print "-"; print int((STATS_mean+2*STATS_stddev)/1024)')
+
+	echo $limitKB > /etc/diskquota/limit
+fi
+
+if (($@[(Ie)-h])) then
+	printf "%.2fGB\n" $((limitKB/1024/1024))
+else
+	echo $limitKB
+fi
+
