@@ -53,7 +53,11 @@ chmod +x ~/shared/remote-add-user
 
 if ! ssh eureka ~/shared/remote-add-user; then
 	echo "Failed to execute remote command,"
-	echo "Please run ~/shared/remote-add-user on eureka"
+	echo "Please run ~/shared/remote-add-user on eureka."
+fi
+if ! ssh tatooine ~/shared/remote-add-user; then
+	echo "Failed to execute remote command,"
+	echo "Please run ~/shared/remote-add-user on tatooine."
 fi
 
 read -p "In the next screen, you will paste public key. Press enter to continue."
