@@ -32,7 +32,7 @@ else
 fi
 
 if (($@[(Ie)-h])) then
-	printf "%.2fGB\n" $((limitKB/1024/1024))
+	printf "%.2fGB\n" $((limitKB/1024.0/1024))
 else
 	echo $limitKB
 fi
