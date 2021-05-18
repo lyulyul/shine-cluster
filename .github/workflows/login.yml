@@ -29,5 +29,5 @@ jobs:
           find . \( -name .git \) -prune -o -type f -exec grep -l -E '^#!.+zsh' '{}' \; | xargs -n 1 -I '{}' zsh -n "{}"
 
       - name: Check sudoers
-        run: visudo --check --strict login/etc/sudoers.d/*
+        run: set nullglob visudo --check --strict login/etc/sudoers.d/*
 
