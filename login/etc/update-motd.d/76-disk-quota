@@ -14,17 +14,25 @@ else
 	fi
 fi
 
-echo -n "配额上限被计算为$(tput smso)$(diskquota limit -h)$(tput rmso)。"
+limit=$(diskquota limit)
+echo -n "配额上限被计算为$(tput smso)$(printf '%.2fGB' $(( limit/1024.0/1024 )))$(tput rmso)。"
 
-# https://superuser.com/a/1178598/150076
-PPID1=`cat /proc/$PPID/status | grep PPid | awk '{ print $2 }'`
-PPID2=`cat /proc/$PPID1/status | grep PPid | awk '{ print $2 }'`
-USERNAME=`ps -x | grep $PPID2 | awk '{ print $6 }' |  sed "s/[[:digit:].-]//g"`
+if [[ -z $1 ]]; then
+	# https://superuser.com/a/1178598/150076
+	PPID1=`cat /proc/$PPID/status | grep PPid | awk '{ print $2 }'`
+	PPID2=`cat /proc/$PPID1/status | grep PPid | awk '{ print $2 }'`
+	username=`ps -x | grep $PPID2 | awk '{ print $6 }' |  sed "s/[[:digit:].-]//g"`
+else
+	username=$1
+fi
 #uid=$(id -u $USERNAME)
-exp=$(diskquota exempt check $USERNAME)
+exp=$(diskquota exempt check $username)
 if [[ -n $exp ]]; then
 	echo "你的存储豁免于${exp}过期。"
 else
-	echo "你有机会要求配额豁免。"
+	used=$(diskquota show --total --raw $username | awk 'NR>1 {print $3}')
+	if (( used / 1024 >= 0.9 * limit )); then
+		echo "你有机会要求配额豁免。"
+	fi
 fi
-echo "请参考 $(tput smul)https://github.com/gqqnbig/mpi-servers/issues/38$(tput rmul)"
+echo "请善用 sudo diskquota-show --help。请参考 $(tput smul)https://github.com/gqqnbig/mpi-servers/issues/38$(tput rmul)"
