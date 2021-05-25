@@ -1,0 +1,6 @@
+[Unit]
+Description=Update disk quota
+
+[Service]
+User=root
+ExecStart=/usr/local/bin/diskquota update
