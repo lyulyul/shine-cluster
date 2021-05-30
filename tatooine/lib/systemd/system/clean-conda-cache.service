@@ -1,0 +1,8 @@
+[Unit]
+Description=Clean conda pkgs cache
+
+[Service]
+User=root
+ExecCondition=/usr/bin/bash -c "p=$(df --output=pcent /opt/anaconda3/pkgs | grep -o -P '\d+') && (( p > 90 )) "
+ExecStart=/usr/bin/find /opt/anaconda3/pkgs/ -mindepth 1 -delete
+

@@ -1,0 +1,10 @@
+[Unit]
+Description=Check and clean conda pkgs cache
+
+[Timer]
+OnStartupSec=10min
+OnUnitActiveSec=2d
+Unit=clean-conda-cache.service
+
+[Install]
+WantedBy=multi-user.target
