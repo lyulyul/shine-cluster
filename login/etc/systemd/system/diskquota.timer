@@ -2,7 +2,7 @@
 Description=Update disk quota every 6 days
 
 [Timer]
-OnUnitActiveSec=6d
+OnUnitActiveSec=1d
 Unit=diskquota.service
 
 [Install]
