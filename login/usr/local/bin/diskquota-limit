@@ -6,7 +6,8 @@ if (( EUID == 0 )); then
 	sudo find /etc/diskquota -name limit -type f  -mtime +7 -delete
 fi
 
-if [[ -s /etc/diskquota/limit ]]; then
+
+if (($@[(Ie)--dryrun]==0)) && [[ -s /etc/diskquota/limit ]]; then
 	limitKB=$(cat /etc/diskquota/limit)
 else
 	local sizes=()
@@ -28,7 +29,9 @@ else
 	limitKB=$(printf '%s\n' $sizes | 
 	gnuplot -e 'stats "-" nooutput; set print "-"; print int((STATS_mean+2*STATS_stddev)/1024)')
 
-	echo $limitKB > /etc/diskquota/limit
+	if (($@[(Ie)--dryrun]==0)); then
+		echo $limitKB > /etc/diskquota/limit
+	fi
 fi
 
 if (($@[(Ie)-h])) then
