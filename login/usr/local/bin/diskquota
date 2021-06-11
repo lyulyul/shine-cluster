@@ -1,0 +1,12 @@
+#!/usr/bin/zsh -e
+
+if [[ $1 == "show" ]]; then
+	shift
+	source /usr/local/bin/diskquota-show
+elif [[ $1 == "limit" ]]; then
+	shift
+	source /usr/local/bin/diskquota-limit
+elif [[ $1 == "exempt" ]]; then
+	shift
+	source /usr/local/bin/diskquota-exempt
+fi
