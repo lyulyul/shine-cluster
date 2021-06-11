@@ -5,7 +5,7 @@
 
 function needCopy()
 {
-	foldersToCopy=()
+	foldersToCopy=(etc/systemd)
 	file=$1
 	for folder in $foldersToCopy
 	do
