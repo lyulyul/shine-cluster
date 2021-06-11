@@ -1,0 +1,54 @@
+#!/bin/bash -e
+
+tips=(
+"Besides ""copy that"", you can say ""roger that"". ""Roger wilco"" means in addition to ""roger that"", you WILl COmply. These are radio communication jardons. 
+
+In United States, ""Say again"", from the same category, is much more often used than ""Pardon"".
+--Qiqi"
+
+"Did you say Beech Tree or Peachtree? Was that Mr. Gota or Mr. Goda? Steven or Stephen? Pirate Way or Pilot Way?
+中国人英语发音不标准，打电话时名字、电话号码、email更是说不清。你可以用北约音标字符。
+Q as Queue, I as India, Q as Queue, I as India, G as Golf, U as Uniform. 数字0有特殊念法。
+If you use NATO code adeptly, people may think you are a respected veteran!
+--Qiqi"
+
+"In Vim, press gg in normal mode to go to the beginning of the file, press $(tput bold)G$(tput sgr0) to go to the end. Press $(tput bold)^$(tput sgr0) to the beginning of the line, $(tput bold)&$(tput sgr0) to the end of the line.
+Press $(tput bold)w$(tput sgr0) to go to the next Word, $(tput bold)b$(tput sgr0) goes Backwords."
+
+"阿基米德被皇帝要求检查皇冠是不是纯金的。阿基米德泡澡时突然想到了浮体原理，不禁高兴的从浴盆跳了出来，赤身裸体跑了出去，边跑还边喊著：“eureka, eureka!”
+eureka是希腊语，意思是$(tput setab 2)我发现了！$(tput setab 0)
+In Civilization VI, you will also see eureka, which was implemented as a technology boost that fast-forwards your technology research progress from 0 to 50%.
+--Qiqi"
+
+"
+$(tput smso)Tatooine is the name of a planet in Star Wars$(tput rmso)			$(tput setaf 11)x  x$(tput setaf 7)
+$(tput smso)the young Skywalker Anakin's home.$(tput rmso)		$(tput setaf 11)o  o         x        x  $(tput setaf 7)
+$(tput smso)The most famous view on Tatooine$(tput rmso)	     $(tput setaf 11)o        o     x          x $(tput setaf 7)
+$(tput smso)is it's double sunset.$(tput rmso)			    $(tput setaf 11)o          o    x          x $(tput setaf 7)
+					    $(tput setaf 11)o          o     x        x  $(tput setaf 7)
+_______________________________________________________________________________
+--Qiqi"
+
+"期末考试，大家怂恿学霸传答案。出考场后，众人纷纷问学霸：为啥少一个，最后一题是不是不会？学霸淡定的回答道：第一题不会…"
+
+"幾個人在高爾夫更衣室，一手機響很久，一男人按了免提鍵。女：「親愛的你在俱樂部嗎？」男：「在。」女：「我看到一輛寶馬，才不到兩百萬。」男人：「買。」女：「還有那個樓盤又放盤了， 6萬一平。」男：「買。」女：「好愛你。」男：「也愛你。」旁邊的男人們敬佩得目瞪口呆。男人掛了電話，問：「這是誰的手機？」"
+
+"計程車司機闖紅燈，乘客倒抽了一口氣。『別擔心。』司機說，『我哥哥總是這樣。』
+
+過了一個街口，司機在綠燈前停車。
+『為什麼現在又停車了？』乘客問
+『我哥哥可能從對面開來！』"
+
+"一天三分熟的牛排在街上走着，突然他在前方看到一块五分熟的牛排，可却没理会他。
+问：他们为什么没打招呼
+答：因为他们不熟"
+
+"Tea time is 4pm.
+At noon is 12 o'clock sharp.
+--Qiqi"
+
+"四月一日愚人节的前一天是世界备份日。
+备份可按照3-2-1原则：3份资料，2种媒介，1份异地。
+使用Git和GitHub帮助你完成3-1：1份在本机，1份在服务器，1份在GitHub（异地）。
+--Qiqi"
+)
