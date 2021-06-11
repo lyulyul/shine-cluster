@@ -1,5 +1,21 @@
 #! /usr/bin/zsh
 
+
+if (($@[(Ie)--help])) then
+	echo "sudo diskquota limit [Options]
+
+Get or set disk quota limit. The limit is updated every 7 days.
+This tool provides no way to force update the limit.
+
+Options
+--dryrun	Ignore cache and calculate limit
+-h	Output limit in human readable unit
+--help	Output this help
+"
+	exit
+fi
+
+
 if (( EUID == 0 )); then
 	# If I write `find /etc/diskquota/limit`
 	# find may report error: No such file or directory
