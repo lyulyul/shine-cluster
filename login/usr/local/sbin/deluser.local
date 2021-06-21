@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/zsh
 
 # $PATH is /bin:/usr/bin:/sbin:/usr/sbin
 
@@ -8,6 +8,18 @@ gid=$3
 home=$4
 
 /usr/local/bin/btrfs-backup-home --delete-all $username
-btrfs subvolume delete -c /home/shared/$username $home
+btrfs subvolume delete -C /home/shared/$username $home
+
+
+for i in 1 2 3 4 5; do
+	sleep $(( i * 50.0 /1000))
+	output=$(btrfs qgroup destroy 1/$uid /home  2>&1 > /dev/null)
+	if [[ "$output" != *"Device or resource busy"* ]]; then
+		break
+	fi
+	echo "Device is busy."
+done
+
+
 
 /usr/local/sbin/remove-stale-qgroup /home

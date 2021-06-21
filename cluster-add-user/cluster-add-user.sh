@@ -1,9 +1,15 @@
 #!/usr/bin/zsh -e
 
-if [[ $EUID -eq 0 ]]; then
-	echo "$0 is designed to run without prefixing sudo" >&2
-	exit 1
-fi
+while true; do
+	case $1 in
+		--email)
+			email=$2; shift 2;;
+		--public-key)
+			publicKey=$2; shift 2;;
+		*)
+			break;;
+	esac
+done
 
 username=$argv[-1]
 [[ -z $email ]] && echo '--email is not specified.' >&2 && exit 1
@@ -17,39 +23,40 @@ else
 	s=''
 fi
 
-sudo adduser --conf adduser.conf --disabled-password $=s  $username
+sudo adduser --conf adduser.conf --gecos ",,,,$email" --disabled-password $=s  $username
 
 uid=$(id -u $username)
 gid=$(id -g $username)
 
-sudo btrfs qgroup create 1/$uid /home
+btrfs qgroup create 1/$uid /home
 
-sudo mv /home/$username /home/$username-tmp
+mv /home/$username /home/$username-tmp
 
-sudo btrfs subvolume create -i 1/$uid /home/$username
-sudo btrfs subvolume create -i 1/$uid /home/shared/$username
-sudo chown $username: /home/$username
-sudo chown $username: /home/shared/$username
+btrfs subvolume create -i 1/$uid /home/$username
+btrfs subvolume create -i 1/$uid /home/shared/$username
+chown $username: /home/$username
+chown $username: /home/shared/$username
 
-sudo mv /home/$username-tmp/*(D) /home/$username
-sudo rm -rf /home/$username-tmp
+# (D) sets the GLOB_DOTS option for the current pattern
+mv /home/$username-tmp/*(D) /home/$username
+rm -rf /home/$username-tmp
 
-sudo ln -s /home/shared/$username /home/$username/shared
+ln -s /home/shared/$username /home/$username/shared
 
 sudo usermod -aG conda-cache $username
 
-sudo -u $username cp ../slurm-examples/* /home/$username/shared/
+sudo -u $username cp -r ../slurm-examples /home/$username/shared/
 
 
 
 gecos=$(getent passwd $username | cut -d ':' -f 5)
 
-remoteFile=~/shared/remote-add-user
+remoteFile=/home/$SUDO_USER/shared/remote-add-user
 cat <<HERE > $remoteFile
 #!/bin/bash -e
 sudo addgroup --gid $gid $username
 # It's not documented clearly, but --gid requires the existence of GID.
-sudo adduser --gecos "$gecos" --disabled-login --uid $uid --gid $gid $username
+sudo adduser --gecos ",,,,$email" --disabled-login --uid $uid --gid $gid $username
 sudo usermod -aG conda-cache $username
 
 sudo ln -s /home/shared/$username /home/$username/shared
@@ -65,14 +72,17 @@ tatooine
 for server in "$computeNodes[@]"
 do
 	echo $server
-	if ! ssh -o StrictHostKeyChecking=no $server $remoteFile; then
+	if ! sudo -u $SUDO_USER ssh -o StrictHostKeyChecking=no $server $remoteFile; then
 		echo "Failed to execute remote command, please run ~/shared/remote-add-user on $server."
 	fi
 done
 
-read -p "In the next screen, you will paste public key. Press enter to continue."
 sudo mkdir -p /home/$username/.ssh
-sudoedit /home/$username/.ssh/authorized_keys
+echo $publicKey > /home/$username/.ssh/authorized_keys
 sudo chmod 700 /home/$username/.ssh
 sudo chmod 600 /home/$username/.ssh/authorized_keys
 sudo chown -R $username:$username /home/$username/.ssh
+
+emailBody="Account: $username
+Public Key: $publicKey"
+sendemail -f aha@ipm.edu.mo -t $email -s mail.ipm.edu.mo -u 'Shine Cluster Account Created' -m "$emailBody"
