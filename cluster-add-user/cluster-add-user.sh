@@ -1,4 +1,4 @@
-#!/bin/bash -e
+#!/usr/bin/zsh -e
 
 if [[ $EUID -eq 0 ]]; then
 	echo "$0 is designed to run without prefixing sudo" >&2
@@ -33,8 +33,7 @@ sudo btrfs subvolume create -i 1/$uid /home/shared/$username
 sudo chown $username: /home/$username
 sudo chown $username: /home/shared/$username
 
-# () opens a new bash
-(shopt -s dotglob; sudo mv /home/$username-tmp/* /home/$username)
+sudo mv /home/$username-tmp/*(D) /home/$username
 sudo rm -rf /home/$username-tmp
 
 sudo ln -s /home/shared/$username /home/$username/shared
