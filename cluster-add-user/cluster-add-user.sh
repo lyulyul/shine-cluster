@@ -12,7 +12,8 @@ if [[ "$username" == '-t' ]] || [[ "$username" == '--test' ]]; then
 	remoteAptUserId=$(ssh eureka 'getent group aptuser' | cut -d: -f3)
 
 	if [[ "$localAptUserId" != "$remoteAptUserId" ]]; then
-		echo "Error: The id of group aptuser is $localAptUserId on local while $remoteAptUserId on remote."
+		echo "Error: The id of group aptuser is $localAptUserId on local while $remoteAptUserId on remote." >&2
+		exit 1
 	fi
 	exit
 fi
