@@ -43,7 +43,12 @@ else
 	# The first "-" means to read from stdin.
 	# The second "-" means to output to stdout instead of stderr.
 	limitKB=$(printf '%s\n' $sizes | 
-	gnuplot -e 'stats "-" nooutput; set print "-"; print int((STATS_mean+2*STATS_stddev)/1024)')
+	gnuplot -e 'stats "-" nooutput; set print "-"; print (STATS_mean+2*STATS_stddev)/1024')
+	# The integer in gnuplot version 5.2 is 32 bits, so we cannot use 
+	# int((STATS_mean+2*STATS_stddev)/1024) 
+	# because overflow is likely to occur.
+	# Hence, we use printf.
+	limitKB=$(printf '%.0f\n' $limitKB)
 
 	if (($@[(Ie)--dryrun]==0)); then
 		echo $limitKB > /etc/diskquota/limit
