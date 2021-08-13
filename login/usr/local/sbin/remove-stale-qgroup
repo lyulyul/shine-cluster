@@ -1,0 +1,22 @@
+#!/bin/bash -e
+
+dir=$1
+
+# remove header and ---
+output=$(btrfs qgroup show --raw $dir| tail -n +2)
+
+
+emptyIds=$(awk 'substr($1,1,2)=="0/" && $2 == 0 && $3 == 0 { print substr($1,3) }' <<< $output)
+
+subvolumes=$(btrfs subvolume list $dir)
+
+for id in $emptyIds
+do
+	if [[ "$subvolumes" != *"ID $id "* ]]; then
+		echo "ID $id is stale. Deleting..."
+		btrfs qgroup destroy $id $dir
+	else
+		echo "ID $id is valid."
+	fi
+done
+

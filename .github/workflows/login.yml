@@ -34,3 +34,10 @@ jobs:
       - name: Check sudoers
         run: set nullglob visudo --check --strict login/etc/sudoers.d/*
 
+      - name: Systemd unit files
+        run: |
+          # systemd will check if the executables refered by the service files exist
+          sudo cp login/usr/local/bin/* /usr/local/bin/
+          cd login/etc/systemd/system/
+          # cannot use option `--user` because it throws error "Failed to initialize manager: No such device or address"
+          sudo systemd-analyze verify *

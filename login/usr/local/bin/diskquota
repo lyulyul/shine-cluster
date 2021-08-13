@@ -1,0 +1,18 @@
+#!/usr/bin/zsh -e
+
+if [[ $1 == "show" ]]; then
+	shift
+	source /usr/local/bin/diskquota-show
+elif [[ $1 == "limit" ]]; then
+	shift
+	source /usr/local/bin/diskquota-limit
+elif [[ $1 == "exempt" ]]; then
+	shift
+	source /usr/local/bin/diskquota-exempt
+elif [[ $1 == "update" ]]; then
+	shift
+	source /usr/local/bin/diskquota-update
+else
+	echo 'Unknown option or subcommand. Use one of the following:' >&2
+	echo 'show, limit, exempt, update' >&2
+fi

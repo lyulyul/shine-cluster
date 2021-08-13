@@ -1,0 +1,10 @@
+[Unit]
+Description=Update disk quota every 6 days
+
+[Timer]
+OnStartupSec=10min
+OnUnitActiveSec=1d
+Unit=diskquota.service
+
+[Install]
+WantedBy=multi-user.target
