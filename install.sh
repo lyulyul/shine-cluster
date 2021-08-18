@@ -1,11 +1,14 @@
 #!/usr/bin/zsh
 
+if [[ -z $1 ]] || [[ ! -d $1 ]]; then
+	echo "Usage:\n$0 folder" >&2
+	exit 1
+fi
 
-
+foldersToCopy=(etc/systemd etc/security/limits.d)
 
 function needCopy()
 {
-	foldersToCopy=(etc/systemd)
 	file=$1
 	for folder in $foldersToCopy
 	do
@@ -20,9 +23,11 @@ function needCopy()
 untrackedFiles=$(git status -uall --short --porcelain | awk '$1==''"??"'' {print $2}')
 
 
+cd $1
 for file in **/*(.)
 do
-	if [[ $0 = *$file ]]; then
+	bn=$(basename $file)
+	if [[ install.sh  = $bn ]]; then
 		echo "skip install file"
 		continue
 	fi
