@@ -12,8 +12,10 @@
 
 limit=$1
 c=$(pgrep -xcu $PAM_USER sshd)
-if [[ $c -ge "$limit" ]]; then 
+if (( c >= limit / 2 )); then
 	echo "Max $limit ssh connections are allowed, and you already have $c."
-	exit 1
-fi
 
+	if (( c >= limit )); then
+		exit 1
+	fi
+fi
