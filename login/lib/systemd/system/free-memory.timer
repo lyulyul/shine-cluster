@@ -1,0 +1,10 @@
+[Unit]
+Description=Kill overtime processes timer
+
+[Timer]
+OnStartupSec=1d
+OnUnitActiveSec=1d
+Unit=free-memory.service
+
+[Install]
+WantedBy=multi-user.target
