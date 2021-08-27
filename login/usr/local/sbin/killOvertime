@@ -1,0 +1,11 @@
+#!/usr/bin/bash
+
+p=$(ps -A -o euid,pid,etimes --sort +pid --no-headers | awk '$1>=5000 && $3>28800 {print}')
+
+if [[ -z "$p" ]]; then
+	echo "Nothing to kill."
+else
+	echo $'EUID\tPID\tetimes'
+	echo "$p"
+	echo "$p" | awk '{print $2}' | xargs -n 20 --verbose kill
+fi
