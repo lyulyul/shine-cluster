@@ -1,0 +1,7 @@
+[Unit]
+Description=Kill overtime processes
+
+[Service]
+User=root
+ExecCondition=/usr/bin/bash -c "[[ $(free -g | awk 'NR==2 {print $3}') -ge 10 ]]"
+ExecStart=/usr/local/sbin/killOvertime
