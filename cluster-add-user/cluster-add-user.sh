@@ -5,7 +5,7 @@ if [[ $EUID -eq 0 ]]; then
 	exit 1
 fi
 
-username=$1
+username=$argv[-1]
 
 if [[ "$username" == '-t' ]] || [[ "$username" == '--test' ]]; then
 	localAptUserId=$(getent group aptuser | cut -d: -f3)
