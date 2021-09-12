@@ -1,5 +1,5 @@
 [Unit]
-Description=Kill overtime processes
+Description=Kill overtime processes when free memory is low
 
 [Service]
 User=root
