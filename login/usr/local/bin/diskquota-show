@@ -1,5 +1,7 @@
 #!/usr/bin/zsh -e
 
+setopt PIPE_FAIL
+
 if (( $@[(Ie)--help] )); then
 	echo "$0 [options] [user]"
 	echo ""
