@@ -17,7 +17,7 @@ if (( percent >= 50 )); then
 	btrfs quota enable /home
 elif (( percent < 40 )); then
 	echo 'disable disk quota'
-	rm /etc/diskquota/enable
+	rm -f /etc/diskquota/enable
 	btrfs quota disable /home
 	exit
 fi
