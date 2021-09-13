@@ -12,6 +12,9 @@ elif [[ $1 == "exempt" ]]; then
 elif [[ $1 == "update" ]]; then
 	shift
 	source /usr/local/bin/diskquota-update
+elif [[ $1 == "condition" ]]; then
+	shift
+	source /usr/local/bin/diskquota-condition
 else
 	echo 'Unknown option or subcommand. Use one of the following:' >&2
 	echo 'show, limit, exempt, update' >&2
