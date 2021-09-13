@@ -22,8 +22,6 @@ elif (( percent < 40 )); then
 	exit
 fi
 
-# int function is described at
-# http://zsh.sourceforge.net/Doc/Release/Zsh-Modules.html#The-zsh_002fmathfunc-Module
 limitInB=$(( [#10] ($(diskquota limit) * 1024) ))
 
 # Remove exceptions made 90 days ago.
