@@ -42,6 +42,8 @@ sudo systemctl restart ssh
 ## 安装7-zip
 p7zip的最后更新时间是2016年，版本为16.02，而7-zip已经更新到了20。所以安装7-zip Linux版。
 
+The multithreaded 7z/LZMA2 decompression was implemeted in 7-Zip 18.03. [ref](https://sourceforge.net/p/sevenzip/discussion/45797/thread/136f029b/#ff6a)
+
 ```bash
 mkdir 7z
 cd 7z
