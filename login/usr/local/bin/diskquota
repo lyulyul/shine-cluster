@@ -15,4 +15,5 @@ elif [[ $1 == "update" ]]; then
 else
 	echo 'Unknown option or subcommand. Use one of the following:' >&2
 	echo 'show, limit, exempt, update' >&2
+	exit 1
 fi
