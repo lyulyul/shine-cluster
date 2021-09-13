@@ -1,0 +1,9 @@
+#! /usr/bin/zsh
+
+percent=$(df --output=pcent /home | grep -o -P '\d+')
+
+if (( percent >=50 )); then
+	echo 'enable'
+elif (( percent < 40 )); then
+	echo 'disable'
+fi
