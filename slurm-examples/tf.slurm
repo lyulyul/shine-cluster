@@ -24,6 +24,6 @@
 
 source /opt/anaconda3/bin/activate
 conda activate tf
-TF_CPP_MIN_LOG_LEVEL=2
+export TF_CPP_MIN_LOG_LEVEL=2
 # -u: disable buffer, let print flush to the output file.
 python -u tf.py
