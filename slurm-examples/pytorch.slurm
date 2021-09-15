@@ -24,4 +24,5 @@
 
 source /opt/anaconda3/bin/activate
 conda activate torch
-./pytorch.py
+# -u: disable buffer, let print flush to the output file.
+python -u pytorch.py
