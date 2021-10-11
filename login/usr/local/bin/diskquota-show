@@ -39,6 +39,10 @@ printUser() {
 	children[(Ie)$baseId]=()
 	children[(Ie)$sharedId]=()
 
+	if [[ ! "$database" == *"$totalId"* ]]; then
+		echo "Total ID $totalId not found in btrfs qgroup." >&2
+	fi
+
 
 	if [[ $onlyTotal == false ]]; then
 		if [[ $useShorthand == true ]]; then
