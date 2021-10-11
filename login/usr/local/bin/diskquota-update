@@ -12,11 +12,37 @@ fi
 # disallow undefined variables
 set -u
 
+
+function createQgroup() {
+	user=$1
+	uid=$2
+
+	btrfs qgroup create 1/$uid /home/$user
+
+	baseId=$(btrfs subvolume show /home/$user | grep 'Quota group' | grep -o -P '0/\d+')
+	sharedId=$(btrfs subvolume show /home/shared/$user | grep 'Quota group' | grep -o -P '0/\d+')
+
+	btrfs qgroup assign --no-rescan $baseId 1/$uid /home
+	btrfs qgroup assign --no-rescan $sharedId 1/$uid /home
+}
+
+
+
 condition=$(diskquota condition)
 if [[ $condition == 'enable' ]]; then
 	echo 'enable disk quota'
-	touch /etc/diskquota/enable
-	btrfs quota enable /home
+	if [[ $(btrfs qgroup show /home 2>&1) == *"quotas not enabled"* ]]; then
+		# quotas not enabled
+		touch /etc/diskquota/enable
+		btrfs quota enable /home
+
+		# Refer to the limit in cluster-add-user/adduser.conf
+		while IFS=: read user pw uid other; do
+			if (( uid >=5000 && uid <= 59999 )); then
+				createQgroup $user $uid
+			fi
+		done < /etc/passwd
+	fi
 elif [[ $condition == 'disable' ]]; then
 	echo 'disable disk quota'
 	rm -f /etc/diskquota/enable
