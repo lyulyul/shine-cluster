@@ -32,12 +32,10 @@ sudo adduser --conf adduser.conf --gecos ",,,,$email" --disabled-password $=s  $
 uid=$(id -u $username)
 gid=$(id -g $username)
 
-btrfs qgroup create 1/$uid /home
-
 mv /home/$username /home/$username-tmp
 
-btrfs subvolume create -i 1/$uid /home/$username
-btrfs subvolume create -i 1/$uid /home/shared/$username
+btrfs subvolume create /home/$username
+btrfs subvolume create /home/shared/$username
 chown $username: /home/$username
 chown $username: /home/shared/$username
 
