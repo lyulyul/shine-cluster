@@ -38,3 +38,20 @@ sudo make install
 /usr/sbin/sshd -V; /usr/bin/ssh -V #确保安装后也能运行
 sudo systemctl restart ssh
 ```
+
+## 安装7-zip
+p7zip的最后更新时间是2016年，版本为16.02，而7-zip已经更新到了20。所以安装7-zip Linux版。
+
+The multithreaded 7z/LZMA2 decompression was implemeted in 7-Zip 18.03. [ref](https://sourceforge.net/p/sevenzip/discussion/45797/thread/136f029b/#ff6a)
+
+```bash
+mkdir 7z
+cd 7z
+wget https://www.7-zip.org/a/7z2103-linux-x64.tar.xz
+tar -xf 7z2103-linux-x64.tar.xz
+sudo mv 7zz /usr/local/bin
+sudo chown root: /usr/local/bin/7zz
+sudo ln -s /usr/local/bin/7zz /usr/local/bin/7z
+```
+
+7z2103-linux-x64.tar.xz的帮助文件是HTML形式的，man命令看不了，所以就不安装了。
