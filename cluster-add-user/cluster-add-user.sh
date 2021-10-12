@@ -23,6 +23,10 @@ else
 	s=''
 fi
 
+# The first % in parenthis is Parameter Expansion Flag, asking to expand like in prompt
+# %N is a prompt expension variable.
+# https://stackoverflow.com/a/23259585/746461
+pushd $(dirname ${(%):-%N})
 sudo adduser --conf adduser.conf --gecos ",,,,$email" --disabled-password $=s  $username
 
 uid=$(id -u $username)
