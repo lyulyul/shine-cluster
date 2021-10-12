@@ -19,7 +19,13 @@ if [[ "$username" == '-t' ]] || [[ "$username" == '--test' ]]; then
 fi
 
 
-sudo adduser --conf adduser.conf --disabled-password $username
+if (( $argv[(Ie)--zsh] )); then
+	s='--shell /usr/bin/zsh'
+else
+	s=''
+fi
+
+sudo adduser --conf adduser.conf --disabled-password $=s  $username
 
 uid=$(id -u $username)
 gid=$(id -g $username)
