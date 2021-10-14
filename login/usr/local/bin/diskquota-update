@@ -48,6 +48,9 @@ elif [[ $condition == 'disable' ]]; then
 	rm -f /etc/diskquota/enable
 	btrfs quota disable /home
 	exit
+elif [[ $(btrfs qgroup show /home 2>&1) == *"quotas not enabled"* ]]; then
+	echo 'Disk quota is not enabled. Nothing to update.'
+	exit
 fi
 
 limitInB=$(( [#10] ($(diskquota limit) * 1024) ))
