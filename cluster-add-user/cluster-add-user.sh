@@ -53,7 +53,7 @@ sudo -u $username cp -r ../slurm-examples /home/$username/shared/
 
 gecos=$(getent passwd $username | cut -d ':' -f 5)
 
-remoteFile=/home/$SUDO_USER/shared/remote-add-user
+remoteFile=/home/qiqig/shared/remote-add-user
 cat <<HERE > $remoteFile
 #!/bin/bash -e
 sudo addgroup --gid $gid $username
@@ -74,7 +74,7 @@ tatooine
 for server in "$computeNodes[@]"
 do
 	echo $server
-	if ! sudo -u $SUDO_USER ssh -o StrictHostKeyChecking=no $server $remoteFile; then
+	if ! sudo -u qiqig ssh -o StrictHostKeyChecking=no $server $remoteFile; then
 		echo "Failed to execute remote command, please run ~/shared/remote-add-user on $server."
 	fi
 done
