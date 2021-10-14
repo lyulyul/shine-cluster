@@ -7,6 +7,8 @@ if (($@[(Ie)--help])) then
 Get or set disk quota limit. The limit is updated every 7 days.
 This tool provides no way to force update the limit.
 
+The program throws error when disk quota is not enabled.
+
 Options
 --dryrun	Ignore cache and calculate limit
 -h	Output limit in human readable unit
