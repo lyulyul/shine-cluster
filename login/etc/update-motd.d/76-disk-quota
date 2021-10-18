@@ -34,4 +34,4 @@ else
 		echo "你有机会要求配额豁免。"
 	fi
 fi
-echo "请善用 sudo diskquota-show --help。请参考 $(tput smul)https://github.com/gqqnbig/mpi-servers/issues/38$(tput rmul)"
+echo "请善用 sudo diskquota-show --help。"
