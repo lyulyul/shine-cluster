@@ -9,6 +9,8 @@ alias squeueF='squeue --Format "JobID:8,Partition:11,Name:10,UserName:10,StateCo
 function sit
 {
 	if [[ "$ZSH_NAME" ]]; then 
+		# If zsh runs with emulate -L, option changes are local.
+		# But I still set local_options for safety.
 		setopt local_options SH_WORD_SPLIT
 	fi
 
@@ -25,4 +27,13 @@ function sit
 	command srun --pty $option $SHELL -i
 }
 
-complete -W "--internet -g" sit
+if [[ "$ZSH_NAME" ]]; then 
+	function _sit() {
+		_arguments '-g[Use 1 GPU]' \
+				'--internet[Choose a node with high speed Internet connection]'
+	}
+
+	compdef _sit sit
+else
+	complete -W "--internet -g" sit
+fi
