@@ -21,5 +21,5 @@ cd login
 
 cd tests/login
 
-wget https://raw.githubusercontent.com/kward/shunit2/v2.1.8/shunit2
+wget https://raw.githubusercontent.com/kward/shunit2/d0a57ff2e6c5d8fbd27f9bebd1896037ce628f9d/shunit2
 ./btrfs_test.sh

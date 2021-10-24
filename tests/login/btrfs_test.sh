@@ -24,9 +24,8 @@ testWhenDiskMoreThan45 () {
 	percent=$(df --output=pcent --sync /home | grep -o -P '\d+')
 	msg=$(/etc/update-motd.d/76-disk-quota 2>&1)
 
-	if [[ "$msg" == *"ERROR"* ]]; then
-		fail $"MOTD shouldn't throw error when /home is ${percent}% full but diskquota is not enabled.\n$msg"
-	fi
+	assertNotContains $"MOTD shouldn't throw error when /home is ${percent}% full but diskquota is not enabled.\n$msg\n" \
+					"$msg" "ERROR"
 }
 
 source shunit2
