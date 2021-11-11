@@ -1,0 +1,4 @@
+# The packages listed below will be installed by apt.
+btrfs-progs
+git
+zsh
