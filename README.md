@@ -1,3 +1,15 @@
+## 如果你遇到了一个bug……
+请尝试确定是不是你的代码问题，是不是Python的问题（应该用Python 3.7，而你装了Python 3.8），是不是包的问题（应该用PyTorch 1.7，而你装了PyTorch 1.8），是不是Ubuntu的问题（在Windows上能运行，在Ubuntu上不能运行），是不是shell的问题（用Bash没问题，用ZSH有问题），是不是路径的问题（要访问C盘的文件，但服务器上没有C盘）。如果是集群配置的问题，请create issues。
+
+如果你不能确定，也可以create issues。
+
+## How to Contribute to this repo
+
+Contributions are welcomed! Please help reply issues and review pull requests. You may reply "LGTM" (looks good to me) to pull requests.
+
+I've buried a couple bugs in code or PR. Finding them may gain you more access to the cluster code.
+
+
 ## slurm
 ```bash
 sudo ln -s ~/mpi-servers/slurm/etc/slurm/cgroups.conf /etc/slurm/cgroups.conf
