@@ -30,7 +30,7 @@ case $1 in
 		;;
 esac
 
-foldersToCopy=(etc/systemd etc/security/limits.d)
+foldersToCopy=(lib/systemd etc/security/limits.d)
 
 function needCopy()
 {
