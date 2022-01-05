@@ -73,6 +73,9 @@ sudo ln -s /usr/local/bin/7zz /usr/local/bin/7z
 
 Adminstrators, please install your personal settings first.
 
+```
 git clone https://github.com/gqqnbig/mpi-servers.git
 cd mpi-servers
+git checkout migrate
 sudo ./setup.sh
+```
