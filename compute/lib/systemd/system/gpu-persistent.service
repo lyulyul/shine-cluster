@@ -1,0 +1,10 @@
+[Unit]
+Description=Enable GPU persistent mode
+
+[Service]
+User=root
+ExecStart=/usr/bin/nvidia-smi -pm 1
+
+[Install]
+WantedBy=multi-user.target
+
