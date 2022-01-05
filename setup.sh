@@ -19,5 +19,5 @@ sudo systemctl disable motd-news
 sudo chmod -x /etc/update-motd.d/50-motd-news
 
 # 禁止自动更新
-sudo apt remove unattended-upgrades
+sudo apt remove -y unattended-upgrades
 
