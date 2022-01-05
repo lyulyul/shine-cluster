@@ -18,6 +18,6 @@ sudo usermod -aG wheel $(whoami)
 sudo systemctl disable motd-news
 sudo chmod -x /etc/update-motd.d/50-motd-news
 
-# 禁止变更nvidia driver
-sudo apt-mark hold 'nvidia*'
+# 禁止自动更新
+sudo apt remove unattended-upgrades
 
