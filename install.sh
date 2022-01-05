@@ -2,6 +2,8 @@
 
 if [[ -z $1 ]] || [[ ! -d $1 ]]; then
 	echo "Usage:\n$0 folder" >&2
+	echo "\nIf the current machine is a compute node, run '$0 compute'." >&2
+	echo "If the current machine is a login node, run '$0 login'." >&2
 	exit 1
 fi
 
