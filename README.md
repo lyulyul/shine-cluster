@@ -67,3 +67,10 @@ sudo ln -s /usr/local/bin/7zz /usr/local/bin/7z
 ```
 
 7z2103-linux-x64.tar.xz的帮助文件是HTML形式的，man命令看不了，所以就不安装了。
+
+
+## Install
+
+git clone https://github.com/gqqnbig/mpi-servers.git
+cd mpi-servers
+sudo ./setup.sh
