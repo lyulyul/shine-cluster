@@ -1,0 +1,3 @@
+[submodule "tools/randomize-gpu"]
+	path = tools/randomize-gpu
+	url = https://github.com/gqqnbig/randomize-gpu.git
