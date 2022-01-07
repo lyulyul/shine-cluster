@@ -9,4 +9,4 @@
 # /srv/nfs4/homes  gss/krb5i(rw,sync,no_subtree_check)
 #
 
-/home/shared	eureka.ipm.edu.mo(rw,async,no_subtree_check)	tatooine.ipm.edu.mo(rw,async,no_subtree_check)
+/home/shared	172.25.17.0/24(rw,async,no_subtree_check)
