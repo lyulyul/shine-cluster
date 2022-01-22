@@ -21,3 +21,6 @@ sudo chmod -x /etc/update-motd.d/50-motd-news
 # 禁止自动更新
 sudo apt remove -y unattended-upgrades
 
+# All nodes will use nfs for mounting.
+sudo apt install -y nfs-common
+
