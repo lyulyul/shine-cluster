@@ -125,7 +125,7 @@ syn match	shSlurmOption	contained	'--mcs-label=' nextgroup=shSlurmString
 syn match	shSlurmOption	contained	'--mem-bind=' nextgroup=shSlurmNumber
 syn match	shSlurmOption	contained	'--mem-per-cpu=' nextgroup=shSlurmNumber
 syn match	shSlurmOption	contained	'--mem-per-gpu=' nextgroup=shSlurmString
-syn match	shSlurmOption	contained	'--mem=' nextgroup=shSlurmNumber
+syn match	shSlurmOption	contained	'--mem=' nextgroup=shSlurmMem
 syn match	shSlurmOption	contained	'--mincpus=' nextgroup=shSlurmNumber
 syn match	shSlurmOption	contained	'--network=' nextgroup=shSlurmString
 syn match	shSlurmOption	contained	'--nice'
@@ -177,6 +177,7 @@ syn match	shSlurmOption	contained	'--wait-all-nodes=' nextgroup=shSlurmString
 syn match	shSlurmOption	contained	'--wckey=' nextgroup=shSlurmString
 syn match	shSlurmOption	contained	'--wrap=' nextgroup=shSlurmString
 syn region	shSlurmValue start="=" end="$" contains=shSlurmNoshSlurmEnvdeInfo,shSlurmString,shSlurmMailType,shSlurmIdentifier,shSlurmEnv,shSlurmHint,shSlurmMode,shSlurmPropag,shSlurmInterval,shSlurmDist,shSlurmEmail
+syn match 	shSlurmMem	contained	'\d\d*[KMGT]'
 syn match 	shSlurmNumber	contained	'\d\d*'
 syn match 	shSlurmDuration	contained	'\d\d*\(:\d\d\)\{,2}'
 syn match 	shSlurmNodeInfo	contained	'\d\d*\(:\d\d*\)\{,2}'
@@ -202,6 +203,7 @@ hi def link shSlurmDuration	Special
 hi def link shSlurmString	Special
 hi def link shSlurmMailType	Special
 hi def link shSlurmNumber	Special
+hi def link shSlurmMem	Special
 hi def link shSlurmSep	Special
 hi def link shSlurmNodeInfo	Special
 hi def link shSlurmEnv	Special
