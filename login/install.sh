@@ -40,3 +40,13 @@ do
 		ln -s $PWD/$file /$file
 	fi
 done
+
+if [[ -f /usr/libexec/checkConnections ]]; then
+	if grep -E '^session\s+required\s+pam_exec.so\s+stdout\s+/usr/libexec/checkConnections\s+10' /etc/pam.d/sshd > /dev/null; then
+		echo 'not install checkConnections again.'
+	else
+		echo 'session required pam_exec.so stdout /usr/libexec/checkConnections 10' >> /etc/pam.d/sshd
+	fi
+else
+	echo '/usr/libexec/checkConnections not found' >&2
+fi
