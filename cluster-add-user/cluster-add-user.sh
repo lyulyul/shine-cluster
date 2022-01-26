@@ -7,17 +7,6 @@ fi
 
 username=$argv[-1]
 
-if [[ "$username" == '-t' ]] || [[ "$username" == '--test' ]]; then
-	localAptUserId=$(getent group aptuser | cut -d: -f3)
-	remoteAptUserId=$(ssh eureka 'getent group aptuser' | cut -d: -f3)
-
-	if [[ "$localAptUserId" != "$remoteAptUserId" ]]; then
-		echo "Error: The id of group aptuser is $localAptUserId on local while $remoteAptUserId on remote." >&2
-		exit 1
-	fi
-	exit
-fi
-
 
 if (( $argv[(Ie)--zsh] )); then
 	s='--shell /usr/bin/zsh'
