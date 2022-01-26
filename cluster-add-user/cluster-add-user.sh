@@ -2,6 +2,17 @@
 
 while true; do
 	case $1 in
+		--help)
+# Do not use tab for alignment because tab width varies!
+			echo "
+sudo $0 username
+
+Options
+--email         [Required] Specify the email of the new user.
+--public-key    [Required] Specify public key of the new user.
+--zsh           Use Z Shell.
+"
+			exit;;
 		--email)
 			email=$2; shift 2;;
 		--public-key)
