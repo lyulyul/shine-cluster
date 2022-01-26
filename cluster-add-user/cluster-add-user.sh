@@ -70,14 +70,18 @@ HERE
 
 chmod +x $remoteFile
 
-if ! ssh eureka $remoteFile; then
-	echo "Failed to execute remote command,"
-	echo "Please run ~/shared/remote-add-user on eureka."
-fi
-if ! ssh tatooine $remoteFile; then
-	echo "Failed to execute remote command,"
-	echo "Please run ~/shared/remote-add-user on tatooine."
-fi
+computeNodes=(
+eureka
+tatooine
+)
+
+for server in "$computeNodes[@]"
+do
+	echo $server
+	if ! ssh $server $remoteFile; then
+		echo "Failed to execute remote command, please run ~/shared/remote-add-user on $server."
+	fi
+done
 
 read -p "In the next screen, you will paste public key. Press enter to continue."
 sudo mkdir -p /home/$username/.ssh
