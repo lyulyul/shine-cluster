@@ -78,6 +78,7 @@ HERE
 chmod +x $remoteFile
 
 computeNodes=(
+coruscant
 eureka
 tatooine
 )
