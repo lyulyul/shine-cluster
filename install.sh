@@ -20,8 +20,63 @@ function loginInstall
 	mkdir /etc/daily-tips
 }
 
+function computeInstall
+{
+read -d '' -r "zshAlias?" <<'HEREDOC'
+
+function srun {
+	read -k 1 -r  "REPLY?You are on a compute node. You should run $0 on a login node. Still anyway? "
+	echo
+	if [[ $REPLY =~ ^[Yy]$ ]]; then
+		command srun "$@"
+	fi
+}
+
+function sbatch {
+	read -k 1 -r  "REPLY?You are on a compute node. You should run $0 on a login node. Still anyway? "
+	echo
+	if [[ $REPLY =~ ^[Yy]$ ]]; then
+		command sbatch "$@"
+	fi
+}
+HEREDOC
+
+read -d '' -r "bashAlias?" <<'HEREDOC'
+
+function srun {
+	read -p "You are on a compute node. You should run srun on a login node. Still anyway? " -n 1 -r
+	echo
+	if [[ $REPLY =~ ^[Yy]$ ]]; then
+		command srun "$@"
+	fi
+}
+
+function sbatch {
+	read -p "You are on a compute node. You should run sbatch on a login node. Still anyway? " -n 1 -r
+	echo
+	if [[ $REPLY =~ ^[Yy]$ ]]; then
+		command sbatch "$@"
+	fi
+}
+HEREDOC
+
+
+	if grep -F 'function srun {' /etc/zsh/zshrc > /dev/null; then
+		echo 'Do not install to zsh again.'
+	else
+		echo $zshAlias >> /etc/zsh/zshrc
+	fi
+	if grep -F 'function srun {' /etc/bash.bashrc > /dev/null; then
+		echo 'Do not install to bash again.'
+	else
+		echo $bashAlias >> /etc/bash.bashrc
+	fi
+}
 
 case $1 in
+	compute)
+		computeInstall
+		;;
 	login)
 		loginInstall
 		;;
