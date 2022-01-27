@@ -1,0 +1,9 @@
+[Unit]
+Description=Set GPU to low power mode
+
+[Timer]
+OnCalendar=Mon..Fri *-*-* 10:00:00
+Unit=gpu-low.service
+
+[Install]
+WantedBy=multi-user.target
