@@ -1,0 +1,9 @@
+[Unit]
+Description=Set GPU to high power mode
+
+[Timer]
+OnCalendar=Mon..Fri *-*-* 19:00:00
+Unit=gpu-high.service
+
+[Install]
+WantedBy=multi-user.target
