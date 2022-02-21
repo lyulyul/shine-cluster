@@ -1,0 +1,26 @@
+#! /usr/bin/zsh
+
+
+
+function catchEditSudoers {
+	if [[ $BUFFER =~ "ls( .*)?" ]] || [[ $BUFFER =~ "ll( .*)?" ]] || [[ $BUFFER =~ "cd .*" ]]; then
+		zle accept-line
+	elif ([[ $BUFFER =~ .*sudoers.* ]] && [[ ! $BUFFER =~ .*visudo.* ]]) ||
+		([[ $PWD =~ ".*/sudoers.d" ]] && [[ ! $BUFFER =~ .*visudo.* ]]); then
+		zle -R "It's recommanded to use visudo to edit sudoers. Continue anyway? (y/n)"
+		read -k reply
+		if [[ $reply == y ]]; then
+			zle accept-line
+		else
+			#zle push-input
+			zle send-break
+			#echo
+		fi
+	else
+		zle accept-line
+	fi
+}
+
+zle -N catchEditSudoers_widget catchEditSudoers
+
+bindkey '^M' catchEditSudoers_widget
