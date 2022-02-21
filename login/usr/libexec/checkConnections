@@ -13,7 +13,7 @@
 limit=$1
 c=$(pgrep -xcu $PAM_USER sshd)
 if (( c >= limit / 2 )); then
-	echo "Max $limit ssh connections are allowed, and you already have $c."
+	echo "Max $limit ssh connections are allowed, and you already have $c. Reboot your machine to clear useless connections."
 
 	if (( c >= limit )); then
 		exit 1
