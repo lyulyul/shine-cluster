@@ -1,0 +1,11 @@
+[Unit]
+Description=Mount the shared folder
+
+[Mount]
+What=aha:/home/shared
+Where=/home/shared
+Type=nfs
+Options=auto,nofail,noatime,nolock,intr,tcp,actimeo=1800
+
+[Install]
+WantedBy=multi-user.target
