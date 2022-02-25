@@ -84,6 +84,7 @@ esac
 
 foldersToCopy=(
 etc/security/limits.d
+usr/local/sbin/checkConnection
 /lib/systemd/system/
 )
 
