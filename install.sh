@@ -25,7 +25,7 @@ function computeInstall
 read -d '' -r "zshAlias?" <<'HEREDOC'
 
 function srun {
-	read -k 1 -r  "REPLY?You are on a compute node. You should run $0 on a login node. Still anyway? "
+	read -k 1 -r  "REPLY?$(hostname) is a compute node. You should run $0 on a login node. Still anyway? "
 	echo
 	if [[ $REPLY =~ ^[Yy]$ ]]; then
 		command srun "$@"
@@ -33,7 +33,7 @@ function srun {
 }
 
 function sbatch {
-	read -k 1 -r  "REPLY?You are on a compute node. You should run $0 on a login node. Still anyway? "
+	read -k 1 -r  "REPLY?$(hostname) is a compute node. You should run $0 on a login node. Still anyway? "
 	echo
 	if [[ $REPLY =~ ^[Yy]$ ]]; then
 		command sbatch "$@"
@@ -44,7 +44,7 @@ HEREDOC
 read -d '' -r "bashAlias?" <<'HEREDOC'
 
 function srun {
-	read -p "You are on a compute node. You should run srun on a login node. Still anyway? " -n 1 -r
+	read -p "$(hostname) is a compute node. You should run srun on a login node. Still anyway? " -n 1 -r
 	echo
 	if [[ $REPLY =~ ^[Yy]$ ]]; then
 		command srun "$@"
@@ -52,7 +52,7 @@ function srun {
 }
 
 function sbatch {
-	read -p "You are on a compute node. You should run sbatch on a login node. Still anyway? " -n 1 -r
+	read -p "$(hostname) is a compute node. You should run sbatch on a login node. Still anyway? " -n 1 -r
 	echo
 	if [[ $REPLY =~ ^[Yy]$ ]]; then
 		command sbatch "$@"
