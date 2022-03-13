@@ -82,11 +82,7 @@ HERE
 
 chmod +x $remoteFile
 
-computeNodes=(
-coruscant
-eureka
-tatooine
-)
+IFS=', ' read -A computeNodes <<< "$(sinfo --format %N --noheader)"
 
 for server in "$computeNodes[@]"
 do
