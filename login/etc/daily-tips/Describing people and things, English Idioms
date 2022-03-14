@@ -1,0 +1,488 @@
+#!/bin/bash
+
+tips=(
+"These [bright young things] have just started college
+
+young, enthusiastic, fashionable, or ambitious people"
+
+"My assistant is a bit [wet behind the ears]. He still has a lot to learn.
+
+young and inexperienced"
+
+"I've just turned 40, and I'm [in the prime of my life]. I always go to the gym after work.
+
+at my best; healthy and successful"
+
+"Katie started learning piano when she was [knee-high to a grasshopper].
+
+very young
+
+grasshopper蚱蜢"
+
+"Derek and Joan spent their [twilight years] traveling the world.
+
+[C] the last years of someone's life"
+
+"My grandpa got married again at the [ripe old age] of 92.
+
+very old age
+
+ripe成熟的"
+
+"Sally first sang on stage at the [tender age] of 7.
+
+[sing.] very young age
+
+tender嫩的"
+
+"Damien's at that [awkward age] and finds it hard to talk to people.
+
+the period of adolescence when people feel very self-conscious"
+
+"Many singer's voices [improve with age].
+
+get better as they got older"
+
+"Harper regrets [losing touch with] all her old school friends.
+
+no longer being in contact with"
+
+"I think Claire's found [a soulmate]. Both she and Don love reading.
+
+the perfect person to be a friend or partner"
+
+"I've [kept in touch with] Lin since we left college 25 years ago.
+
+continue to be in contact with"
+
+"Marie and Pierre met through Isaac, [a mutual friend] of theirs.
+
+a shared friend of two people"
+
+"Ramon and Tara [get on like a house on fire]. They're always talking and laughing.
+
+get along extremely well; have a very good relationship"
+
+"Mia and I have [drifted apart] since she left our choir and started boxing instead.
+
+slowing become less friendly or close to each other
+
+choir合唱团"
+
+"I [struck up a friendship] with Pete while we were in a cooking class last year.
+
+become friends with
+
+struck是strike的过去分词"
+
+"My wife and I [hit it off] immediately when we first met at a country music concert.
+
+become friends very quickly"
+
+"Donna was [a fair-weather friend]. She wouldn't help when my house flooded.
+
+a friend who leaves you when you have difficulties"
+
+"Cy and I [got off on the wrong foot] on our date. He was an hour late and forgot my name.
+
+started our relationship badly"
+
+"Bob reminds me so much of his father. He is [a chip off the old block].
+
+very similar to someone in his family"
+
+"Uncle Tony is [the black sheep of the family]. He's been to prison three times.
+
+someone who brings shame to the family or is the odd one in the family"
+
+"We're [bringing up] our children to be kind to animals.
+
+teaching a child how to behave"
+
+"We're [a close-knit family]. We always meet up for birthdays and holidays.
+
+a loyal and supportive family
+
+knit：v. (knit,knit)（使）紧密"
+
+"Curly hair [runs in our family], and my daughter, mom, and I all have it.
+
+is a common feature in our family"
+
+"Leo [bears a striking resemblance] to his grandfather.
+
+looks extremely similar"
+
+"Mateo and his brother Lucas are [like two peas in a pod]. I can't tell them apart.
+
+extremely similar to each other"
+
+"Karen is [the spitting image of] that actor in the new sci-fi film.
+
+almost identical to"
+
+"You must eat something. You're [all skin and bones].
+
+too thin"
+
+"Oscar is only 25, but he's already [getting thin on top].
+
+have no hair on top of head"
+
+"Rita [looked like she'd seen a ghost] after I told her my news.
+
+looked very scared or shocked"
+
+"Rachel [looked like a drowned rat] after she got caught in the rain on her way home.
+
+was very wet
+
+drowned淹死的"
+
+"My aunt believed in [keeping up appearances] despite having little money.
+
+pretending that things are going well
+
+keep sth <-> up：保持高水平"
+
+"Domenica [looked the part] for her first day of work at the bank.
+
+was dressed in the right way"
+
+"George arrived at the restaurant [immaculately groomed] for his date with Cassie.
+
+打扮得特别整洁"
+
+"Nalini [never has a hair out of place]. She cares a lot about her appearance.
+
+is extremely neat and well groomed
+
+groomed打扮、收拾"
+
+"Philip [was born with a silver spoon in his month]. He grew up in a castle in France.
+
+was born into a wealthy family"
+
+"Maxine is such [a highflier]. She's been promoted twice this year and is only 23.
+
+a very talented and successful person"
+
+"Danika's parents don't approve of Bob because he's from [the wrong side of the tracks].
+
+the wrong social background or part of town
+
+approve of：不同意、不喜欢"
+
+"My parents [didn't have two pennies to rub together], but we still had lots of fun.
+
+were very poor
+
+penny：英国的便士，0.1元
+dime：美国的0.1元
+cent：美国的0.01元"
+
+"Lucia has [a vivid imagination]. Her artworks are so original.
+
+an ability to think of exciting images and ideas
+
+vivid: （想象力）丰富的"
+
+"Norah is such [a fuddy-duddy]. She never wants to come out with us on Saturday night.
+
+someone who is unwilling to try new things."
+
+"Gustav has [a selfish streak]. He won't share his cookies with his friends.
+
+streak：不好的性格"
+
+"Arturo is so [two-faced]. He said he liked my haircut but told his friends he hated it.
+
+两面派"
+
+"My dad's just [an average Joe]. He enjoys burgers and fries, and loves watching baseball.
+
+a stereotypical man who has simple tastes
+
+stereotypical：符合刻板印象的"
+
+"It was great to see Jasmine at the party. She's always [a barrel of laughs].
+
+a fun person or situation
+
+barrel：圆桶"
+
+"Bob is such [a crybaby]. He was very upset about not getting a perfect score.
+
+someone who cries a lot without good reason"
+
+"Zoe loves proving how much she knows. She's [too smart for her own good].
+
+annoyingly proud of her intelligence or knowledge 太陈独秀了"
+
+"Noah is really [down to earth]. He earns lots of money, but he lives in a little cottage.
+
+practical and unpretentious 接地气
+
+unpretentious：不爱炫耀的"
+
+"I know Rex looks a bit scary, but he [wouldn't hurt a fly].
+
+is completely harmless
+
+scary：吓人的
+fly：苍蝇"
+
+"Claire is [a social butterfly]. She's always going to parties.
+
+a very sociable person 交际花"
+
+"My uncle's [a lone wolf]. He lives on his own in a cabin in the forest.
+
+someone who prefers to live or work alone"
+
+"Tony [wouldn't say boo to a goose]. He gets really shy when he talks to customers.
+
+is very timid and nervous
+
+timid：胆怯的"
+
+"I do [not know boo] about raising chickens.
+
+know nothing about a topic. Frequently with 'about'."
+
+"Jim's [a good egg]. He helped me to move last week.
+
+an honest, reliable, or considerate person"
+
+"Hassan is [the salt of the earth]. I saw him help an old lady cross the road.
+
+kind, honest, and unpretentious 活雷锋
+
+unpretentious：不张扬的"
+
+"Debbie's [a tough cookie]. She doesn't mind when people criticize her work.
+
+determined and physically or emotionally strong
+
+tough：嚼不烂的，剽悍的"
+
+"Kirsty remained [as cool as cucumber] throughout her performance.
+
+calm and relaxed"
+
+"My kids think this TV show is [the best thing since sliced bread].
+
+extremely good"
+
+"The ice cream at Giuseppe's parlor really is [the bee's knees]!
+
+the very best
+
+parlor：只卖一种东西的店
+knee：膝盖"
+
+"My new TV is [miles ahead of] my old one.
+
+much more advanced than"
+
+"The view from the top of the mountain is totally [out of this world]. You can see for miles.
+
+amazing"
+
+"We had a wonderful boat trip. [The frosting on the cake] was seeing dolphins.
+
+the best part of a good experience
+
+frosting：糖霜，撒上去的东西"
+
+"Losing my office job was [a blessing in disguise]. My new job is much more interesting.
+
+something that seems bad, but is actually good
+
+in disguise：伪装了的"
+
+"Chan's store only sells watches that are [top of the line].
+
+the best quality"
+
+"The burgers in Max's diner are [to die for]. And they're huge!
+
+就算死了也要（拿到、吃到）"
+
+"Abel is a [top-notch] reporter. He's interviewed some really famous actors.
+
+highest quality
+
+notch：等级"
+
+"Karolina's cake is [second to none]. It looks beautiful, and it tastes delicious.
+
+far better than any others"
+
+"Pete's habit of dropping litter [leaves a bad taste in my mouth].
+
+makes me feel very uncomfortable
+
+litter：（乱扔的）垃圾"
+
+"The weather in Hawaii [didn't live up to expectations]. It rained every day.
+
+was not as good as expected"
+
+"Country music is [not my cup of tea]. I prefer rock music.
+
+not something I enjoy"
+
+"Noah's old car is [past its prime]. He's been driving it for years.
+
+in a bad condition, or too old
+
+cf. the prime of my life"
+
+"The museum in my town is [nothing to write home about]. There are very few exhibits.
+
+not every impressive"
+
+"Watching golf on TV is so boring. It's [like watching paint dry].
+
+extremely boring"
+
+"His voice is OK, but he's [not going to set the world on fire].
+
+not going to be very exciting or successful
+
+set sth on fire：把东西点燃"
+
+"It's still [rough around the edges], but this is my design for the park.
+
+not perfect, in need of more work"
+
+"Rita's TV is [on its last legs]. She's had it for over 10 years.
+
+likely to stop working soon"
+
+"We had been really looking forward to the meal, but thought the food was [a let-down].
+
+a disappointment"
+
+"My old desktop computer is [past its sell-by date]. It takes a long time to start up.
+
+in need of replacing"
+
+"Clarita's new apartment is tiny. There's [not enough room to swing a cat].
+
+very little space
+
+swing：摇摆"
+
+"My colleagues all have terrible colds. They're [dropping like fries]!
+
+becoming sick, or stopping doing something, in large numbers"
+
+"You're [barking up the wrong tree] if you think I can help you with your homework.
+I'm terrible at science.
+
+wasting effort by following the wrong course of action
+
+bark：狗叫"
+
+"The half-mile run was [a two-horse race] between Beatriz and Maria.
+
+a competition with only two clear possible winners"
+
+"I [chickened out of] diving off the top board in the pool. It was too high.
+
+was too scared to"
+
+"I told my boss I won't finish my report today, but she still keeps [badgering me] about it.
+
+repeatedly telling me to do something
+
+badger：纠缠"
+
+"It really [gets my goat] when someone eats smelly food on the train.
+
+irritates me
+
+irritate：使恼火"
+
+"You can do anything now that you've finished college. [The world is your oyster].
+
+You have lots of opportunities
+
+oyster：生蚝"
+
+"Frank ate [the lion's share] of the cake. There wasn't enough for us.
+
+the largest part"
+
+"This little pill is supposed to help you lose 20 pounds? Yeah, [in a pig's ear] it does.
+
+猪才相信
+
+也可作in a pig's eye, in a pig's arse（屁股）"
+
+"I don't like my job, but it [puts food on the table].
+
+provides enough money to pay for the most important things"
+
+"Sharon always [spoon-feeds] her staff. She tells them exactly what to do.
+
+gives too much help to"
+
+"Don't get so upset about burning the cookies. It's no use [crying over spilled milk].
+
+getting upset about something that has already happened
+
+spilled：洒出来的"
+
+"Jennifer is such [a couch potato]. She never goes out and watches TV all weekend instead.
+
+a lazy person who watches too much TV"
+
+"I don't know whether to apply for this job. Its looks really interesting but [it pays peanuts].
+
+the salary is very low"
+
+"Asher is such [a butterfingers]. He is always dropping things.
+
+a clumsy person who often drops things
+
+clumsy：笨拙的"
+
+"I'm really stressed! I think I [bit off more than I could chew] when I took this promotion.
+
+took on more responsibility than I could manage
+
+bit：咬 chew：嚼"
+
+"I wanted Jo to water my plants when I was on vacation, 
+so I [buttered her up] by saying her backyard looked nice.
+
+praised or flattered her so she would do me a favor
+
+flatter：奉承"
+
+"Copies of Sadie's new novel are [selling like hotcakes] after it got great reviews.
+
+selling quickly in large numbers"
+
+"You want to [walk on eggshells] around Dylan. He gets upset so easily.
+
+be very careful not to cause offense"
+
+"My granddaughter is [the apple of my eye]. I'm so proud of her.
+
+a person I am very fond or proud of
+
+fond：喜爱"
+
+"Fiona told me she doesn't like my new scooter. I think it's just [sour grapes].
+
+a jealous and bitter attitude
+
+sour：酸的"
+)
+
+
+echo "${#a[@]}"
