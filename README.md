@@ -5,14 +5,14 @@
 
 ## slurm
 ```bash
-sudo ln -s ~/mpi-servers/slurm/etc/slurm/cgroups.conf /etc/slurm/cgroups.conf
-sudo ln -s ~/mpi-servers/slurm/etc/slurm/gres.conf /etc/slurm/gres.conf
-sudo ln -s ~/mpi-servers/slurm/etc/slurm/slurm.conf /etc/slurm/slurm.conf
+sudo ln -s ~/shine-cluster/slurm/etc/slurm/cgroups.conf /etc/slurm/cgroups.conf
+sudo ln -s ~/shine-cluster/slurm/etc/slurm/gres.conf /etc/slurm/gres.conf
+sudo ln -s ~/shine-cluster/slurm/etc/slurm/slurm.conf /etc/slurm/slurm.conf
 ```
 
 支持ssh证书登录
 ```bash
-sudo ln -s ~/mpi-servers/etc/ssh/sshd_config.d/certificateLoginOnly.conf /etc/ssh/sshd_config.d/certificateLoginOnly.conf
+sudo ln -s ~/shine-cluster/etc/ssh/sshd_config.d/certificateLoginOnly.conf /etc/ssh/sshd_config.d/certificateLoginOnly.conf
 sudo systemctl restart sshd
 ```
 
@@ -67,8 +67,8 @@ sudo ln -s /usr/local/bin/7zz /usr/local/bin/7z
 Adminstrators, please install your personal settings first.
 
 ```
-git clone https://github.com/gqqnbig/mpi-servers.git
-cd mpi-servers
+git clone https://github.com/gqqnbig/shine-cluster.git
+cd shine-cluster
 git checkout migrate
 sudo ./setup.sh
 ```
