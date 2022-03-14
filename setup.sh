@@ -6,7 +6,7 @@ sudo systemctl set-default multi-user.target #开机启动至multi-user.target
 
 sudo update-grub
 sudo apt update
-sudo apt upgrade
+sudo apt upgrade --yes
 
 sudo addgroup wheel
 sudo chown :wheel /usr/bin/su
