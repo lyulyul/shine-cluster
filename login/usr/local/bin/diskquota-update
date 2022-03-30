@@ -30,6 +30,8 @@ function createQgroup() {
 
 condition=$(diskquota condition)
 if [[ $condition == 'enable' ]]; then
+	# It is possible that disk quota is enabled but disk percentage dropped below 50.
+	# In this case, newly registered users will not be added to quota group.
 	echo 'enable disk quota'
 	if [[ $(btrfs qgroup show /home 2>&1) == *"quotas not enabled"* ]]; then
 		# quotas not enabled
