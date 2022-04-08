@@ -1,0 +1,12 @@
+[Unit]
+Description=Mount the opt folder
+
+[Mount]
+What=tatooine:/opt-all
+Where=/opt
+Type=nfs
+Options=auto,ro,nofail,noatime,nolock,intr,tcp,actimeo=1800
+
+[Install]
+WantedBy=multi-user.target
+
