@@ -86,6 +86,7 @@ foldersToCopy=(
 etc/security/limits.d
 usr/local/sbin/checkConnection
 /lib/systemd/system/
+etc/sudoers.d/
 )
 
 function needCopy()
