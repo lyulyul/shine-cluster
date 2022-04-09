@@ -7,6 +7,10 @@ if [[ -z $1 ]] || [[ ! -d $1 ]]; then
 	exit 1
 fi
 
+mkdir /etc/vim/ftdetect/
+mkdir /etc/vim/ftplugin/
+mkdir /etc/systemd/system/slurmd.service.d/
+
 
 function loginInstall
 {
