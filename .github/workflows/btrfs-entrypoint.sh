@@ -11,7 +11,7 @@ apt install -y wget
 
 
 
-# Install mpi-servers
+# Install shine-cluster
 # Parenthesis runs in subshell.
 (
 ./install.sh login
