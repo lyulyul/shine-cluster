@@ -1,0 +1,496 @@
+s=$(tput smul)
+e=$(tput rmul)
+
+tips=(
+"We're ${s}on the same page${e} about who should get this job.
+
+in agreement"
+
+"Samira has been ${s}given the go-ahead${e} to play tennis after her injury.
+
+given permission or approval
+
+go ahead：v. 去做"
+
+"It's great to work with the creative people in this team. We're all ${s}on the same wavelength${e}.
+
+similar in terms of thoughts, ideas, or attitude"
+
+"I'm glad my boss and I ${s}see eye to eye${e} about recycling in the office.
+
+agree fully or have a similar attitude"
+
+"Nelson and Carole are ${s}at odds${e} about which car to buy.
+
+not the same, not agree"
+
+"Who takes the dog for a walk is ${s}a bone of contention${e} for our kids.
+
+a subject that people argue about regularly
+
+contention：争论"
+
+"Lenka and I ${s}fought like cats and dogs${e} when we were children.
+
+argued all the time
+
+fight：v. (fought, fought) 打架"
+
+"We ${s}struck a deal${e} with the clients after we offered them a discount.
+
+reached an agreement"
+
+"We found ${s}the middle ground${e} about how much to spend on our new car.
+
+a position between two different opinions, or a compromise"
+
+"My son wanted to stay out all night. I ${s}met him halfway${e} and let him stay out until midnight.
+
+made a compromise"
+
+"The negotiating teams stayed up all night ${s}hammering out a deal${e}.
+
+reaching an agreement after a long discussion
+
+hammer：捶打"
+
+"I tried to ${s}smooth things over${e} between Pari and Toni after their argument.
+
+make a problem feel less serious"
+
+"Yulia offered to ${s}lend a hand${e} with the diskses after the party.
+
+help"
+
+"I really ${s}feel for${e} Mario. He has to work so hard in the kitchen.
+
+sympathize with
+
+sympathize：同情"
+
+"Semir is generous ${s}to a fault${e}. He invited homeless into his home for a meal every week.
+
+太多了，以至于有点差
+
+fault：缺点"
+
+"Yoshiko ${s}offered a sympathetic ear${e} when my cat went missing.
+
+offered to listen to someone's problems"
+
+"Alex is so ${s}big hearted${e}. She bought me a beautiful vase for my new apartment.
+
+kind and generous
+
+vase：花瓶"
+
+"Pedro quit his job at the store, ${s}leaving me in the lurch${e}.
+
+leaving me to deal with a difficult situation
+
+lurch：n. 突然倾斜"
+
+"The boss makes the trainess stay until 11 most nights. She ${s}treats them like dirt${e}.
+
+treats them very badly
+
+dirt：尘土"
+
+
+"Selma ${s}let us down${e} when she canceled the concert at the last minute.
+
+disappointed us, or failed to support us"
+
+"Paulina ${s}poked fun at${e} Mirek's new hairstyle.
+
+laughted at or made jokes about"
+
+"Aziz told me he'd crashed my car, but he was ${s}pulling my leg${e}.
+
+joking, or telling an untrue story for fun"
+
+"Henry can't control his ${s}badly behaved${e} students.
+
+naughty or disobedient
+
+naughty：淘气的"
+
+"Jean ${s}behaved out of character${e} at the office party. She's normally so quiet!
+
+behaved in an unusual way"
+
+"My dog ${s}behaved beautifully${e} when I took him on the train.
+
+behaved perfectly"
+
+"I was ${s}on my best behavior${e} when I met my boyfriend's parents.
+
+behaving extremely well or politely"
+
+"You can always tell when he's upset. He ${s}wears his heart on his sleeve${e}.
+
+makes his feelings obvious
+
+sleeve：袖子"
+
+"Caitlin ${s}got cold feet${e} about singing karaoke.
+
+became too nervous to do something"
+
+"Leo ${s}cried his eyes out${e} when I said he couldn't have another cookie.
+
+cried uncontrollably"
+
+"It was ${s}a weight off my shoulders${e} when Mark found my cat. She had been missing for a week.
+
+a huge relief
+
+relief：轻松，解脱"
+
+"People in my town are ${s}up in arms${e} about plans to build a supermarket.
+
+very angry, or protesting against something"
+
+"Liz was ${s}feeling blue${e} when her best friend left the country.
+
+feeling sad"
+
+"My neightbor ${s}saw red${e} when I parked in front of his house.
+
+became angry"
+
+"I was ${s}green with envy${e} when Jamila showed me her new house. It was so big!
+
+very jealous
+
+envy：忌妒"
+
+"When Dylan copied her homework, Zoe was so angry that she was ${s}foaming at the mouth${e}.
+
+extremely angry
+
+foam：v. 起泡沫"
+
+"After a long week at work, I ${s}let my hair down${e} at my best friend's party.
+
+relaxed and enjoyed myself"
+
+"I get ${s}itchy feet${e} when I haven't been aboard due to COIVD-19.
+
+boredom with being in the same place or situation
+
+boredom：n. 厌倦"
+
+"I became ${s}tongue-tied${e} when I had to give a presentation to the board of directors.
+
+too nervous to speak"
+
+"The children all ${s}went bananas${e} when I took them to the playground.
+
+were out of control with excitement"
+
+"This terrible weather is ${s}driving me nuts${e}.
+
+annoying me
+
+nut：坚果
+nuts：睾丸"
+
+"I ${s}had egg on my face${e} after I called Jo's new boyfriend Ben. 
+That was her ex-boyfriend's name!
+
+was embarrassed"
+
+"Dan ${s}grinned from ear to ear${e} when he read his test results.
+
+smiled with extreme happiness
+
+grin：露齿地笑"
+
+"I was ${s}ove the moon${e} when I won the best actor award.
+
+delighted, extremely happy"
+
+"Jack was ${s}on top of the world${e} when his team won the trophy.
+
+delighted, extremely happy
+
+trophy：奖杯"
+
+"The news that our profits were up was ${s}music to our ears${e}.
+
+wonderful news"
+
+"My motorcycle is ${s}my pride and joy${e}. I clean it every day.
+
+something that makes me happy and is important to me"
+
+"The kids ${s}jumped for joy${e} when I bought our new puppy home.
+
+were extremely happy"
+
+"Brendan ${s}wept with joy${e} when he won that talent competition.
+
+cried with happiness
+
+weep: (wept, wept) 哭泣"
+
+"Two minutes before the race, the athletes were all ${s}raring to go${e}.
+
+eager to start doing something
+
+raring: adj. 热切，渴望"
+
+"They ${s}flung themselves into${e} the preparations for the party.
+
+did something with lots of enthusiasm and energy"
+
+"I was ${s}on the edge of my seat${e} as the detective revealed the murderer.
+
+waiting with nervous excitement"
+
+"Sally was ${s}bursting with excitement${e} as her favourite band came on stage.
+
+extremely excited
+
+burst: 满怀，挤满"
+
+"Joseph has been ${s}down in the dumps${e} since his girlfriend left him.
+
+feeling sad
+
+dumps：垃圾场"
+
+"Carlos was ${s}reduced to tears${e} when Marta was mean about his cooking.
+
+upset enough to cry
+
+mean：刻薄的"
+
+"I've taken to for a day out at the beach. Why are you being such ${s}a downer${e}?
+
+令人沮丧的人或事"
+
+"It ${s}makes my blood boil${e} when people litter.
+
+makes me really angry"
+
+"Jason's loud music is really ${s}driving me crazy${e}.
+
+annoying me"
+
+"I ${s}kicked myself${e} when I realized I had left my bag on the train.
+
+was angry with myself"
+
+"Dad ${s}hit the roof${e} when he heard I'd failed my tests again.
+
+quickly became extremely angry"
+
+"Our boss is ${s}on the warpath${e} about people leaving their computers on overnight.
+
+angry and ready for conflict
+
+warpath：准备开火"
+
+"The sight of the old, spooky house ${s}made my hair stand on end${e}.
+
+made me terrified
+
+spooky：阴森的"
+
+"Christine felt ${s}on edge${e} as she waited to see her dentist.
+
+nervous or anxious"
+
+"Alice was ${s}shaking in her boots${e} before she did her first bungee jump.
+
+very frightened and nervous
+
+bungee：蹦极"
+
+
+"Stella ${s}lost face${e} when she got the figures wrong in her presentation.
+
+lost respect, or felft embarrassed"
+
+"I almost ${s}died of shame${e} when my girlfriend found me singing in front of the mirror.
+
+was extremely embarrased"
+
+"Any journalist who takes money should be ashamed and shamed.
+
+ashamed：自我羞愧的
+shamed：被别人羞辱"
+
+"The answer to the teacher's question was ${s}on tip of my tongue${e}.
+
+almost but not quite remembered"
+
+"That boring lecture ${s}went in one ear and out the other${e}!
+
+was easy to forget"
+
+"When my son asked me recommend a book, two titles ${s}sprang to mind${e} immediately.
+
+came quickly into mind
+
+spring: v. (sprang, sprung) 跳"
+
+"I can't believe I forgot to bring the sandwiches!
+I've got ${s}a memory like a sieve.${e}
+
+a poor practical memory
+
+sieve：漏勺"
+
+"${s}Memories are fading${e} of what the world was like before TV.
+
+most people have forgotten"
+
+"Jacob was explaining the diagram when he suddenly ${s}lost his train of thought${e}.
+
+forgot the main point of what he was talking about"
+
+"The police showed me a photo of the suspect to ${s}jog my memory${e}.
+
+help me to remember
+
+jog：轻碰"
+
+"When the hotel receptionist asked me for my phone number, ${s}my mind went blank${e}.
+
+I couldn't remember anything at all"
+
+"That name ${s}rings a bell${e}! I think I went to college with her.
+
+is familiar"
+
+"I've been ${s}racking my brain${e} all morning but can't remember where I put my passport.
+
+thinking hard, or making an effort to remember
+
+rack：使受折磨"
+
+"Emi and Sofia ${s}took a trip down memory lane${e} as they talked about their school days.
+
+talked about the past in a happy way"
+
+"I'm sorry I didn't get you apresent. ${s}It slipped my mind${e} that it was your birthday.
+
+I forgot
+
+slip：悄悄溜走"
+
+"I've seen that animal before, but its name ${s}escapes me${e}.
+
+can't remember"
+
+"I enjoyed the party, but ${s}at the back of my mind${e} I knew I had to catch the last train home.
+
+although I tried not to think about it"
+
+"Looking at my old medals ${s}stirred up memories${e} of competing in the Olympics.
+
+brought back memories
+
+stir：搅拌"
+
+"Keeping busy at work is helping me ${s}erase the memory${e} of my ex-girlfriend.
+
+avoid remembering or thinking about"
+
+"Harjit ${s}has his heart set on${e} getting a pet.
+
+wants to get or achieve something very much"
+
+"As ${s}a rule of thumb${e}, it takes about 10 minutes to cook pasta.
+
+a general, approximate rule based on experience
+
+thumb：大拇指"
+
+"${s}Keep your chin up${e}! I'm sure the weather will get better soon.
+
+try to stay cheerful, even if circumstances are difficult.
+
+chin：下巴"
+
+"I haven't booked a restaurant for lunch, so let's ${s}play it by ear${e} and find somewhere that looks nice.
+
+do something without planning ahead"
+
+"You've been to Bali, haven't you? Can I ${s}pick your brain${e} about the best places to visit?
+
+ask for your opinion and advice
+
+Bali：（印度尼西亚的）巴厘岛"
+
+"Paolo ${s}almost jumped out of his skin${e} when a bat flew into his room.
+
+was very shocked or frightened"
+
+"I can't believe Iris is starting school today. She has grown up ${s}in this blink of an eye${e}.
+
+very quickly
+
+blink：眨眼睛"
+
+"Oh, no! I've forgotten my wallet. I'm such a ${s}scatterbrain${e}.
+
+a careless person who forgets things easily"
+
+"I wish Nathan would turn his music down. It's ${s}getting on my nerves${e}.
+
+annoying me"
+
+"There's nothing to do at work at the moment. I'm just sitting here ${s}twiddling my thumbs${e}.
+
+doing nothing"
+
+"${s}My heart sank${e} when I got to the museum and saw that it was closed.
+
+I felt sad and disappointed"
+
+"I decided to ${s}hold fire${e} before booking such an expensive holiday.
+
+wait before taking action"
+
+"What has been going on while we were away? It's ${s}like a war zone${e} in here!
+
+very messy and chaotic
+
+messy：散乱的
+chaotic：混乱的"
+
+"Buying a house can be ${s}a minefield${e}. There's always so much to think about!
+
+a complicated process with lots of potential problems
+
+minefield：雷区"
+
+"Our daughter ${s}dropped a bombshell${e} when she told us she and her boyfriend were engaged.
+
+delivered some shocking news
+
+bombshell：爆炸性新闻
+bomb：炸弹
+shell：弹壳"
+
+"Trying to make my children eat more vegetables has been ${s}an uphill battle${e}.
+
+a difficult struggle 低地打高低的战斗"
+
+"I have some very bad news, but please ${s}don't shoot the messager${e}!
+
+don't be angry with someone who reports bad news"
+
+"I lost my phone when I was shopping. It's ${s}a long shot${e}, 
+but I'm going to ask if anyone has handed it in at the store.
+
+an attempt that has only a small chance of success"
+
+)
+
+unset s
+unset e
