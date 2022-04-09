@@ -1,3 +1,5 @@
+#!/bin/bash
+
 s=$(tput smul)
 e=$(tput rmul)
 
