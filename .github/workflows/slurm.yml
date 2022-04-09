@@ -49,7 +49,7 @@ jobs:
           do
             file="$(basename $file)"
             # cannot verify .conf drop-in files
-            # ignore "multi-user.target: Wants dependency dropin /mpi-servers/slurm/etc/systemd/system/multi-user.target.wants/slurmd.service is not a symlink, ignoring."
+            # ignore "multi-user.target: Wants dependency dropin /shine-cluster/slurm/etc/systemd/system/multi-user.target.wants/slurmd.service is not a symlink, ignoring."
             output=$(systemd-analyze verify $(basename "$file") 2>&1| grep "$file" | grep -v -F 'is not a symlink')
             echo "$output"
             if [[ $output ]]; then
