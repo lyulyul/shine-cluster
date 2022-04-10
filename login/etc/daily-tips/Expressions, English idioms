@@ -1,5 +1,8 @@
 #!/bin/bash
 
+s=$(tput smul)
+e=$(tput rmul)
+
 tips=(
 "Idiom: Have a rest.
 Explanation:To stop doing a particular activity or stop being active for a period of time in order to relax and get back your strength.
@@ -27,11 +30,11 @@ Jamaica：牙买加"
 Explanation: To start on a Trip.
 Example Sentence: I have a long way to drive, so I set off nice and early."
 
-"I have a long way to drive, so I set off [nice and] early.
+"I have a long way to drive, so I set off ${s}nice and${e} early.
 
 表示强调"
 
-"Silvio called the fire department after he accidentally [set fire] to his shed.
+"Silvio called the fire department after he accidentally ${s}set fire${e} to his shed.
 
 shed: 棚屋"
 
@@ -59,7 +62,7 @@ Example Sentence: My boss is putting pressure on me to sell all this kitchen equ
 Explanation: To try to persuade or force someone to do something.
 Example Sentence: Sakura has been putting the heat on the contractors to finish the job quickly."
 
-"I really [put my foot in it] when I asked if Hazel was Tamsin's mother. They are actually sisters.
+"I really ${s}put my foot in it${e} when I asked if Hazel was Tamsin's mother. They are actually sisters.
 
 To say or do something that upsets, offends or embarrasses somebody. 
 
@@ -231,7 +234,7 @@ Example Sentence: Logan said the shelf fell down because his drill was broken, b
 
 drill: （电）钻"
 
-"I have been playing the trumpet every day and I'm really improving. [Practice makes perfect]. 
+"I have been playing the trumpet every day and I'm really improving. ${s}Practice makes perfect${e}. 
 
 A way of encouraging people by telling them that if you do an activity regularly and try to improve your skill, you will become very good at it.
 
@@ -279,11 +282,11 @@ Example Sentence: Ela turned beet-red when I caught her copying my homework."
 Explanation: Very rarely.
 Example Sentence: Francis only cleans his house once in a blue moon."
 
-"Idiom： A gray area.
-Explanation: A situation where the rules are unclear.
-Example Sentence: There's a gray area in the office dress code. My boss said it was casual, but she told me I couldn't wear shorts."
+"There's ${s}a gray area${e} in the office dress code. My boss said it was casual, but she told me I couldn't wear shorts.
 
-"Idiom： A golden opportunity.
+A situation where the rules are unclear."
+
+"Idiom: A golden opportunity.
 Explanation: A good chance to do something rewarding or get something valuable.
 Example Sentence: I want to be a teacher, so getting work experience at the school was a golden opportunity for me."
 
@@ -375,7 +378,7 @@ Example Sentence: It was the first time Raul had been caught speeding, so the po
 Explanation: Deal with crime without using the legal system.
 Example Sentence: Seth took the law into his own hands and confronted the vandals. (vandal: 故意破坏公物者)"
 
-"I'll give Brown one more warning and then if he doesn't [toe up], I'll send him the bill.
+"I'll give Brown one more warning and then if he doesn't ${s}toe up${e}, I'll send him the bill.
 
 to say or do what somebody in authority tells you to say or do, even if you do not share the same opinions
 
@@ -421,7 +424,10 @@ Example Sentence: Four years ago, the dollar was riding high and it was the euro
 Explanation: A job that involves manual or physical work.
 Example Sentence: My dad had a blue-collar job in the construction industry. (construction: 建筑，施工，结构)"
 
-"Idiom： A fat cat.
-Explanation: An overpaid and lazy person.
-Example Sentence: My boss is a fat cat. He earns lots of money, but doesn't work very hard."
+"Francis only cleans his house ${s}once in a blue moon${e}.
+
+very rarely"
 )
+
+unset s
+unset e
