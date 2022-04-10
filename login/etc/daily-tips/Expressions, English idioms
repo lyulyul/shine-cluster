@@ -1,4 +1,4 @@
-#!/bin/bash -e
+#!/bin/bash
 
 tips=(
 "Idiom: Have a rest.
