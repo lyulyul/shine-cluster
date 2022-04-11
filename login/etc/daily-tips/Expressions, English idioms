@@ -1,0 +1,435 @@
+#!/bin/bash
+
+s=$(tput smul)
+e=$(tput rmul)
+
+tips=(
+"Idiom: Have a rest.
+Explanation:To stop doing a particular activity or stop being active for a period of time in order to relax and get back your strength.
+Example Sentence: After gardening all morning, we were so tired that we needed to have a rest."
+
+"Idiom： Have an appointment.
+Explanation: A formal arrangement to meet or visit someone at a particular time and place.
+Example Sentence: I have an appointment to see the vet at 2 o'clock this afternoon. (vet:兽医)"
+
+"Idiom： A cold fish.
+Explanation: A person who seems unfriendly and without strong emotions.
+Example Sentence: My neighbour is a cold fish."
+
+"Idiom： Get worse.
+Explanation: To become more ill, or to become a more severe condition.
+Example Sentence: My cold seems to be getting worse."
+
+"Idiom： Get married.
+Explanation: To begin a legal relationship with someone as their husband or wife.
+Example Sentence: Brian and Isha got married on a beautiful beach in Jamaica.
+
+Jamaica：牙买加"
+
+"Idiom: Set off.
+Explanation: To start on a Trip.
+Example Sentence: I have a long way to drive, so I set off nice and early."
+
+"I have a long way to drive, so I set off ${s}nice and${e} early.
+
+表示强调"
+
+"Silvio called the fire department after he accidentally ${s}set fire${e} to his shed.
+
+shed: 棚屋"
+
+"Idiom： Set sail.
+Explanation: To begin a trip on a ship or boat.
+Example Sentence: The ship set sail for China this morning. It will arrive in 20 days."
+
+"Idiom： Put off
+Explanation: To change something to a later time or date. Delay.
+Example Sentence: I always put off doing my homework until the last minute."
+
+"Idiom： Put your cards on the table.
+Explanation: To express honestly what your plans, ideas, feelings, etc.
+Example Sentence: Karen decided to put her cards on the table and tell Ricky that she loved him."
+
+"Idiom： Put it bluntly. (bluntly: 直言地，单刀直入地)
+Explanation: To say something simply and without being too polite.
+Example Sentence: Seth isn't always the most hardworking employee. To put it bluntly, he's lazy."
+
+"Idiom： Put pressure on.
+Explanation: The act of trying to make someone else do something by arguing, persuading, etc.
+Example Sentence: My boss is putting pressure on me to sell all this kitchen equipment today."
+
+"Idiom： Put the heat on. (heat: 热量，高温，压力，辣味)
+Explanation: To try to persuade or force someone to do something.
+Example Sentence: Sakura has been putting the heat on the contractors to finish the job quickly."
+
+"I really ${s}put my foot in it${e} when I asked if Hazel was Tamsin's mother. They are actually sisters.
+
+To say or do something that upsets, offends or embarrasses somebody. 
+
+embarrass: 使尴尬
+也可作put my foot in my mouth"
+
+"Idiom: Go smoothly.
+Explanation: Without problems or difficulties.
+Example Sentence: My move went smoothly. I had lots of people helping me."
+
+"Idiom： Go bankrupt.
+Explanation: Without enough money to pay what you owe.
+Example Sentence: Sara's fashion boutique went bankrupt. She couldn't afford the rent. (boutique: 时装店)"
+
+"Idiom： Go nuts.
+Explanation: To become extremely angry.
+Example Sentence: My sister will go nuts when she finds out I crashed her car.
+
+nuts: adj. [只作表语] mad, crazy"
+
+"Idiom: Come to a standstill. (standstill: sing. 停顿，停止)
+Explanation: Have a situation in which all activity or movement has stopped.
+Example Sentence: The traffic came to a standstill because of a fallen tree on the road."
+
+"Idiom： Come to an end.
+Explanation: To stop or end.
+Example Sentence: I'm enjoying my English class, but it's about to come to an end."
+
+"Idiom： Come into effect.
+Explanation: To come into use; To begin to apply.
+Example Sentence: New controls come into effect next month."
+
+"Idiom： Pay close attention.
+Explanation: Listened or watched carefully.
+Example Sentence: The children paid close attention to John as he told them about this travels."
+
+"Idiom： Pay back.
+Explanation: To return money that you borrowed from somebody
+Example Sentence: Did he ever pay you back that \$100 he owes you?"
+
+"Idiom: Pay tribute. (tribute: 致敬)
+Explanation: Publicly praised someone for their achievements.
+Example Sentence: When our CEO retired, Nisha paid tribute to her with a wonderful speech."
+
+"Idiom： Pay somebody a compliment. (compliment: 赞颂，赞扬)
+Explanation: To praise sb. for something.
+Example Sentence: Kelly paid me a compliment and said she liked my new haircut."
+
+"Idiom: Hold a grudge. (grudge: 怨恨，嫌隙)
+Explanation: Be still angry about something that happened a long time ago.
+Example Sentence: Mark holds a grudge against me because I didn't give him a promotion last year."
+
+"Idiom： Hold your tongue.
+Explanation: To say nothing although you would like to give your opinion.
+Example Sentence: I had to hold my tongue when Julian showed me his new suit. It was horrible!"
+
+"Idiom：Catch a glimpse of. (glimpse: 一瞥，瞥见)
+Explanation: See very briefly.
+Example Sentence: Raul caught a glimpse of a deer as he hiked through the forest."
+
+"Idiom： Catch a cold.
+Explanation: To become ill with a cold; (informal) To have problems.
+Example Sentence: I must have caught a cold from that man who couldn't stop sneezing on the train. 
+
+sneeze: 打喷嚏"
+
+"Idiom: Catch somebody's eye.
+Explanation: To attract somebody's attention.
+Example Sentence: Can you catch the waiter's eye?"
+
+"Idiom： Catch fire.
+Explanation: Start to burn.
+Example Sentence: Don't stand so close to the stove. Your clothes could catch fire. 
+
+stove: 炉子，厨灶"
+
+"Idiom: Catch breath.
+Explanation: Rest after exercise and breathe more slowly.
+Example Sentence: After climbing the stairs, I stopped to catch my breath."
+
+"Idiom： For real.
+Explanation: What somebody claims it is or serious.
+Example Sentence: I don’t think her tears were for real."
+
+"Idiom： Wake-up call.
+Explanation: A telephone call that you arrange to be made to you at a particular time, for example in a hotel, in order to wake you up.I asked for a 6:30 a.m. wake-up call.
+Example Sentence: I asked for a 6:30 a.m. wake-up call."
+
+"Idiom： As old as the hills.
+Explanation: Very old; Ancient.
+Example Sentence: Mary's car is as old as the hills. She refuses to buy a new one."
+
+"Idiom： A clean break.
+Explanation: A complete end to any connection with a person, an organization, a way of life, etc.
+Example Sentence: She wanted to make a clean break with the past."
+
+"Idiom： As fast as lightning.
+Explanation: Very fast.
+Example Sentence: These new high-speed trains are great! They are as fast as lightning."
+
+"Idiom： As quiet as a mouse.
+Explanation: Very quiet.
+Example Sentence: Paul is as quiet as a mouse. He never talks in meetings."
+
+"Idiom： As proud as a peacock. (peacock: 孔雀，雄孔雀)
+Explanation: Very proud.
+Example Sentence: Fiona looked as proud as a peacock in her new hat."
+
+"Idiom： Curiosity killed the cat.
+Explanation: Being too curious can get you into trouble.
+Example Sentence: Don't go into that spooky house! Curiosity killed the cat. (spooky: 幽灵般的；令人毛骨悚然的)"
+
+"Idiom: Beauty is in the eye of the beholder.
+Explanation: Everyone has their own idea of what is beautiful.
+Example Sentence: Azra adores her pet snake. I suppose beauty is in the eye of the beholder. 
+
+adore: 非常喜欢，疼爱
+behold: v. 看见"
+
+"Idiom: A picture is worth a thousand words.
+Explanation: It is easier to show something in a picture than to describe it using words.
+Example Sentence: I can't follow directions unless I have a map. A picture is worth a thousand words."
+
+"Idiom: Absence makes the heart grow fonder. (fond: adj. 喜爱的，深情的)
+Explanation: Being away from someone you love makes you love them more.
+Example Sentence: Jakob really misses his girlfriend now that she has gone to Canada. Absence makes the heart grow fonder."
+
+"Idiom: Actions speak louder than words.
+Explanation: What you do matters more than what you say.
+Example Sentence: Don't just say you're going to clean your room, do it! Actions speak louder than words."
+
+"Idiom： All good things come to those who wait.
+Explanation: If you wait for something good, you will eventually get it.
+Example Sentence: I was so pleased when I finally managed to sell my house for a good price. All good things come to those who wait."
+
+"Idiom： Better late than never.
+Explanation: It's better for something to happen late than not to happen at all.
+Example Sentence: You were meant to give me this assignment a week ago, but better late than never."
+
+"Idiom： Don't count your chickens before they hatch. (hatch: 孵化)
+Explanation: Don't assume that something will happen before the outcome is certain.
+Example Sentence: Don't count your chickens before they hatch, Kim! The game is not over yet."
+
+"Idiom: A chain is only as strong as its weakest link.
+Explanation: A team is only as strong as its weakest member.
+Example Sentence: Flo's incompetence at work is affecting the whole team. A chain is only as strong as its weakest link. 
+
+incompetence: 无资格，不胜任"
+
+"Idiom: A watched pot never boils.
+Explanation: Time will pass more quickly if you keep busy while you're waiting for something.
+Example Sentence: Stop sitting by the phone waiting to hear if you got the job. A watched pot never boils."
+
+"Idiom： Two heads are better than one.
+Explanation: It's helpful to have the advice of a second person.
+Example Sentence: I asked Sofia to help me write this difficult report. Two heads are better than one."
+
+"Idiom： A problem shared is a problem halved. (halve: 减半)
+Explanation: If you tell someone about a problem, you'll feel better.
+Example Sentence: I'm so glad I told Amira I was stressed at work. A problem shared is a problem halved."
+
+"Idiom： The early bird catches the worm.
+Explanation: The person who takes the opportunity to do something before other people will have an advantage over them.
+Example Sentence: The day the sales began, Tamsin was outside the store at 6 in the morning. The early bird catches the worm."
+
+"Idiom： A bad workman always blames his tools.
+Explanation: People who are bad at something blame the equipment they use.
+Example Sentence: Logan said the shelf fell down because his drill was broken, but a bad workman always blames his tools. 
+
+drill: （电）钻"
+
+"I have been playing the trumpet every day and I'm really improving. ${s}Practice makes perfect${e}. 
+
+A way of encouraging people by telling them that if you do an activity regularly and try to improve your skill, you will become very good at it.
+
+trumpet: 小号，喇叭"
+
+"Idiom: You can lead a horse to water, but you can't make it drink.
+Explanation: You can give somebody the opportunity to do something, but you cannot force them to do it if they do not want to
+Example Sentence: I told Sam about a great job, but he didn't apply. You can lead a horse to water, but you can't make it drink."
+
+"Idiom： You can't judge a book by its cover.
+Explanation: You shouldn't make judgments based on appearance.
+Example Sentence: I know he looks a bit scary, but my dog is really gentle. You can't judge a book by its cover. 
+
+scary: 骇人的，恐怖的"
+
+"Idiom: A black-tie event.
+Explanation: An event for which people have to dress very formally.
+Example Sentence: The party was a black-tie event and everyone was really well dressed."
+
+"Idiom： A green thumb.
+Explanation: A talent for gardening.
+Example Sentence: Paula has a green thumb. She has so many beautiful plants in her house."
+
+"Idiom： A red-letter day.
+Explanation: An important or happy day.
+Example Sentence: The day I received my degree was a red-letter day for me."
+
+"Idiom: A black eye.
+Explanation: A bruise around the eye. (bruise: 淤青，伤痕)
+Example Sentence: Sergio got a black eye after he walked into a lamppost."
+
+"Idiom: Out of the blue.
+Explanation: Unexpectedly.
+Example Sentence: Alyssa knocked on my door out of the blue yesterday. I hadn't seen her for years."
+
+"Idiom： Paint the town red.
+Explanation: Go out and celebrate enthusiastically.
+Example Sentence: It's my birthday, so I'm going to paint the town red with my friends tonight."
+
+"Idiom： Turn beet-red. (beet: 甜菜)
+Explanation: Blushed, was very embarrassed.
+Example Sentence: Ela turned beet-red when I caught her copying my homework."
+
+"Idiom： Once in a blue moon.
+Explanation: Very rarely.
+Example Sentence: Francis only cleans his house once in a blue moon."
+
+"There's ${s}a gray area${e} in the office dress code. My boss said it was casual, but she told me I couldn't wear shorts.
+
+A situation where the rules are unclear."
+
+"Idiom: A golden opportunity.
+Explanation: A good chance to do something rewarding or get something valuable.
+Example Sentence: I want to be a teacher, so getting work experience at the school was a golden opportunity for me."
+
+"Idiom： Get the blues.
+Explanation: Feel sad.
+Example Sentence: I always get the blues when my vacation is over and I have to go back to work."
+
+"Idiom： Burn the candle at both ends.
+Explanation: Working very hard, from the early morning until late at night.
+Example Sentence: Nicole's burning the candle at both ends. She must be exhausted."
+
+"Idiom： Go the extra mile.
+Explanation: To make a special effort to achieve something, help somebody, etc.
+Example Sentence: Leo always goes the extra mile to keep our customers happy."
+
+"Idiom： Left no stone unturned.
+Explanation: Did everything possible to solve a problem.
+Example Sentence: The police left no stone unturned in their efforts to solve the crime."
+
+"Idiom： Snow under.
+Explanation: Extremely busy, or overwhelmed.
+Example Sentence: Samire was snowed under with complaints from unhappy customers."
+
+"Idiom: Get one's head down.
+Explanation: Concentrate and work hard.
+Example Sentence: Kris got his head down and got a degree in Mechanical Engineering."
+
+"Idiom: forty winks.
+Explanation: a short sleep, especially during the day.
+Example Sentence: I'll feel much better when I've had forty winks."
+
+"Idiom: Put one's feet up.
+Explanation: to sit down and relax, especially with your feet raised and supported
+Example Sentence: After a long day working at the store, Marc likes to put his feet up and watch TV."
+
+"Idiom： Cut corners.
+Explanation: Try to do things quickly and cheaply without thinking of quality.
+Example Sentence: If you cut corners to save time, the quality of your work will suffer."
+
+"Idiom： Not lift a finger.
+Explanation: Do absolutely nothing.
+Example Sentence: Carmen was so lazy. He didn't lift a finger to help us clean up after the party."
+
+"Idiom： A slacker.
+Explanation: A very lazy person.
+Example Sentence: Brandon is a slacker. He looks at his phone all day and ignores the customers."
+
+"Idiom： At a snail's pace. (snail: 蜗牛)
+Explanation: Extremely slowly.
+Example Sentence: The traffic usually moves at a snail's pace during the rush hour."
+
+"Idiom: Forge ahead. (forge: 形成；伪造；稳步前进；锻造)
+Explanation: To move forward quickly; to make a lot of progress quickly.
+Example Sentence: The hikers forged ahead in spite of the terrible snowstorm."
+
+"Idiom： Stretch my legs.
+Explanation: Go for a short walk after sitting down for a long time.
+Example Sentence: I've been at my desk all day. I'm going to stretch my legs and make some coffee."
+
+"Idiom： Blaze a trail. (blaze: 燃烧，闪耀)
+Explanation: Do something that has never been done before.
+Example Sentence: Our company has blazed a trail with these new environmentally friendly cars."
+
+"Idiom： Set the wheels in motion.
+Explanation: Done something to start a process.
+Example Sentence: It was Rob's idea. I merely set the wheels in motion.
+
+wheels: [复数] 错综复杂的机构（或系统）"
+
+"Idiom: Slowly but surely.
+Explanation: Slowly, but at a steady rate of progress.
+Example Sentence: Slowly but surely, my daughter is learning to ride a bike."
+
+"Idiom： Hit the road.
+Explanation: Begin a trip or a drive.
+Example Sentence: After squeezing our luggage into the car, we were ready to hit the road."
+
+"Idiom： Back on track.
+Explanation: Working well again after experiencing problems.
+Example Sentence: After losing a few games earlier this month, the team is back on track now."
+
+"Idiom： Back to the drawing board.
+Explanation: Have to start again or try another idea.
+Example Sentence: The client hates my design for the company logo, so it's back to the drawing board."
+
+"Idiom: get (sb) off the hook, let sb off the hook.
+Explanation: to free yourself or sb from a difficult situation or a punishment
+Example Sentence: It was the first time Raul had been caught speeding, so the police let him off the hook."
+
+"Idiom: Take the law into your own hands.
+Explanation: Deal with crime without using the legal system.
+Example Sentence: Seth took the law into his own hands and confronted the vandals. (vandal: 故意破坏公物者)"
+
+"I'll give Brown one more warning and then if he doesn't ${s}toe up${e}, I'll send him the bill.
+
+to say or do what somebody in authority tells you to say or do, even if you do not share the same opinions
+
+toe：脚趾。这里作动词，原意为把脚尖对上线，站成一排。也作toe the line,toe the mark. "
+
+"Idiom: Put one's foot down.
+Explanation: to be very strict in opposing what sb wishes to do
+Example Sentence: Pedro's father put his foot down and refused to let him watch TV."
+
+"Idiom: Twist one's arm.
+Explanation: to persuade or force somebody to do something
+Example Sentence: Leah's manager twisted her arm, and she agreed to work late."
+
+"Idiom: Win (sth) hands down.
+Explanation: Win it easily and with little effort.
+Example Sentence: Melissa did really well in the race. She won it hands down."
+
+"Idiom: Nail sth.
+Explanation: to achieve something or do something right, especially in sport
+Example Sentence: He nailed a victory in the semi-finals."
+
+"Idiom: An overnight success.
+Explanation: Successful very quickly.
+Example Sentence: Nathan's first book was an overnight success. It sold a million copies in a month."
+
+"Idiom: The dizzy heights. (dizzy: 头晕目眩的)
+Explanation: A very important or impressive position.
+Example Sentence: Tyler has finally reached the dizzy heights of head chef."
+
+"Idiom： Fall flat on your face.
+Explanation: To fail completely, usually in an embarrassing way.
+Example Sentence: Margaret's performance fell flat on its face. She can't sing!"
+
+"Idiom： Bring the house down.
+Explanation: Greatly impressed an audience. To make everyone laugh or cheer, especially at a performance in the theatre.
+Example Sentence: The dancers brought the house down with their fantastic performance."
+
+"Idiom: On the ropes.
+Explanation: very close to being defeated
+Example Sentence: Four years ago, the dollar was riding high and it was the euro that was on the ropes."
+
+"Idiom: A blue-collar job. (collar: 衣领)
+Explanation: A job that involves manual or physical work.
+Example Sentence: My dad had a blue-collar job in the construction industry. (construction: 建筑，施工，结构)"
+
+"Francis only cleans his house ${s}once in a blue moon${e}.
+
+very rarely"
+)
+
+unset s
+unset e
