@@ -25,11 +25,11 @@ jobs:
         run: |
           sudo apt update
           sudo apt install -y zsh
-
+          sudo apt install -y shellcheck
       # Runs a single command using the runners shell
       - name: Check shell scripts
         run: |
-          find . \( -name .git \) -prune -o -type f -exec grep -z -l -P '^#![^\r\n]+/bash' '{}' \; | xargs -n 1 -I '{}' bash -n "{}"
+          find . \( -name .git \) -prune -o -type f -exec grep -z -l -P '^#![^\r\n]+/bash' '{}' \; | xargs -n 1 -I '{}' shellcheck --severity=error "{}"
           find . \( -name .git \) -prune -o -type f -exec grep -z -l -P '^#![^\r\n]+/zsh' '{}' \; | xargs -n 1 -I '{}' zsh -n "{}"
 
       - name: Check sudoers
