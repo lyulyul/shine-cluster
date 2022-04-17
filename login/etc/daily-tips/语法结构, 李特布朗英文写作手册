@@ -1,0 +1,51 @@
+#!/bin/bash
+
+s=$(tput smul)
+e=$(tput rmul)
+
+tips=(
+"在本技巧提示中，PE指代Practical English Usage第四版。
+
+PE203指PE的第203节。"
+
+"Many ethnic groups, [their own place estabilished], are making way for new arrivals.
+
+[Their native hands left behand], [an uncertain future looming],
+immigrants face many obstacles.
+
+[独立短语]与句中的其他名词、动词或其他词语都没有具体的语法联系。
+独立短语修饰的是整个句子，起到增加信息和明确意义的作用。#b3"
+
+"<Two languages [being] at hand>, bilingual citizens in fact have many cultural and occupational advantages.
+
+在独立短语中，be的变形如being、having been可被省略。#b3"
+
+"Geraldine Ferraro’s face beamed. She enjoyed the crowd’s cheers after her nomination for Vice President.
+↓
+Her face beaming, Geraldine Ferraro enjoyed the crowd’s cheers after her nomination for Vice President.
+
+当把两个句子变成含独立短语的一个句子。若独立短语的事件与主句一起发生，独立短语的动词用v-ing。
+若独立短语的时间比主句早发生，独立短语的动词用having done。"
+
+"A vacancy had occurred. Sandra Day O’Connor was appointed the first female Supreme Court justice.
+↓
+A vacancy having occurred, Sandra Day O’Connor was appointed the first female Supreme Court justice.
+
+当把两个句子变成含独立短语的一个句子。若独立短语的事件与主句一起发生，独立短语的动词用v-ing。
+若独立短语的时间比主句早发生，独立短语的动词用having done。"
+
+"At first the program was not as successful as its founders had hoped.
+
+副词从句修饰动词、形容词、副词和整个字串。
+这里，as its founders had hoped修饰successful。"
+
+"The parents knew their children could read better <than they [could read]>.
+
+than they是省略从句。在比较中，可省略谓语，这里省略了could read。
+
+PE206: In an informal style, object pronouns (me,  etc) are used after 'than'. In a more 
+formal style, subject pronouns (I,  etc) are used (usually with verbs)."
+)
+
+unset s
+unset e
