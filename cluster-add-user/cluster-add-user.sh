@@ -57,7 +57,8 @@ sudo -u $username cp ../slurm-examples/* /home/$username/shared/
 
 gecos=$(getent passwd $username | cut -d ':' -f 5)
 
-cat <<HERE > ~/shared/remote-add-user
+remoteFile=~/shared/remote-add-user
+cat <<HERE > $remoteFile
 #!/bin/bash -e
 sudo addgroup --gid $gid $username
 # It's not documented clearly, but --gid requires the existence of GID.
@@ -67,13 +68,13 @@ sudo usermod -aG conda-cache $username
 sudo ln -s /home/shared/$username /home/$username/shared
 HERE
 
-chmod +x ~/shared/remote-add-user
+chmod +x $remoteFile
 
-if ! ssh eureka ~/shared/remote-add-user; then
+if ! ssh eureka $remoteFile; then
 	echo "Failed to execute remote command,"
 	echo "Please run ~/shared/remote-add-user on eureka."
 fi
-if ! ssh tatooine ~/shared/remote-add-user; then
+if ! ssh tatooine $remoteFile; then
 	echo "Failed to execute remote command,"
 	echo "Please run ~/shared/remote-add-user on tatooine."
 fi
