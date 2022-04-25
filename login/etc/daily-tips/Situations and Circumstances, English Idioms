@@ -1,0 +1,503 @@
+#!/bin/bash
+
+s=$(tput smul)
+e=$(tput rmul)
+
+tips=(
+"What we've saved is just ${s}a drop in the ocean${e} compared to what we need.
+
+a tiny amount"
+
+"Kaitlin's received ${s}stacks of${e} letters from the bank, but hasn't opened them.
+
+a large number of
+
+stack：一叠"
+
+"We always take ${s}everything but the kitchen sink${e} when we travel.
+
+almost all our belongings"
+
+"It'll take about three weeks, ${s}give or take${e} a day or so.
+
+plus or minus"
+
+"The guests began to arrive at the party ${s}in dribs and drabs${e}.
+
+slowly and in small numbers 零零星星地"
+
+"Customers were ${s}few and far between${e} because of the rain.
+
+small in number; scarce"
+
+"I'm so tired. I got ${s}precious little${e} sleep last night.
+
+almost no
+
+precious：珍贵的 precise：准确的
+注意读音不同"
+
+"Carla's school is just ${s}a stone's throw${e} away from the bus stop.
+
+a short distance"
+
+"The castle is in ${s}a far-flung corner${e} of the island. It takes two hours to drive there.
+
+a distant, in accessible part
+
+fling：(flung, flung) 丢"
+
+"The car avoided hitting my bike by just ${s}a hair's breadth${e}.
+
+a very short distance
+
+breadth：宽度 breath：呼吸的空气
+注意读音不同"
+
+"People came from ${s}far and wide${e} to watch the rock concert.
+
+long distances away"
+
+"I love to travel ${s}off the beaten path${e} when I'm on vacation.
+
+to places that are less popular or difficult to reach"
+
+"Jennifer won the marathon ${s}by a whisker${e}.
+
+by a very small amount or distance
+
+whisker：（猫或鼠的）须"
+
+"Sharon lives in ${s}the middle of nowhere${e}. You can't get there by train.
+
+a place that is difficult to get to
+
+nowhere：n. 没有地方；很远的地方"
+
+"Mike's ${s}made a fresh start${e} this year. He's eating much more healthily.
+
+started to live life in a much better way"
+
+"The New Year's celebrations ${s}kicked off${e} with a band playing rock music.
+
+began"
+
+"Without more money, the movie is unlikely to ${s}get off the ground${e}.
+
+start to become successful"
+
+"The soccer team made ${s}a promising start${e} to the season, beating last year's winners.
+
+a beginning that shows lots of potential
+
+promising：有前途的"
+
+"The pottery course was far too difficult for ${s}a newbie${e} like me.
+
+someone starting an activity or a job for the first time
+
+pottery：陶艺"
+
+"Mia's fashion firm ${s}got off to a flying start${e}. She has already won three awards.
+
+began extremely well
+
+get off：出发"
+
+"Let's ${s}get the ball rolling${e}! Here's a brush and some paint for you.
+
+start doing something with enthusiasm"
+
+"After selling the last sandwich, Dean decided to ${s}call it a day${e}.
+
+stop working"
+
+"My cake's going to be great. I'm just ${s}putting the finishing touches on it${e}.
+
+adding the final details to it
+
+touch：[C] 修饰，润色"
+
+"As the day ${s}drew to a close${e}, we collected our things and left the beach.
+
+came closer to its end
+
+draw：移动"
+
+"Jen is campaigning to ${s}put an end to${e} the sales of plastic bottles.
+
+make something end or stop happening"
+
+"It was ${s}the end of an era${e} when our boss retired after 30 years.
+
+an important event that marks the end of a period of time"
+
+"I've been marking tests all day, but ${s}the end is in sight${e}!
+
+it will be over soon"
+
+"Winning the best actor award was ${s}a fitting end${e} to Goro's career.
+
+an appropriate way to end something"
+
+"I think you'll need to replace your washing machine, 
+but I'll take a look ${s}on the off-chance${e} that I can fix it.
+
+in the unlikely event"
+
+"There was only ${s}a slim chance${e} that we'd see a cheetah,
+so we were amazed when we spotted one.
+
+a small possibility"
+
+"The weather forecaster announced that we're ${s}in for a chance of${e} rain tomorrow.
+
+fairly likely to experience
+
+in for：即将经历"
+
+"We ${s}don't stand a chance${e} of getting into the museum before lunchtime.
+
+have no chance"
+
+"Winning the lottery was ${s}a stroke of luck${e} for us.
+
+something good that happens by chance
+
+storke：单一的成功事件"
+
+"It was just a case of ${s}beginner's luck${e} when I won that card game.
+I'd never played it before.
+
+good luck for someone who has begun a new activity"
+
+"I've already bought you ice cream. ${s}Don't push your luck${e}!
+
+Don't ask for anything else"
+
+"You're ${s}in luck${e}! We have one dress left in your size.
+
+lucky or able to do something
+
+size：dress in size，介词要用in"
+
+"Do you have these shoes in (a) size 5?
+
+这款鞋有5号的吗？
+
+size：服装；鞋；商品等的尺码，介词要用in"
+
+"I hadn't studied for my tests, so it was ${s}sheer luck${e} when I passed them.
+
+very good luck
+
+sheer：表示强调"
+
+"I'm not very ${s}hot${e} on modern painting. 我不太了解现代绘画。
+
+A hot stereo system is one of the most important parts of any grad limo.
+一个牛逼的立体声音响是毕业礼车最重要的部分。"
+
+"It's ${s}anyone's guess${e} which player will win the game. They're both superb.
+
+impossible to predict"
+
+"I had an interview for a great job, but ${s}blew it${e} when I arrived half an hour late.
+
+blow: v. (blew, blown) 浪费（机会）"
+
+"${s}Against the odds${e}, Ryder completed his round-the-world sailing trip today.
+
+Despite circumstances that made it unlikely
+
+the odds：机会"
+
+"The test was ${s}a cinch${e}. I finished it 20 minutes early.
+
+cinch：容易的事"
+
+"Getting around my city is ${s}a breeze${e}. Our freeways are excellent.
+
+breeze：微风；轻而易举的事"
+
+"It's ${s}all too easy${e} to forget to turn off the lights when you go out.
+
+all too：太；过分"
+
+"Making a great cup of coffee is ${s}not rocket science${e}.
+
+not very complicated or difficult"
+
+"I already play the violin, so learning the cello was ${s}a walk in the park${e}.
+
+easy
+
+cello：大提琴"
+
+"Alicia's worked in this factory so long she could do her job ${s}with her eyes shut${e}.
+
+easily, or without thinking"
+
+"Doing the dishes after a dinner party is ${s}a pain in the neck${e}.
+
+very annoying or problematic"
+
+"My home improvements ${s}opened a can of worms${e}. The builders discovered so many problems.
+
+caused a situation that leads to more difficulties"
+
+"The team has ${s}a mountain to climb${e} if it wants to win the game.
+
+a huge amount to do, or problem to overcome"
+
+"Finishing the building this month is going to be ${s}a tall order${e}.
+
+very difficult"
+
+"I was ${s}like a fish out of water${e} at the science fiction convention.
+
+in a difficult or unusual situation"
+
+"Bashir was totally ${s}out of his depth${e} on his first day working at the florist.
+
+in a situation that is too difficult
+
+florist：花店"
+
+"It might rain later. I'll ${s}play it safe${e} and take an umbrella.
+
+avoid any unnecessary risks
+
+also ${s}play it cool${e} 冷静对待"
+
+"The rescue team found the climbers ${s}safe and sound${e} after a week-long search.
+
+unharmed and safe
+
+sound：未受伤的"
+
+"The route through the jungle was ${s}fraught with danger${e}.
+
+fraught with 充满"
+
+"Elsa's job at the cafe is ${s}hanging by a thread${e} after she dropped another tray of drinks.
+
+in a very dangerous or insecure situation"
+
+"You're ${s}skating on thin ice${e}, Xu.
+You've arrived late for school every day this week.
+
+potentially getting into trouble"
+
+"If you don't do your violin practice, you ${s}run the risk${e} of failing your test next week.
+
+put yourself at risk"
+
+"Many changes have been ${s}run${e} since Ferdinand and you begun your course of love.
+
+自从费迪南德和你展开爱情之路以来，已经发生了许多变化。"
+
+"Blake is ${s}teetering on the brink${e} of losing his job.
+His boss has given him a final warning.
+
+close to a dangerous situation"
+
+"The bear had left, and ${s}the coast was clear${e}. We could continue with our trek.
+
+it was safe to do something.
+
+trek：长途跋涉"
+
+"After the crash, I called my mom to tell her I was still ${s}in one piece${e}.
+
+unharmed or uninjured"
+
+"Are you sure you want to buy a Tesla? I think you should ${s}look before you leap${e}.
+
+think about the consequences of taking risks
+
+leap：向远处jump，向高处jump"
+
+"I advise Kathy not to go into the water. It would be ${s}risking life and limb${e}.
+
+extremely dangerous
+
+limb：（四肢的）手或脚"
+
+"Hayley had ${s}a close shave${e}. That ball almost hit her!
+
+a situation where something bad nearly happened
+
+shave：n. 刮脸，剃须"
+
+"Marco ${s}had a narrow escape${e}, but managed to avoid being hit by the pickup.
+
+nearly had an accident, or got into danger
+
+pickup：皮卡"
+
+"Oh, no, I've missed the last bus home. I'm really ${s}in a jam${e} now.
+
+in a difficult situation
+
+home: adv. 到家，在家"
+
+"The police officer ${s}came up against a brick wall${e} when he asked 
+if there were any witnesses to the crime.
+	
+couldn't make any progress
+
+brick：砖块"
+
+"a new Internet company without a lot of ${s}bricks-and-mortar${e} businesses
+一家没有多少实体产业的新网络公司"
+
+"Not being able to read music was ${s}a stumbling block${e} when I started learning the saxophone.
+
+something that causes problems and stops progress
+
+stumble：vi. 绊脚"
+
+"The peeling wallpaper was just ${s}the tip of the iceberg${e}. The house needed so many repairs.
+
+a small, visible part of a larger problem
+
+peeling：剥落的"
+
+"Tina was in ${s}a no-win situation${e}. Her son wanted a beach vacation, but her daughter wanted to go skiing.
+
+a difficult situation with no possibility of a positive outcome"
+
+"Lisa has had ${s}a bumpy ride${e} recently. First she broke her arm, and now she has failed her tests.
+
+a difficult time"
+
+"If you let your children eat whatever they want, you're ${s}making a rod for your own back${e}.
+
+causing yourself more difficulties in the future
+
+rod：棍棒"
+
+"The protesters want to stop the building being demolished, 
+but they're ${s}fighting a loosing battle${e}.
+
+trying to achieve something that is very unlikely
+
+demolish：v. 拆除"
+
+"I hate going to the dentist, but I know I have to ${s}grin and bear it${e}.
+
+笑着仍受
+
+grin：露齿而笑"
+
+"Getting the old gramophone to work has ${s}a tough nut to crack${e}.
+
+a difficult problem to solve
+
+gramophone：留声机"
+
+"Working on machine learning meant I had to ${s}come to grips with${e} Python.
+
+learn how to do something challenging
+
+${s}come to power${e}, ${s}come to an end${e}, ${s}come to a decision${e}"
+
+"With me you're first, ${s}rain or shine${e}.
+无论风雨，我都是你的第一。
+
+whatever the weather"
+
+"Are you sure you want to go for a walk? There's ${s}a howling wind${e} out there.
+
+a very strong wind
+
+howling：adj. (风暴)怒号的"
+
+"It's ${s}raining cats and dogs${e}. I wish I hadn't forgotten my umbrella.
+
+raining heavily
+
+rain sth (down) (on sth/sb)：使大量落下"
+
+"Don't be such ${s}a stick-in-the-mud${e}! If you try skydiving, you will enjoy it.
+
+墨守成规的人"
+
+"This politician used to be really popular, but now ${s}the tide has turned${e}.
+
+circumstances or people's opinions are the opposite of what they used to be
+
+注意 tilde（波浪号）发音不同"
+
+"I love looking after my niece. She's a ray of sunshine.
+
+a cheerful person who makes you feel happy
+
+niece：侄女"
+
+"Isaac and Fatima's argument about which movie to watch was just ${s}a storm in a teacup${e}.
+
+an argument or controversy about something unimportant"
+
+"Sorry, but we'll have to ${s}take a rain check on${e} meeting up tonight.
+I'm not feeling very well.
+
+postpone or cancel"
+
+"You weren't listening to me, were you? You ${s}had your head in the clouds${e}.
+
+were thinking about something else"
+
+"Sam ${s}stole my thunder${e} when he said he'd done all the work. It's not true – I did most of it!
+
+stole my idea 
+
+thunder：雷声"
+
+"Stop ${s}beating around the bush${e} and tell me what you want.
+
+拐弯抹角"
+
+"I'm so tired tonight! I'm going to hit the hay.
+
+go to bed
+
+hay：干草"
+
+"The decision to close the library ${s}made waves${e} in my local area.
+
+caused controversy."
+
+"the tourists are back - ${s}with a vengeance${e}.
+
+程度更深地；出乎意料地"
+
+"After an experience like that, you never go anywhere without a personal stash of ${s}TP${e}.
+
+toilet paper
+
+stash：一批贮藏物"
+
+"She looks like she's going to ${s}come apart at the seams${e}.
+她看起来快要崩溃了
+
+seam：两块布的接缝
+
+也有fall apart at the seams"
+
+"I ${s}tidied up${e} the report before handing it in.
+
+收拾妥；整理好。原型为tidy v.。"
+
+"She stood ${s}in the doorway${e} for a moment before going in.
+她在门口站了一会儿才进去。"
+
+"This text ${s}illuminates${e} the philosopher's early thinking.
+
+阐明；解释"
+)
+
+
+unset s
+unset e
