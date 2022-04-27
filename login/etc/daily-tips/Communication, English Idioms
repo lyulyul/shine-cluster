@@ -1,0 +1,514 @@
+#!/bin/bash
+
+s=$(tput smul)
+e=$(tput rmul)
+
+tips=(
+"Ahmed ${s}talks the talk${e}, but isn't very hardworking.
+
+说得头头是道"
+
+"I've tried telling Maya to clean up her room, but it's ${s}like talking to a brick wall${e}.
+
+pointless because the other person won't respond"
+
+"Ryan wants to join the circus. I'm trying to ${s}talk some sense into him${e}.
+
+persuade him to behave in a sensible way
+
+circus：马戏团"
+
+"Kirsty's always commenting on other people's cloths. ${s}She can talk!${e}
+
+她还敢说别人？"
+
+"My colleagues love to ${s}talk shop${e} when they meet for lunch.
+
+三句话不离本行"
+
+"Linda likes to ${s}talk big${e}. She claims she's visited every country.
+
+boast or exaggerate
+
+boast：自夸"
+
+"I didn't want to move abroad but Bill ${s}talked me into it${e}.
+
+persuade sb to do sth
+
+又有talk sb out of sth"
+
+"Tamara is really friendly, but she can ${s}talk your ear off${e}.
+
+talk at great length"
+
+"Dad would never let anyone ${s}talk back${e} to Aunt Mary Maria.
+
+顶嘴，=answer back"
+
+"I made ${s}small talk${e} with Marisha while we waited for the Uber.
+
+polite conversation about unimportant or uncontroversial things"
+
+"I always enjoy ${s}a chitchat${e} with my sister over coffee.
+
+a chat or gossip
+
+又写作chit-chat"
+
+"This politician has a reputation for ${s}speaking his mind${e}.
+
+实话实说"
+
+"He ${s}spoke${e} the final words of the play.
+剧中最后的台词是他说的。
+
+${s}speak the truth${e}"
+
+"My grandpa ${s}spins a good yarn${e}. He loves telling us about his childhood adventures.
+
+tells funny or unlikely stories
+
+yarn：纱线；（夸张或编造的）长故事"
+
+"The students ${s}parroted${e} the facts without using their own words.
+
+repeated word for word
+
+parrot：鹦鹉，这里做动词"
+
+"I ${s}struck up a conversation${e} with him at the party.
+
+began a conversation
+
+strike up：建立人际关系，开始交谈"
+
+"I sat on the shore with my boyfriend, ${s}shooting the breeze${e}.
+
+talking in a relaxed way"
+
+"Nina keeps ${s}droning on${e} about her new car. It's getting really boring.
+
+talking at length in an uninteresting way
+
+drone：v. 嗡嗡响"
+
+"Sarah was born with ${s}the gift of the gab${e}. She could sell you anything.
+
+the ability to speak confidently and persuasively
+
+gab：n. 喋喋不休"
+
+"My cousin is such ${s}a loudmouth${e}. He never stops talking.
+
+sb who talks too much, too loud"
+
+"${s}Cat got your tongue?${e} You usually have so much to say.
+
+You're being very quiet."
+
+"Good luck with your interview today. ${s}Keep me posted${e} about how it goes.
+
+keep me informed with the latest news"
+
+"Rumors that two actors had secretly gotten married ${s}spread like wildfire${e}.
+
+spread very quickly"
+
+"Anna's manager ${s}touched base${e} with her for a quick update on her research.
+
+had a brief conversation to get an update
+
+touch base：verb.，touch是主要的动词"
+
+"Angie ${s}filled me in${e} on what happened at work file I was away.
+
+told me all the latest important information"
+
+"This restaurant could'nt affort an advertising campaign,
+but it has become really popular ${s}by word of mouth${e}.
+
+by people talking about it"
+
+"We must have ${s}got our wires crossed${e}.
+I thought the dress code for this party was bikini.
+
+misunderstood information, or become confused"
+
+"I'm afraid your cat will have to stay here overnight, 
+but I promise I'll ${s}keep you in the picture${e} about how she's recovering.
+
+keep you fully informed"
+
+"Lin decided to ${s}get it off her chest${e} and told Mel all about her relationship problems.
+
+share sth worrying or upsetting"
+
+"The tour rep ${s}broke the news${e} to us that our flight had been canceled.
+
+reveal important (and usually bad) news
+
+rep：representative"
+
+"The design team make sure they always ${s}keep me in the loop${e}.
+
+keep me updated about shared information"
+
+"I'm sorry to be ${s}the bearer of bad news${e}, but we won't be able to fix your computer.
+
+sb who delivers bad news
+
+bearer：送信人"
+
+"Phil showed me around the kitchen. He knows ${s}the nuts and bolts${e} of running a restaurant.
+
+the practical rules of sth，本意为螺帽和螺栓"
+
+"Pedro's going to marry Elena. I ${s}heard it from the horse's mouth${e}.
+
+heard the news directly from the original source
+
+horse：马"
+
+"${s}A little bird told me${e} that Richa is going to be promoted.
+
+sb told me, but I won't tell you the name"
+
+"I'm planning a surprise trip to Puerto Rico with Liam to celebrate our wedding anniversary.
+Don't ${s}let the cat out of the bag${e}.
+
+reveal a secret by mistake
+
+Puerto Rico：波多黎各，美国的自治邦"
+
+"The boss ${s}stirred up the hornet's nest${e} when she said we would have to take a pay cut.
+
+caused a lot of upset or excitement
+
+hornet：大黄蜂"
+
+"When news stories are shocking, I always ${s}take them with a grain of salt${e}.
+
+don't completely believe them
+
+grain：一颗，一粒"
+
+"I ${s}heard it through the grapevine${e} that my missing daughter was seen in Novigrad.
+
+heard some news through gossip or rumor"
+
+"Those popular girls are always ${s}dishing the dirt${e} on sb in our class.
+
+sharing malicious gossip
+
+dish：n. 待洗的餐具，这里做动词
+dirt：丑闻"
+
+"Why did you ${s}spill the beans${e} and tell Luke I'm his father? 
+I wanted to tell him myself.
+
+reveal a secret"
+
+"I'm scared of dogs. In fact, I'm terrified of them, ${s}to tell you the truth${e}.
+
+to be completely honest"
+
+"Nathan ${s}came clean${e} with his parents and told them he had broken the window.
+
+confessed to doing sth wrong 全盘托出"
+
+"${s}come + adj${e}
+
+The handle came loose. 这把手松了。
+Everything will come right in the end. 一切到最后都会好起来的。"
+
+"My teacher was ${s}brutally honest${e} with me and told me my essay was terrible.
+
+honest in a very direct or insensitive way
+
+brutally：直截了当地"
+
+"Don't worry; the deal was completely ${s}above board${e}.
+
+honest, open, legal"
+
+"Tania told me a secret but asked me to ${s}keep it under my hat${e}.
+
+avoid telling anyone"
+
+"Anita's recipe for her banana pie is ${s}top secret${e}. She won't share it with anyone.
+
+completely secret"
+
+"I promise I won't tell Lizzie you're going to propose her. 
+${s}My lips are sealed${e}.
+
+I will keep it a secret."
+
+"I'm not going to tell you how much my house cost. It's ${s}none of your business${e}.
+
+private information"
+
+"We're keeping our new car model ${s}under wraps${e} until the launch later this week.
+
+secret
+
+wrap：[U] 包装材料"
+
+"My wife was angry when I ${s}went behind her back${e} and bought myself a new motorcycle.
+
+did sth without telling her"
+
+"I can't believe I let that guy ${s}take me for a ride${e} like that.
+
+deceive or cheat me"
+
+"My wife is speaking at the dinner and I'm just going ${s}along for the ride${e}.
+
+凑凑热闹，随便看看
+
+ride：n. 搭便车"
+
+"Our boss says the company is doing well, but she has a reputation for ${s}telling half-truths${e}.
+
+not telling the whole truth
+
+the truth [sing] 真相
+truth [C] 真理"
+
+"I ${s}have a sneaking suspicion${e} that Marcia was at a job interview this morning.
+
+suspect sth without firm evidence
+
+sneaking：暗中的"
+
+"He's just very naive, and when Natalie comes on to him, he never ${s}smells a rat${e}.
+
+怀疑事情不妙；感觉情况不对
+
+rat：耗子"
+
+"She has been ${s}out sick${e} all week.
+
+因为生病而不在"
+
+"The children are being very quiet. I think there's ${s}sth fishy${e} going on.
+
+sth suspicious
+
+fishy：可疑的"
+
+"The piano teacher ${s}had a hunch${e} that Jordan hadn't done any practice since his last lesson.
+
+suspected
+
+hunch：直觉"
+
+"The examiner ${s}watched us like a hawk${e}, making sure we didn't cheat.
+
+watched us very carefully
+
+hawk：鹰
+howling：怒号的"
+
+"The setting sun ${s}cast${e} an orange glow over the mountains.
+橘红色的夕阳辉映着群山。
+
+cast sth (over sth)：投射（光、影子等）"
+
+"I only had time to ${s}glance${e} at the newspapers.
+
+~ at/down/over/through sth：浏览，粗略地看"
+
+"Bastian ${s}kept a close watch on${e} his children as they played outside.
+
+watched carefully"
+
+"The dean ${s}turned a blind eye${e} to his students' bad behavior.
+
+ignored, or pretended not to see
+
+dean：学院院长，系主任"
+
+"We ${s}kept our eyes peeled${e}, hoping we'd spot some rare birds.
+
+watched very carefully for sth
+
+peel：v. 剥皮"
+
+"I asked my brother to ${s}keep an eye on${e} the dinner while I was talking on the phone.
+
+take care of sth, or watch sth carefully"
+
+"The border guard gave my documents ${s}the once-over${e}, then let me drive on.
+
+a quick check or inspection"
+
+"I always ${s}cast an eye over${e} my desk to make sure I haven't forgotten anything when I leave the office.
+
+look at or check sth quickly
+
+cast：vi. 撇一眼"
+
+"Karen has ${s}an eagle eye${e}. She found lots of mistakes when I asked her to check my dissertation.
+
+the ability to spot small details
+
+spot：注意到"
+
+"Jenny, please tell me how the interview went. ${s}I'm all ears${e}!
+
+I'm eager to hear about it"
+
+"I told me daughter she should work harder,
+but my advice ${s}fell on deaf ears${e}.
+
+was ignored"
+
+"My grandfather is ${s}hard of hearing${e}, so I often have to repeat things to him.
+
+partially deaf"
+
+"He was charitable and not too hard of heart.
+
+${s}hard of heart${e}：心肠不太行的
+${s}hard of head${e}：脑子不太行的
+${s}hard of hearing${e}：听力不太行的"
+
+"Martina didn't hear the teacher's question. She was ${s}a million miles away${e}.
+
+not listening at all"
+
+"Be careful what you say about the chancellor. Remember, ${s}walls have ears${e}!
+
+chancellor：总理，校长（高于dean），大法官"
+
+"I completely ${s}zoned out${e} during that meeting. It was so boring!
+
+stopped listening or concentrating
+
+zone：v. 划为区域"
+
+"Ethan was only ${s}listening with half an ear${e} and kept checking his phone as I spoke to him.
+
+not listening attentively
+
+c.f. ${s}go in one ear and out the other${e}"
+
+"When my parents ${s}got wind of${e} the fact that I'd had a house party, they were furious.
+
+found out about sth that was meant to be a secret
+
+wind：[C,U] 风声
+furious：狂怒的"
+
+"How many times must I ${s}drum it into your head${e}? Wipe your feet on the mat!
+
+tell you sth again and again
+
+drum：v. 打鼓"
+
+"Our new bookstore opens today. Let's ${s}get the show on the road${e}.
+
+get sth started or working properly"
+
+"You've ${s}changed your tune${e}! I thought you didn't like cats.
+
+changed your mind
+
+tune：曲调"
+
+"Dennis broke his mon's laptop. He had to ${s}face the music${e} and tell her.
+
+accept the consequences of actions"
+
+"Pavel decided to ${s}jazz up${e} his house, so he painted it purple.
+
+make sth brighter, more colorful, or more exciting
+
+bright：鲜艳夺目的"
+
+"Juanita is so careful at work. She ${s}does everything by the book${e}.
+
+follows the rules, or does things in the expected way"
+
+"Chris Rock ${s}hit the wrong note${e} and got a slap from Will Smith on Oscars 2022.
+
+do, say or write sth that is not suitable for a particular occasion
+	
+slap:v. 打巴掌; n. 巴掌"
+
+"Making sure people know about our concert will help us ${s}drum up${e} an audience.
+
+try hard to get support or business"
+
+"I'm sure she doesn't want us ${s}horning in${e} on her business.
+
+插手（与自己无关的事）
+
+horn：n. （车辆的）喇叭。这里做动词"
+
+"Dad's always telling me to clean my room. He ${s}is like a broken record${e}.
+
+says the same thing again and again
+
+broken record：坏掉了的唱片
+record作动词和名词时读音不同"
+
+"The gardens ${s}are a picture${e}.
+
+look very beautiful or special
+
+也可写作${s}look a picture${e}"
+
+"Will you stop ${s}following me around${e}!
+
+到处跟随，跟踪"
+
+"I knew it was Enzo who had eaten my drumsticks. I can ${s}read him like a book${e}.
+
+understand what he's thinking from his body language
+
+drumstick：鸡腿"
+
+"I'm going to ${s}take a page out of your book${e} and clean my desk.
+
+copy your good habit"
+
+"Antonio is great at flower arranging. He ${s}has it down to an art${e}.
+
+is an expert in sth, usually after much practice"
+
+"Nisha is helping me ${s}fine-tune${e} my presentation for tomorrow morning.
+
+change sth slightly to make it even better"
+
+"Kira's supervisor ${s}made a scene${e} when she arrived five minutes late.
+
+made an unnecessary fuss
+
+fuss：大吵大闹，大惊小怪"
+
+"Arjun felt ${s}left out of the picture${e} when his roommates got a dog without telling him.
+
+not informed about some news or a situation"
+
+"Despite the rain, we decided not to cancel the play in the park. ${s}The show must go on!${e}
+
+Sth must still happen despite any difficulties"
+
+"I really think you're making ${s}a tempest in a teapot${e} over this. It's just a tiny scratch on the car!
+
+大惊小怪；小题大做
+
+tempest：暴风雪"
+
+"These small nations constitute an important ${s}grouping${e} within the EU.
+这些小国家是欧盟中的一个重要小集团。
+
+grouping：大group里面的小group，小圈子"
+)
+
+
+unset s
+unset e
