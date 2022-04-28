@@ -33,6 +33,8 @@ jobs:
           find . \( -name .git \) -prune -o -type f -exec grep -z -l -P '^#![^\r\n]+/zsh' '{}' \; | xargs -n 1 -I '{}' zsh -n "{}"
       - name: Install cluster configurations
         run: sudo ./install.sh login
+      - name: Check motd
+        run: sudo run-parts login/etc/update-motd.d/
 
       - name: Check sudoers
         run: set nullglob visudo --check --strict login/etc/sudoers.d/*
