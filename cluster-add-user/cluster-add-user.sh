@@ -78,7 +78,7 @@ tatooine
 for server in "$computeNodes[@]"
 do
 	echo $server
-	if ! ssh $server $remoteFile; then
+	if ! ssh -o StrictHostKeyChecking=no $server $remoteFile; then
 		echo "Failed to execute remote command, please run ~/shared/remote-add-user on $server."
 	fi
 done
