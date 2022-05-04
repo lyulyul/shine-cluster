@@ -4,7 +4,7 @@ s=$(tput smul)
 e=$(tput rmul)
 
 tips=(
-"These ${s}bright young things${e} have just started college
+"These ${s}bright young things${e} have just started college.
 
 young, enthusiastic, fashionable, or ambitious people"
 
@@ -12,15 +12,15 @@ young, enthusiastic, fashionable, or ambitious people"
 
 young and inexperienced"
 
-"I've just turned 40, and I'm ${s}in the prime of my life${e}. I always go to the gym after work.
+"I've just turned 40, and I'm in ${s}the prime of my life${e}. I always go to the gym after work.
 
-at my best; healthy and successful"
+at my best; healthy and successful period or state"
 
 "Katie started learning piano when she was ${s}knee-high to a grasshopper${e}.
 
-very young
+very young, very short
 
-grasshopper蚱蜢"
+grasshopper 蚱蜢"
 
 "Derek and Joan spent their ${s}twilight years${e} traveling the world.
 
@@ -30,17 +30,17 @@ grasshopper蚱蜢"
 
 very old age
 
-ripe成熟的"
+ripe 成熟的"
 
 "Sally first sang on stage at the ${s}tender age${e} of 7.
 
 [sing.] very young age
 
-tender嫩的"
+tender 嫩的"
 
 "Damien's at that ${s}awkward age${e} and finds it hard to talk to people.
 
-the period of adolescence when people feel very self-conscious"
+the time of life when one is no longer a child and yet not properly grown up"
 
 "Many singer's voices ${s}improve with age${e}.
 
@@ -52,7 +52,7 @@ no longer being in contact with"
 
 "I think Claire's found ${s}a soulmate${e}. Both she and Don love reading.
 
-the perfect person to be a friend or partner"
+A person who shares a deep understanding or bond with another"
 
 "I've ${s}kept in touch with${e} Lin since we left college 25 years ago.
 
@@ -60,21 +60,23 @@ continue to be in contact with"
 
 "Marie and Pierre met through Isaac, ${s}a mutual friend${e} of theirs.
 
-a shared friend of two people"
+a shared friend of two people
+
+mutual 相互的"
 
 "Ramon and Tara ${s}get on like a house on fire${e}. They're always talking and laughing.
 
-get along extremely well; have a very good relationship"
+quickly get along extremely well; have a very good relationship"
 
 "Mia and I have ${s}drifted apart${e} since she left our choir and started boxing instead.
 
-slowing become less friendly or close to each other
+gradually to lose mutual affection
 
 choir合唱团"
 
-"I ${s}struck up a friendship${e} with Pete while we were in a cooking class last year.
+"I ${s}struck up${e} a friendship with Pete while we were in a cooking class last year.
 
-become friends with
+to start a relationship or conversation with someone
 
 struck是strike的过去分词"
 
@@ -84,19 +86,19 @@ become friends very quickly"
 
 "Donna was ${s}a fair-weather friend${e}. She wouldn't help when my house flooded.
 
-a friend who leaves you when you have difficulties"
+somebody who stops being a friend when you are in trouble"
 
 "Cy and I ${s}got off on the wrong foot${e} on our date. He was an hour late and forgot my name.
 
-started our relationship badly"
+in a task or relationship, to start unsuccessfully."
 
 "Bob reminds me so much of his father. He is ${s}a chip off the old block${e}.
 
-very similar to someone in his family"
+a person who is very similar to their mother or father in the way that they look or behave"
 
 "Uncle Tony is ${s}the black sheep of the family${e}. He's been to prison three times.
 
-someone who brings shame to the family or is the odd one in the family"
+ A disreputable member of a family"
 
 "We're ${s}bringing up${e} our children to be kind to animals.
 
@@ -104,9 +106,9 @@ teaching a child how to behave"
 
 "We're ${s}a close-knit family${e}. We always meet up for birthdays and holidays.
 
-a loyal and supportive family
+a family in which everyone supports each other.
 
-knit：v. (knit,knit)（使）紧密"
+knit：v. (knit, knit)（使）紧密"
 
 "Curly hair ${s}runs in our family${e}, and my daughter, mom, and I all have it.
 
@@ -118,11 +120,13 @@ looks extremely similar"
 
 "Mateo and his brother Lucas are ${s}like two peas in a pod${e}. I can't tell them apart.
 
-extremely similar to each other"
+extremely similar to each other; indistinguishable."
 
 "Karen is ${s}the spitting image of${e} that actor in the new sci-fi film.
 
-almost identical to"
+to look exactly like somebody else
+
+sci-fi: science fiction"
 
 "You must eat something. You're ${s}all skin and bones${e}.
 
@@ -130,11 +134,11 @@ too thin"
 
 "Oscar is only 25, but he's already ${s}getting thin on top${e}.
 
-have no hair on top of head"
+have no hair on top of the head"
 
 "Rita ${s}looked like she'd seen a ghost${e} after I told her my news.
 
-looked very scared or shocked"
+looks very scared or shocked"
 
 "Rachel ${s}looked like a drowned rat${e} after she got caught in the rain on her way home.
 
@@ -150,17 +154,17 @@ keep sth <-> up：保持高水平"
 
 "Domenica ${s}looked the part${e} for her first day of work at the bank.
 
-was dressed in the right way"
+to have an appearance befitting a particular character, role, or function."
 
 "George arrived at the restaurant ${s}immaculately groomed${e} for his date with Cassie.
 
-打扮得特别整洁"
+ perfectly clean or neat"
 
 "Nalini ${s}never has a hair out of place${e}. She cares a lot about her appearance.
 
-is extremely neat and well groomed
+is extremely neat and well groomed.
 
-groomed打扮、收拾"
+well groomed 整洁且衣着得体"
 
 "Philip ${s}was born with a silver spoon in his month${e}. He grew up in a castle in France.
 
@@ -168,11 +172,13 @@ was born into a wealthy family"
 
 "Maxine is such ${s}a highflier${e}. She's been promoted twice this year and is only 23.
 
-a very talented and successful person"
+a very talented and successful person.
+
+promote v. 提拔, 晋升"
 
 "Danika's parents don't approve of Bob because he's from ${s}the wrong side of the tracks${e}.
 
-the wrong social background or part of town
+the wrong social background or inferior part of town
 
 approve of：不同意、不喜欢"
 
@@ -192,17 +198,17 @@ vivid: （想象力）丰富的"
 
 "Norah is such ${s}a fuddy-duddy${e}. She never wants to come out with us on Saturday night.
 
-someone who is unwilling to try new things."
+someone who is unwilling to try new things. An old-fashioned person"
 
 "Gustav has ${s}a selfish streak${e}. He won't share his cookies with his friends.
 
-streak：不好的性格"
+streak: a part of a person's character, especially an unpleasant part"
 
 "Arturo is so ${s}two-faced${e}. He said he liked my haircut but told his friends he hated it.
 
-两面派"
+saying different things to different people about a particular subject"
 
-"My dad's just ${s}an average Joe${e}. He enjoys burgers and fries, and loves watching baseball.
+"My dad's just an ${s}average Joe${e}. He enjoys burgers and fries, and loves watching baseball.
 
 a stereotypical man who has simple tastes
 
@@ -216,7 +222,7 @@ barrel：圆桶"
 
 "Bob is such ${s}a crybaby${e}. He was very upset about not getting a perfect score.
 
-someone who cries a lot without good reason"
+someone who cries too often or without good reason"
 
 "Zoe loves proving how much she knows. She's ${s}too smart for her own good${e}.
 
@@ -241,7 +247,9 @@ a very sociable person 交际花"
 
 "My uncle's ${s}a lone wolf${e}. He lives on his own in a cabin in the forest.
 
-someone who prefers to live or work alone"
+someone who prefers to live or work alone
+
+lone adj. 单独的，独自的"
 
 "Tony ${s}wouldn't say boo to a goose${e}. He gets really shy when he talks to customers.
 
@@ -271,15 +279,15 @@ tough：嚼不烂的，剽悍的"
 
 "Kirsty remained ${s}as cool as cucumber${e} throughout her performance.
 
-calm and relaxed"
+very calm and showing control, especially in a difficult situation"
 
 "My kids think this TV show is ${s}the best thing since sliced bread${e}.
 
-extremely good"
+extremely good, interesting"
 
 "The ice cream at Giuseppe's parlor really is ${s}the bee's knees${e}!
 
-the very best
+an excellent person or thing
 
 parlor：只卖一种东西的店
 knee：膝盖"
@@ -290,7 +298,7 @@ much more advanced than"
 
 "The view from the top of the mountain is totally ${s}out of this world${e}. You can see for miles.
 
-amazing"
+used to emphasize how good, beautiful"
 
 "We had a wonderful boat trip. ${s}The frosting on the cake${e} was seeing dolphins.
 
@@ -326,11 +334,13 @@ far better than any others"
 
 makes me feel very uncomfortable
 
-litter：（乱扔的）垃圾"
+dropping litter: 乱扔垃圾"
 
 "The weather in Hawaii ${s}didn't live up to expectations${e}. It rained every day.
 
-was not as good as expected"
+was not as good as expected
+
+expectation: 期望"
 
 "Country music is ${s}not my cup of tea${e}. I prefer rock music.
 
@@ -344,7 +354,7 @@ cf. the prime of my life"
 
 "The museum in my town is ${s}nothing to write home about${e}. There are very few exhibits.
 
-not every impressive"
+not every impressive; ordinary"
 
 "Watching golf on TV is so boring. It's ${s}like watching paint dry${e}.
 
@@ -358,11 +368,11 @@ set sth on fire：把东西点燃"
 
 "It's still ${s}rough around the edges${e}, but this is my design for the park.
 
-not perfect, in need of more work"
+not perfect, unpolished, in need of more work"
 
 "Rita's TV is ${s}on its last legs${e}. She's had it for over 10 years.
 
-likely to stop working soon"
+likely to stop functioning very soon"
 
 "We had been really looking forward to the meal, but thought the food was ${s}a let-down${e}.
 
@@ -370,7 +380,9 @@ a disappointment"
 
 "My old desktop computer is ${s}past its sell-by date${e}. It takes a long time to start up.
 
-in need of replacing"
+in need of replacing
+
+sell-by date: 销售日期，保质期"
 
 "Clarita's new apartment is tiny. There's ${s}not enough room to swing a cat${e}.
 
@@ -380,12 +392,13 @@ swing：摇摆"
 
 "My colleagues all have terrible colds. They're ${s}dropping like fries${e}!
 
-becoming sick, or stopping doing something, in large numbers"
+becoming sick, fall down or stop doing something, in large numbers"
 
 "You're ${s}barking up the wrong tree${e} if you think I can help you with your homework.
 I'm terrible at science.
 
-wasting effort by following the wrong course of action
+#wasting effort by following the wrong course of action
+to have the wrong idea about how to get or achieve something
 
 bark：狗叫"
 
@@ -401,12 +414,13 @@ was too scared to"
 
 repeatedly telling me to do something
 
-badger：纠缠"
+badger：不断催促"
 
 "It really ${s}gets my goat${e} when someone eats smelly food on the train.
 
 irritates me
 
+smelly: 有臭味的
 irritate：使恼火"
 
 "You can do anything now that you've finished college. ${s}The world is your oyster${e}.
@@ -423,15 +437,17 @@ the largest part"
 
 猪才相信
 
-也可作in a pig's eye, in a pig's arse（屁股）"
+也可作 in a pig's eye, in a pig's arse（屁股）"
 
 "I don't like my job, but it ${s}puts food on the table${e}.
 
-provides enough money to pay for the most important things"
+to earn enough money to live on"
 
 "Sharon always ${s}spoon-feeds${e} her staff. She tells them exactly what to do.
 
-gives too much help to"
+gives too much help to
+
+spoon: 勺子"
 
 "Don't get so upset about burning the cookies. It's no use ${s}crying over spilled milk${e}.
 
@@ -441,9 +457,11 @@ spilled：洒出来的"
 
 "Jennifer is such ${s}a couch potato${e}. She never goes out and watches TV all weekend instead.
 
-a lazy person who watches too much TV"
+a lazy person who watches too much TV
 
-"I don't know whether to apply for this job. Its looks really interesting but ${s}it pays peanuts${e}.
+couch: 长沙发，长椅"
+
+"I don't know whether to apply for this job. It looks really interesting but ${s}it pays peanuts${e}.
 
 the salary is very low"
 
@@ -455,7 +473,7 @@ clumsy：笨拙的"
 
 "I'm really stressed! I think I ${s}bit off more than I could chew${e} when I took this promotion.
 
-took on more responsibility than I could manage
+to try to do too much, or something that is too difficult
 
 bit：咬 chew：嚼"
 
@@ -468,7 +486,9 @@ flatter：奉承"
 
 "Copies of Sadie's new novel are ${s}selling like hotcakes${e} after it got great reviews.
 
-selling quickly in large numbers"
+selling quickly in large numbers
+
+hotcake: 烤饼, 畅销品"
 
 "You want to ${s}walk on eggshells${e} around Dylan. He gets upset so easily.
 
@@ -484,7 +504,9 @@ fond：喜爱"
 
 a jealous and bitter attitude
 
-sour：酸的"
+scooter：小型摩托车，滑板车
+sour：酸的
+jealous: 嫉妒的"
 )
 
 unset s
