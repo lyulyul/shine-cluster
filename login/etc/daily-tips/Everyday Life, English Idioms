@@ -1,0 +1,512 @@
+#!/bin/bash
+
+s=$(tput smul)
+e=$(tput rmul)
+
+tips=(
+"You can buy yourself ${s}a square meal${e} at the student cafe for a few dollars.
+
+a satisfying and nutritious meal
+
+square：结实的"
+
+"Aliyah ${s}whipped up${e} an omelet for Caleb and his friends.
+
+prepare a meal quickly
+
+whip：鞭子，这里做动词"
+
+"We ${s}whipped through${e} customs in ten minutes.
+
+匆匆做，迅速完成"
+
+"The sight of the cake in the cafe window ${s}made my mouth water${e}.
+
+made me hungry or want to eat sth"
+
+"Ethan took his new client out for ${s}a sit-down meal${e}.
+
+a large and tasty meal, usually in a restaurant"
+
+"Paolo was so hungry that he ${s}wolfed down${e} that huge burger really quickly.
+
+ate quickly and greedily
+
+wolf：v. 狼吞虎咽"
+
+"Krish always starts his day with ${s}a hearty breakfast${e}.
+
+a large breakfast
+
+hearty：丰盛的"
+
+"Blue cheese is ${s}an acquired taste${e}. I still think it's disgusting, but Joe loves it.
+
+sth that you only like after trying it a few times
+
+disgusting：恶心的"
+
+"Wayne ${s}eats like a bird${e}. He only ever orders a small salad for lunch.
+
+eats a very small amount"
+
+"Nigel took a tray of ${s}piping hot${e} cupcakes out of the oven.
+
+very hot"
+
+"We complained to the server that our soup was ${s}stone cold${e}.
+
+completely cold"
+
+"I ${s}washed down${e} my pizza with a glass of lemonade.
+
+用饮料帮助下咽"
+
+"Chris bought ${s}a round of drinks${e} for the basketball team.
+
+drinks you buy for the group of people you are with"
+
+"After three hours in the gym, Dan ${s}quenched his thirst${e} with a glass of juice.
+
+satisfied his thirst
+
+quench：止渴"
+
+"I felt ${s}parched${e} after working in the sun, so I drank a whole bottle of water.
+
+干燥的"
+
+"Ayano was feeling ${s}under the weather${e}, so she left work early.
+
+not well, slightly sick"
+
+"This music's far too loud! It has given me ${s}a splitting headache${e}.
+
+欲裂的头痛"
+
+"I think I'm ${s}coming down with${e} flu.
+
+染上了（小病）"
+
+"Pablo is ${s}on the road to recovery${e} after breaking his leg.
+
+getting better
+
+c.f. break a leg"
+
+"I'm not well enough to go to work today, so I'm going to ${s}call in sick${e}.
+
+call my employer to say I am too sick to work"
+
+"Does he believe the economy's really ${s}on the mend${e}?
+
+getting better"
+
+"The smell made me want to ${s}throw up${e}.
+
+呕吐"
+
+"Tourists come ${s}in all shapes and sizes${e}.
+
+in a great variety of forms"
+
+"Uma is ${s}up and about${e} following her operation last week.
+
+able to walk around
+
+又作${s}up and around${e}
+${s}up and going${e}：可以做事了"
+
+"Ollie received ${s}a clean bill of health${e} from his doctor.
+
+the news that you are completely healthy"
+
+"The dancers in this show have to be ${s}as fit as a fiddle${e}.
+
+very fit and healthy
+
+fiddle：小提琴"
+
+"After turning 40, Tom decided to ${s}get in shape${e} and started jogging.
+
+become fitter and healthier, usually by losing weight
+
+jog：v.,n. 慢跑"
+
+"Moving to Denmark has given Kira ${s}a new lease on life${e}.
+
+new energy and enthusiasm for life"
+
+"A relaxing afternoon in the park helped me ${s}recharge my batteries${e}.
+
+regain my energy by resting"
+
+"After a few days by the coast, Lauren began to feel ${s}as right as rain${e}.
+
+fit and healthy
+
+right：情况良好"
+
+"Imran looks ${s}the picture of health${e} since he started going to gym.
+
+extremely healthy
+
+the picture：形势、状况"
+
+"Mary's an expert in ancient history. She really ${s}knows her stuff${e}.
+
+knows a lot about a subject"
+
+"Peter's ${s}brushing up on${e} his French before his vacation in Paris.
+
+revising or improving knowledge about sth"
+
+"The professor's astrophysics lecture ${s}went over my head${e}.
+
+was impossible to understand"
+
+"Andrea only started work here last week. She's still ${s}learning the ropes${e}.
+
+learning the basic skills for a job"
+
+"I can show you around my city. I ${s}know it like the back of my hand${e}.
+
+know it extremely well"
+
+"Don't touch Git command line. Stick with TortoiseGit or SmartGit until you ${s}knows them inside out${e}.
+
+knows them extremely well"
+
+"We both thought of buying Dan a camera for his birthday.
+${s}Great minds think alike${e}.
+
+Intelligent people have the same ideas"
+
+"He read some of it but could ${s}not make head or tail of${e} it.
+
+not understand at all
+
+也可写作not make head nor tail"
+
+"Sumiko gave her speech without notes. She had ${s}learned it by heart${e}.
+
+memorized it"
+
+"Brad thought he would pass the test easily, but he only ${s}scraped by${e}.
+
+passed a test with difficulty
+
+scrape：艰难取得，勉强获得"
+
+"When Souad took her piano test, she ${s}passed with flying colors${e}.
+
+passed easily, or performed very well"
+
+"Trent is ${s}a teacher's pet${e}. He always offers to carry the teacher's bag.
+
+sb who seeks approval from a person in authority"
+
+"Dion's new laptop is ${s}light-years ahead of${e} his old one.
+
+much more advanced than"
+
+"Ping's design for the new library really ${s}breaks the mold${e}.
+
+changes the usual way things are done
+
+mold：模具；个性"
+
+"Luisa had to pay ${s}a hefty sum${e} to get a ticket for the game today.
+
+a large amount of money
+
+hefty：可观的"
+
+"Luna wants to buy a house soon, so she's building up ${s}a nest-egg${e}.
+
+a large sum of money saved for a specific purpose"
+
+"Donna ${s}struck it rich${e} when she won the lottery.
+
+suddenly became rick
+
+strike sb adj: [常被动] 顿时处于某种状态"
+
+"Aranaza and Dominic decided to ${s}go Dutch${e} at the end of the meal.
+
+share the cost of a meal out equally"
+
+"The shoes at the market ${s}cost next to nothing${e}, so Jeremy bought three pairs.
+
+were very cheap"
+
+"If you don't turn off the lights when you leave the building, 
+you're ${s}throwing money down the drain${e}.
+
+wasting money
+
+drain：下水道"
+
+"I found it hard to ${s}make ends meet${e} when I was a student, so I started working in a Chinese restaurant.
+
+pay for my basic needs
+
+end：目标
+c.f. ${s}put food in the table${e}"
+
+"I loved looking after Nadia's cat while she was on vacation. It was ${s}easy money${e}.
+
+money earned for doing very little work"
+
+"It was really generous of Muhammad to buy us dinner at that expensive restaurant,
+but he does like to ${s}throw money around${e}.
+
+show off by spending money
+
+show off：炫耀"
+
+"Getting the car fixed will be expensive, but luckily I have ${s}saved for a rainy day${e}.
+
+saved money for when it might be needed unexpectedly
+
+save (sth) (up) (for sth)"
+
+"Mike is ${s}rolling in it${e}. He's just bought himself another yacht.
+
+extremely rich
+
+roll：打滚"
+
+"The stall is closing in an hour, so it's selling its sandwiches at ${s}rock-bottom prices${e}.
+
+very low prices"
+
+"My daughter wants a new smartphone. I keep telling her ${s}money doesn't grow on trees${e}!
+
+there is only a limited amount of money"
+
+"Vegetables don't have to be expensive. Carrots and cabbage are ${s}dirt cheap${e} at this store.
+
+extremely cheap"
+
+"I like to ${s}shop around${e} before I buy a new sofa.
+
+compare prices at various stores"
+
+"Be careful, Max! That vase ${s}cost a fortune${e}.
+
+cost a lot of money"
+
+"My new suit ${s}cost an arm and a leg${e}. I bought it from a tailor in Milan.
+
+cost a large amount of money"
+
+"Adrian loves to ${s}go bargain-hunting${e} at his local market.
+
+search for goods that are cheaper than normal
+
+bargain：v. 讨价还价；n. 减价品"
+
+"This suit ${s}is a steal${e} at $80.
+
+很便宜，就像白给
+
+steal：n. v. 偷"
+
+"They had to use ${s}off-the-shelf${e} items in order to save time.
+
+现成的，从货架上拿下来就能用的，不是定制的"
+
+"During the sales, many stores ${s}slash prices${e} by more than 50 percent.
+
+reduce prices dramatically
+
+slash：砍，劈"
+
+"Lucas ${s}drove a hard bargain${e}, refusing to drop the price of his house.
+
+was a tough negotiator
+
+hard：严厉的，不妥协的"
+
+"The Uber from the airport at this time cost more than $70.
+It was ${s}highway robbery${e}!
+
+far more expensive than it should have been"
+
+"After winning the lottery, Tomas ${s}went on a shopping spree${e}.
+
+bought a large number of things
+
+spree：纵乐"
+
+"Hannah needed a new party dress and found ${s}a good deal${e} online.
+
+a good price"
+
+"On the last day of the sales, Sam and Hiromi ${s}shopped till they dropped${e}.
+
+did a lot of shopping
+
+drop：累垮"
+
+"Austin needed some ${s}retail therapy${e}, so he spent the afternoon at the mall.
+
+shopping as a way of getting rid of stress，购物疗法"
+
+"It was so quiet on Monday that we decided to ${s}close up shop${e} for the afternoon.
+
+close a business temporarily or permanently"
+
+"We ${s}were on a tight budget${e} for our vacation, so we stayed in a cheap hostel.
+
+had a small amount of money to spend
+
+hostel：招待所"
+
+"'""${s}Time!${e}""' called the referee. Then the two foes stood face to face.
+
+在体育运动中表示时间到
+
+referee：裁判"
+
+"You'll have to ${s}wait until the cows come home${e} before Yuri fixes your car.
+
+an extremely long time"
+
+"That meeting really ${s}dragged on${e}. Colm was almost asleep by the end.
+
+lasted far too long
+
+drag：拖沓地进行"
+
+"If you like a good story, read ${s}on${e}.
+
+He worked ${s}on${e} without a break.
+
+on：表示持续性"
+
+"Today has ${s}flown by${e}, and I still have so much work to do!
+
+passed very quickly or too quickly"
+
+"'But never mind, with my management I dare say I shall make it do.' 
+'And ""${s}about time${e}"", my dear,' said her husband.
+
+到了合适的时间；（讽刺地）早该，表示过了合适地时间"
+
+"Finley's growing up so quickly! He was walking ${s}before we knew it${e}.
+
+unexpectedly soon or quickly"
+
+"We arrived ${s}in the nick of time${e}. The plane was about to take off.
+
+at the last possible moment
+
+nick：裂缝"
+
+"Our flight was delayed for a few hours, so we ${s}killed time${e} playing cards.
+
+kept busy while waiting
+
+kill time doing sth"
+
+"Ren arrived ${s}bright and early${e} for his first day at work.
+
+early in the morning
+
+c.f. nice and ..."
+
+"I was woken in ${s}the dead of night${e} by a loud noise outside.
+
+the middle of the night; the quietest part of the night"
+
+"I worked on my assignment ${s}from dusk till dawn${e}.
+
+through the whole night
+
+dusk：黄昏
+dawn：黎明"
+
+"Fred stayed up until ${s}the wee hours${e}, chatting with his grandfather.
+
+soon after midnight
+
+又写作${s}the small hours${e}, ${s}the early hours${e}"
+
+"When Juan won the national art prize, it was ${s}a feather in his cap${e}.
+
+an achievement to be proud of
+
+feather：羽毛"
+
+"Pedro's upset about failing the test. You'll have to ${s}handle him with kid gloves${e}.
+
+treat him very carefully or sensitively
+
+请搜索kid gloves"
+
+"If Sven pays back my money on time, I'll ${s}eat my hat${e}.
+
+I'll be amazed (but I doubt it will happen)"
+
+"${s}I take my hat off to${e} Jo for collecting so much money for charity this year.
+
+I am very impressed with
+
+charity：慈善活动"
+
+"My daughter thinks my taste in music is really ${s}old hat${e}.
+
+old-fashioned"
+
+"My boss got very ${s}hot under the collar${e} when I handled my report in late.
+
+agitated and angry
+
+collar：衣领。与color的读音比较"
+
+"Our plan to improve sales didn't work, but I have a new plan ${s}up my sleeve${e}.
+
+ready, but not yet common knowledge
+
+sleeve：袖子"
+
+"We need to ${s}roll up our sleeves${e} if we're going to finish painting the house today.
+
+get ready to work hard"
+
+"Cathy had been ${s}lining her pocket${e} with company funds for years
+before the boss caught her.
+
+making money illegally, often by corruption
+
+line：v. 衬在里面"
+
+"This steak really is ${s}as tough as shoe leather${e}. I need a sharper knife.
+
+difficult to cut or chew
+
+steak：牛排
+streak：（不好的）性格"
+
+"If Gavin doesn't start working harder, we'll have to ${s}give him the boot${e}.
+
+force him to leave his job
+
+boot：n. 靴子；猛踢"
+
+"My cousin is very emotional. He'll start an argument ${s}at the drop of a hat${e}.
+
+immediately, or without thinking too much about it"
+
+"After working at the bank for 30 years, it was time for me to ${s}hang up my boots${e}.
+
+retire
+
+c.f. ${s}the end of an era${e}"
+
+)
+
+unset s
+unset e
