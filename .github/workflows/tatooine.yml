@@ -28,7 +28,8 @@ jobs:
           sudo ./install.sh tatooine
       - name: Check exports
         run: |
-          sudo exportfs -ra
+          # mock the folder
+          sudo mkdir /opt-all
           output=$(sudo exportfs -ra 2>&1)
           if [[ "$output" = *"Assuming"* ]]; then
             echo "$output" >&1
