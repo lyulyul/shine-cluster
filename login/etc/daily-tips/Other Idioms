@@ -1,0 +1,45 @@
+#!/bin/bash
+
+s=$(tput smul)
+e=$(tput rmul)
+
+tips=(
+"Idiom： A cold fish.
+Explanation: A person who seems unfriendly and without strong emotions.
+Example Sentence: My neighbour is a cold fish."
+
+"Idiom： Go nuts.
+Explanation: To become extremely angry.
+Example Sentence: My sister will go nuts when she finds out I crashed her car.
+nuts: adj. [只作表语] mad, crazy"
+
+"Idiom： Come into effect.
+Explanation: To come into use; To begin to apply.
+Example Sentence: New controls come into effect next month."
+
+"Idiom： For real.
+Explanation: What somebody claims it is or serious.
+Example Sentence: I don’t think her tears were for real."
+
+"Idiom： Wake-up call.
+Explanation: A telephone call that you arrange to be made to you at a particular time, for example in a hotel, in order to wake you up.I asked for a 6:30 a.m. wake-up call.
+Example Sentence: I asked for a 6:30 a.m. wake-up call."
+
+"Idiom： A clean break.
+Explanation: A complete end to any connection with a person, an organization, a way of life, etc.
+Example Sentence: She wanted to make a clean break with the past."
+
+"I'll give Brown one more warning and then if he doesn't ${s}toe up${e}, I'll send him the bill.
+
+to say or do what somebody in authority tells you to say or do, even if you do not share the same opinions
+
+toe：脚趾。这里作动词，原意为把脚尖对上线，站成一排。也作toe the line,toe the mark. "
+
+"Idiom: On the ropes.
+Explanation: very close to being defeated
+Example Sentence: Four years ago, the dollar was riding high and it was the euro that was on the ropes."
+)
+
+unset s
+unset e
+
