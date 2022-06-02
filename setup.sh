@@ -21,3 +21,5 @@ sudo chmod -x /etc/update-motd.d/50-motd-news
 # 禁止自动更新
 sudo apt remove -y unattended-upgrades
 
+# 卸载PulseAudio,防止其自启动
+sudo apt-get autoremove pulseaudio
