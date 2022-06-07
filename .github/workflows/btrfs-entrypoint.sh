@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -e
 
 # Requires a rootfull and privileged contrainer.
 
