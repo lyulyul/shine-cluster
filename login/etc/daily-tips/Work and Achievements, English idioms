@@ -1,0 +1,129 @@
+#!/bin/bash
+
+s=$(tput smul)
+e=$(tput rmul)
+
+tips=(
+
+"Idiom: Burn the candle at both ends.
+Explanation: Working very hard, from the early morning until late at night.
+Example Sentence: Nicole's burning the candle at both ends. She must be exhausted."
+
+"Idiom: Go the extra mile.
+Explanation: To make a special effort to achieve something, help somebody, etc.
+Example Sentence: Leo always goes the extra mile to keep our customers happy."
+
+"Idiom: Left no stone unturned.
+Explanation: Did everything possible to solve a problem.
+Example Sentence: The police left no stone unturned in their efforts to solve the crime."
+
+"Idiom: Snow under.
+Explanation: Extremely busy, or overwhelmed.
+Example Sentence: Samire was snowed under with complaints from unhappy customers."
+
+"Idiom: Get one's head down.
+Explanation: Concentrate and work hard.
+Example Sentence: Kris got his head down and got a degree in Mechanical Engineering."
+
+"Idiom: forty winks.
+Explanation: a short sleep, especially during the day.
+Example Sentence: I'll feel much better when I've had forty winks."
+
+"Idiom: Put one's feet up.
+Explanation: to sit down and relax, especially with your feet raised and supported
+Example Sentence: After a long day working at the store, Marc likes to put his feet up and watch TV."
+
+"Idiom: Cut corners.
+Explanation: Try to do things quickly and cheaply without thinking of quality.
+Example Sentence: If you cut corners to save time, the quality of your work will suffer."
+
+"Idiom: Not lift a finger.
+Explanation: Do absolutely nothing.
+Example Sentence: Carmen was so lazy. He didn't lift a finger to help us clean up after the party."
+
+"Idiom: A slacker.
+Explanation: A very lazy person.
+Example Sentence: Brandon is a slacker. He looks at his phone all day and ignores the customers."
+
+"Idiom: At a snail's pace. (snail: 蜗牛)
+Explanation: Extremely slowly.
+Example Sentence: The traffic usually moves at a snail's pace during the rush hour."
+
+"Idiom: Forge ahead. (forge: 形成；伪造；稳步前进；锻造)
+Explanation: To move forward quickly; to make a lot of progress quickly.
+Example Sentence: The hikers forged ahead in spite of the terrible snowstorm."
+
+"Idiom: Stretch my legs.
+Explanation: Go for a short walk after sitting down for a long time.
+Example Sentence: I've been at my desk all day. I'm going to stretch my legs and make some coffee."
+
+"Idiom: Blaze a trail. (blaze: 燃烧，闪耀)
+Explanation: Do something that has never been done before.
+Example Sentence: Our company has blazed a trail with these new environmentally friendly cars."
+
+"Idiom: Set the wheels in motion.
+Explanation: Done something to start a process.
+Example Sentence: It was Rob's idea. I merely set the wheels in motion.
+
+wheels: [复数] 错综复杂的机构（或系统）"
+
+"Idiom: Slowly but surely.
+Explanation: Slowly, but at a steady rate of progress.
+Example Sentence: Slowly but surely, my daughter is learning to ride a bike."
+
+"Idiom: Hit the road.
+Explanation: Begin a trip or a drive.
+Example Sentence: After squeezing our luggage into the car, we were ready to hit the road."
+
+"Idiom: Back on track.
+Explanation: Working well again after experiencing problems.
+Example Sentence: After losing a few games earlier this month, the team is back on track now."
+
+"Idiom: Back to the drawing board.
+Explanation: Have to start again or try another idea.
+Example Sentence: The client hates my design for the company logo, so it's back to the drawing board."
+
+"Idiom: get (sb) off the hook, let sb off the hook.
+Explanation: to free yourself or sb from a difficult situation or a punishment
+Example Sentence: It was the first time Raul had been caught speeding, so the police let him off the hook."
+
+"Idiom: Take the law into your own hands.
+Explanation: Deal with crime without using the legal system.
+Example Sentence: Seth took the law into his own hands and confronted the vandals. (vandal: 故意破坏公物者)"
+
+"Idiom: Put one's foot down.
+Explanation: to be very strict in opposing what sb wishes to do
+Example Sentence: Pedro's father put his foot down and refused to let him watch TV."
+
+"Idiom: Twist one's arm.
+Explanation: to persuade or force somebody to do something
+Example Sentence: Leah's manager twisted her arm, and she agreed to work late."
+
+"Idiom: Win (sth) hands down.
+Explanation: Win it easily and with little effort.
+Example Sentence: Melissa did really well in the race. She won it hands down."
+
+"Idiom: Nail sth.
+Explanation: to achieve something or do something right, especially in sport
+Example Sentence: He nailed a victory in the semi-finals."
+
+"Idiom: An overnight success.
+Explanation: Successful very quickly.
+Example Sentence: Nathan's first book was an overnight success. It sold a million copies in a month."
+
+"Idiom: The dizzy heights. (dizzy: 头晕目眩的)
+Explanation: A very important or impressive position.
+Example Sentence: Tyler has finally reached the dizzy heights of head chef."
+
+"Idiom: Fall flat on your face.
+Explanation: To fail completely, usually in an embarrassing way.
+Example Sentence: Margaret's performance fell flat on its face. She can't sing!"
+
+"Idiom: Bring the house down.
+Explanation: Greatly impressed an audience. To make everyone laugh or cheer, especially at a performance in the theatre.
+Example Sentence: The dancers brought the house down with their fantastic performance."
+)
+
+unset s
+unset e
+
