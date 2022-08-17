@@ -13,6 +13,10 @@ Example Sentence: Nicole's burning the candle at both ends. She must be exhauste
 Explanation: To make a special effort to achieve something, help somebody, etc.
 Example Sentence: Leo always goes the extra mile to keep our customers happy."
 
+"It took a lot of ${s}elbow grease${e} to get the old car looking good again.
+
+hard work or cleaning"
+
 "Idiom: Left no stone unturned.
 Explanation: Did everything possible to solve a problem.
 Example Sentence: The police left no stone unturned in their efforts to solve the crime."
@@ -20,6 +24,12 @@ Example Sentence: The police left no stone unturned in their efforts to solve th
 "Idiom: Snow under.
 Explanation: Extremely busy, or overwhelmed.
 Example Sentence: Samire was snowed under with complaints from unhappy customers."
+
+"Although Julie had never tried roller-skating before, she ${s}gave it best shot${e}.
+
+tried her best
+
+shot：尝试"
 
 "Idiom: Get one's head down.
 Explanation: Concentrate and work hard.
@@ -32,6 +42,12 @@ Example Sentence: I'll feel much better when I've had forty winks."
 "Idiom: Put one's feet up.
 Explanation: to sit down and relax, especially with your feet raised and supported
 Example Sentence: After a long day working at the store, Marc likes to put his feet up and watch TV."
+
+"We stopped to ${s}take a breather${e} before loading the rest of the boxes into the van.
+
+have a short break and a rest
+
+breather: 短暂的休息"
 
 "Idiom: Cut corners.
 Explanation: Try to do things quickly and cheaply without thinking of quality.
@@ -53,6 +69,12 @@ Example Sentence: The traffic usually moves at a snail's pace during the rush ho
 Explanation: To move forward quickly; to make a lot of progress quickly.
 Example Sentence: The hikers forged ahead in spite of the terrible snowstorm."
 
+"Astronauts ${s}made great strides] in space exploration in the 1960s.
+
+made a lot of progress
+
+stride：一大步"
+
 "Idiom: Stretch my legs.
 Explanation: Go for a short walk after sitting down for a long time.
 Example Sentence: I've been at my desk all day. I'm going to stretch my legs and make some coffee."
@@ -67,9 +89,31 @@ Example Sentence: It was Rob's idea. I merely set the wheels in motion.
 
 wheels: [复数] 错综复杂的机构（或系统）"
 
+"Our company has ${s}blazed a trail${e} with these new environmental friendly cars.
+
+done something that has never been done before
+
+trail：乡间小路"
+
+"I was late for my business meeting, so I had to eat lunch ${s}on the run${e}.
+
+while walking or traveling"
+
+"Maisie's restaurant is ${s}up and running${e}. The first diners arrived at lunchtime.
+
+open and working well"
+
+"Scientists are ${s}on the verge of${e} developing intelligent robots.
+
+very close to doing something"
+
 "Idiom: Slowly but surely.
 Explanation: Slowly, but at a steady rate of progress.
 Example Sentence: Slowly but surely, my daughter is learning to ride a bike."
+
+"Julia used to be so disorganized, but has really ${s}got her act together${e} recently.
+
+started to behave in a more organized and serious way"
 
 "Idiom: Hit the road.
 Explanation: Begin a trip or a drive.
@@ -83,9 +127,35 @@ Example Sentence: After losing a few games earlier this month, the team is back 
 Explanation: Have to start again or try another idea.
 Example Sentence: The client hates my design for the company logo, so it's back to the drawing board."
 
+"Ben ${s}suffered the consequences${e} of his misbehavior and had to wash the car.
+
+was punished for something"
+
+"Gavin broke the law when he ${s}ran a red light${e}.
+
+闯红灯"
+
+"Danielle decided to ${s}bend the rules${e} and let kids stay up later than usual.
+
+relax the rules a little"
+
 "Idiom: get (sb) off the hook, let sb off the hook.
 Explanation: to free yourself or sb from a difficult situation or a punishment
 Example Sentence: It was the first time Raul had been caught speeding, so the police let him off the hook."
+
+"It's the children who ${s}rule the roost${e} in Kaylee's family. They don't respect her.
+
+have control
+
+roost：栖息地"
+
+"Paul has really ${s}crossed the line${e} this time. He's eaten all his sister's birthday cake.
+
+behaved in a very inappropriate way"
+
+"Chrissie ${s}calls the shots${e} in our restaurant. She decides what's on the menu.
+
+has the authority or power"
 
 "Idiom: Take the law into your own hands.
 Explanation: Deal with crime without using the legal system.
@@ -97,39 +167,306 @@ to say or do what somebody in authority tells you to say or do, even if you do n
 
 toe：脚趾。这里作动词，原意为把脚尖对上线，站成一排。也作toe the line,toe the mark. "
 
+"Despite being rude to a customer, Ed only received ${s}a slap on the wrist${e}, and got a verbal warning.
+
+a minor punishment
+
+slap：用手掌拍打，打巴掌
+wrist：手腕"
+
 "Idiom: Put one's foot down.
 Explanation: to be very strict in opposing what sb wishes to do
 Example Sentence: Pedro's father put his foot down and refused to let him watch TV."
 
+"The party ${s}got out of hand${e}, so the neighbors called the police.
+
+became impossible to control"
+
 "Idiom: Twist one's arm.
 Explanation: to persuade or force somebody to do something
-Example Sentence: Leah's manager twisted her arm, and she agreed to work late."
+Example Sentence: Leah's manager twisted her arm, and then she agreed to work late."
+
+"Jack's boss is always ${s}breathing down his neck${e}. He wants more independence.
+
+watching or supervising him too closely"
 
 "Idiom: Win (sth) hands down.
 Explanation: Win it easily and with little effort.
 Example Sentence: Melissa did really well in the race. She won it hands down."
 
-"Idiom: Nail sth.
-Explanation: to achieve something or do something right, especially in sport
-Example Sentence: He nailed a victory in the semi-finals."
+"Malik's band has ${s}hit the big time${e}. It performed at the national stadium last night.
+
+become very successful"
 
 "Idiom: An overnight success.
 Explanation: Successful very quickly.
 Example Sentence: Nathan's first book was an overnight success. It sold a million copies in a month."
 
-"Idiom: The dizzy heights. (dizzy: 头晕目眩的)
-Explanation: A very important or impressive position.
-Example Sentence: Tyler has finally reached the dizzy heights of head chef."
+"Miguel has ${s}hit the jackpot${e} with his new ice cream machine.
+
+become financially successful"
+
+"Tyler has finally reached ${s}the dizzy heights${e} of head chef. He started out doing the dishes.
+
+a very important or impressive position
+
+dizzy：头晕目眩的
+the dishes：待洗的餐具"
+
+"Idiom: Bring the house down.
+Explanation: Greatly impressed an audience. To make everyone laugh or cheer, especially at a performance in the theatre.
+Example Sentence: The dancers brought the house down with their fantastic performance."
+
+"Lucy's beauty salon is ${s}going from strength to strength${e}. She's opening another soon.
+
+becoming increasingly successful"
+
+"I knew Helena would ${s}go places${e} as an athlete. She was so good at running at school.
+
+become successful"
+
+"The outdoor exhibition has been ${s}a runaway success${e}. Lots of people have come to see it.
+
+extremely successful
+
+runaway：迅速的"
+
+"The soccer tournament ${s}ran like clockwork${e}. Everyone really enjoyed it.
+
+happened as planed, without any problems
+
+clockwork：有齿轮发条的装置"
+
+"Erica's presentation ${s}worked like a charm${e} with the investors. They loved the designs.
+
+was very impressive
+
+charm：魅力，咒语"
+
+"Tim's ${s}beating a dead horse${e}. Nobody wants to buy his old car.
+
+wasting energy on something that will never succeed"
 
 "Idiom: Fall flat on your face.
 Explanation: To fail completely, usually in an embarrassing way.
 Example Sentence: Margaret's performance fell flat on its face. She can't sing!"
 
-"Idiom: Bring the house down.
-Explanation: Greatly impressed an audience. To make everyone laugh or cheer, especially at a performance in the theatre.
-Example Sentence: The dancers brought the house down with their fantastic performance."
+"The decorators have really ${s}screwed up${e} his job! We won't use them again.
+
+made a mess of"
+
+"My dinner party started to ${s}go sideways${e} when I spilled soup everywhere.
+
+go wrong, or fail"
+
+"Kevin's career is ${s}on the ropes${e}. His boss has given him an official warning.
+
+going badly, or fail"
+
+"The gang's plan to rob the bank ${s}went belly up${e} when a policeman recognized Mike.
+
+failed completely
+
+gang：（犯罪）团伙
+belly：肚子"
+
+"Carlos has lots of ${s}hands-on experience${e} working with horses.
+
+knowledge and kills gained through doing something"
+
+"Our snack bars are delicious, healthy, and affordable. 
+${s}In a nutshell${e}, your customers will love them.
+
+in a few words"
+
+"Irena's internship at the fashion firm helped her to get ${s}a foot in the door${e}.
+
+an opportunity to start doing a new job"
+
+"Despite the snow, it's ${s}business as usual${e} at the store today.
+
+the normal routine of a company or workplace"
+
+"Andrew made sure he ${s}had his ducks in a row${e} before his presentation.
+
+had everything prepared and organized"
+
+"We offer customers a discount when they recommend us to a friend.
+It's ${s}a win-win situation${e}.
+
+a situation with a positive outcome for everyone
+
+注意，这里recommend不能替换成suggest。"
+
+"Victor is ${s}climbing the career ladder${e}. He started work as a receptionist last year
+and he's already a manager.
+
+getting higher pay and more responsibility at work"
+
+"Maya is a great designer. She always ${s}thinks outside the box${e}.
+
+thinks about things in an original way"
+
+"We're ${s}working around the clock${e} to make sure the new subway line opens on time.
+
+working all day and night"
+
+"I'm afraid Katya can't come to the phone.
+She's ${s}tied up${e} in meetings all morning.
+
+busy doing something else"
+
+"Miguel has just ${s}landed a job${e} at a photography firm in San Francisco.
+
+found a good job"
+
+"I'm surprised Cheryl has managed to ${s}hold down a job${e} at the store for so long.
+She's always being rude to customers.
+
+keep a job
+
+rude：粗鲁的"
+
+"I used to work night shifts, but now I have ${s}a nine-to-five job${e}.
+
+a job with regular daytime hours, from Monday to Friday
+
+注意，这里work的用法极高级"
+
+"There's a lot of ${s}red tapes${e} involved in health and safety in the warehouse.
+
+administration, paperwork, or rules and regulations"
+
+"Our ski clothing stores are ${s}in the red${e} because there hasn't been any snow this winter.
+
+losing money, or in debt
+
+ski：滑雪的
+debt：欠债"
+
+"We've already reduced our price by 25 percent. ${s}The ball is in your court.${e}
+
+It's your turn to act"
+
+"We ask all our interview candidates the same questions to create ${s}a level playing field${e}.
+
+an environment in which everyone has equal opportunities
+
+level: adj. 相同高度的"
+
+"Our boss is leaving the company soon, 
+and Angela is ${s}the front-runner${e} to get his job.
+
+the person or organization most likely to win something"
+
+"Emily is ${s}a team player${e}. She works so well with all her colleagues at the bookstore.
+
+a person who works well with other people"
+
+"After many years in journalism, Simon became ${s}a big cheese${e} in the media.
+
+an important person in a company or industry"
+
+"My gardening business is starting to ${s}bring home the bacon${e}.
+
+make money
+
+bacon：猪肉，培根
+beacon：灯塔"
+
+"I play in a band every weekend, but teaching guitar is my ${s}bread and butter${e}.
+
+main source of income"
+
+"I've decided to leave ${s}the rat race${e} and move to the country.
+
+a way of urban working life that puts people under pressure
+
+country：乡村"
+
+"My boss is ${s}a fat cat${e}. He earns lots of money, but doesn't work very hard.
+
+an overpaid and lazy person"
+
+"Raul isn't our boss, but he still tries to be ${s}the top dog${e} in our team.
+He's always telling us what to do.
+
+the most important person"
+
+"The party was already ${s}in full swing${e} when we arrived.
+
+very busy and lively
+
+swing: 摆动，节奏"
+
+"I've failed my driving test for the tenth time.
+I think it's time to ${s}throw in the towel${e}.
+
+admit defeat, or stop trying to do something"
+
+"Hiroto is really ${s}on the ball${e} and never makes a mistake at work.
+
+alert and efficient"
+
+"Our client ${s}threw us a curveball${e} when she said we'd have to cater for another 50 guests at her wedding.
+
+did something surprising that was difficult to deal with"
+
+"I often have to work evenings, but I ${s}knew the score${e} when I decided to accept this job.
+
+understood a situation, especially its disadvantages"
+
+"This client keeps ${s}moving the goalposts${e}. Now she wants the bedroom painted red.
+
+changing the desired end result"
+
+"We don't have enough time to train our employees properly. They'll just have to ${s}sink or swim${e}.
+
+succeed by their own efforts, or fail"
+
+"${s}At this stage of the game${e}, it's difficult to say how long it will take to fix your roof.
+
+at this point in the process"
+
+"I'm trying to start my own business, and ${s}cleared a hurdle${e} today when the bank agreed to lend me money.
+
+successfully dealt with a problem"
+
+"Sleepless nights are ${s}par for the course${e} when you have a baby.
+
+to be expected
+
+par：（高尔夫的）标准杆数"
+
+"The service in this restaurant is really ${s}below the par${e}. We've been waiting for our food for an hour!
+
+not to the expected standard"
+
+"I'm sorry you didn't get through to the next round, Cameron. ${s}You win some, you lose some${e}!
+
+You can't succeed at everything."
+
+"The plumber gave us ${s}a ballpark figure${e} for the cost of the new bathroom.
+
+an estimate
+
+ballpark：可变范围"
+
+"I've had cats and rabbits before, but looking after a dog is ${s}a whole new ball game${e}.
+
+a completely different situation"
+
+"We've got a lot of unpacking to do, so let's ${s}get the ball rolling${e}.
+
+start a process"
+
+"I was ${s}thrown in at the deep end${e} when my colleague was sick and I had to run the cafe on my own on my first day.
+
+put in an unexpected and difficult situation"
+
 )
 
 unset s
 unset e
 
+echo ${#tips[@]}
