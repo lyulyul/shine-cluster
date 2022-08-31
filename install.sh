@@ -25,6 +25,9 @@ case $1 in
 	login)
 		loginInstall
 		;;
+	tatooine)
+		mkdir /etc/exports.d
+		;;
 esac
 
 foldersToCopy=(etc/systemd etc/security/limits.d)
