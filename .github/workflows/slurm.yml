@@ -26,6 +26,9 @@ jobs:
               - 'slurm/**'
               - '.github/**'
       - name: check slurm options in code
+        # default shell is "bash -e". The grep tool we use gives non-zero exit code if a pattern is not found.
+        # We do not want to mark this as error.
+        shell: bash --noprofile --norc {0}
         run: |
           source .github/workflows/check-slurm-long-options.sh
 
