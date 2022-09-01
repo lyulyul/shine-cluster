@@ -3,7 +3,7 @@ Description=Kill overtime processes timer
 
 [Timer]
 OnStartupSec=1d
-OnUnitActiveSec=1d
+OnUnitActiveSec=16h
 Unit=free-memory.service
 
 [Install]
