@@ -199,7 +199,3 @@ function addSudo
 }
 zle -N addSudo_widget addSudo
 bindkey '\C-s' addSudo_widget
-
-# Fix GUI error
-# libGL error: failed to load driver: swrast
-export LIBGL_ALWAYS_INDIRECT=1
