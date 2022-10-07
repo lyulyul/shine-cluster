@@ -33,12 +33,7 @@ sudo rm -rf /home/$username-tmp
 
 sudo ln -s /home/shared/$username /home/$username/shared
 
-# When user runs `srun` on aha, the user's groups are captured
-# on aha, then transfered to eureka. 
-# Although we put the user to group aptuser, the sudoers file doesn't
-# have corresponding rules so the user cannot run `sudo apt` on aha.
-# Eureka has the corresponding sudoers rule.
-sudo usermod -aG aptuser,conda-cache $username
+sudo usermod -aG conda-cache $username
 
 sudo -u $username cp ../slurm-examples/* /home/$username/shared/
 
