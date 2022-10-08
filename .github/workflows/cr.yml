@@ -1,0 +1,52 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Code Review Check
+
+# Controls when the action will run. 
+on:
+  pull_request:
+    branches: [ master ]
+  pull_request_review_comment:
+    types: [created, edited]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-20.04
+    env:
+      prNumber: ${{ github.event.number }}
+      comments: ${{ github.event.comment.body }}
+    steps:
+      - name: Check code review instance
+        run: |
+         if [[ -z "$comments" ]]; then
+           echo $prNumber
+           comments=$(curl --silent -H "Accept: application/vnd.github+json" https://api.github.com/repos/gqqnbig/shine-cluster/issues/$prNumber/comments | jq -r 'reverse | .[]?.body | gsub("[\\n\\r]"; "")')
+           mapfile -t comments < <(echo "$comments")
+         fi
+
+         for comment in "${comments[@]}"
+         do
+            echo "comment: $comment"
+            if [[ "$comment" = *"Code style"* ]] && 
+               [[ "$comment" = *"Bugs"* ]] && 
+               [[ "$comment" = *"CI step/test"* ]] && 
+               [[ "$comment" = *"Support requests"* ]] && 
+               [[ "$comment" = *"Installation"* ]] && 
+               [[ "$comment" = *"Documentations"* ]]; then
+               echo "$comment is a code review instance."
+
+               if [[ "$comment" = *"Your analysis"* ]]; then
+                 echo "You didn't fill in your analysis!" >&2
+                 break
+               fi
+               if [[ ${#comment} -lt 150 ]]; then
+                 echo "The code review instance is not long enough. Add more your analysis." >&2
+               fi
+               exit
+            fi
+         done
+         echo "No valid code review instance found. Get the template from https://github.com/gqqnbig/shine-cluster/wiki/Project-Management" >&2
+         exit 1
