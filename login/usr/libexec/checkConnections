@@ -6,7 +6,7 @@
 #
 # Example
 # 
-# session required pam_exec.so stdout /home/qiqig/mpi-servers/login/checkConnections 5
+# session required pam_exec.so stdout /home/qiqig/shine-cluster/login/checkConnections 5
 #
 # The maximum SSH connections is 5.
 

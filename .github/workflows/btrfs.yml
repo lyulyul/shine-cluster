@@ -23,4 +23,4 @@ jobs:
       - uses: actions/checkout@v2
       - name: Run docker
         run: |
-          sudo docker run -v `pwd`:/mpi-servers -w /mpi-servers --privileged ubuntu:20.04 .github/workflows/btrfs-entrypoint.sh
+          sudo docker run -v `pwd`:/shine-cluster -w /shine-cluster --privileged ubuntu:20.04 .github/workflows/btrfs-entrypoint.sh
