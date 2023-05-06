@@ -7,6 +7,16 @@ if [[ -z $1 ]] || [[ ! -d $1 ]]; then
 	exit 1
 fi
 
+
+SCRIPT=$(realpath "$0")
+SCRIPTPATH=$(dirname "$SCRIPT")
+
+if [[ $SCRIPTPATH = /shine-cluster/* ]]; then
+	echo 'shine cluster must be installed at /shine-cluster.' >&2
+	exit 1
+fi
+
+
 mkdir /etc/vim/ftdetect/
 mkdir /etc/vim/ftplugin/
 mkdir /etc/systemd/system/slurmd.service.d/
@@ -134,3 +144,5 @@ do
 		ln -s $PWD/$file /$file
 	fi
 done
+
+echo "Installation is done."
