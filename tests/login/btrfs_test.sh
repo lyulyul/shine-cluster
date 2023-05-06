@@ -46,7 +46,7 @@ testAddNewUsers() {
 
 	df -h --sync
 
-	diskquote update
+	diskquota update
 
 
 }
