@@ -1,19 +1,11 @@
-# This is a basic workflow to help you get started with Actions
-
 name: Slurm
 
 # Controls when the action will run. 
 on:
   # Triggers the workflow on push or pull request events but only for the master branch
   push:
-    path: 
-      - 'slurm/**'
-      - '.github/**'
     branches: [ master ]
   pull_request:
-    path: 
-      - 'slurm/**'
-      - '.github/**'
     branches: [ master ]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
@@ -25,19 +17,50 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
+      - uses: dorny/paths-filter@v2.10.2
+        id: changes
+        with:
+          filters: |
+            slurm:
+              - 'slurm/**'
+              - '.github/**'
+      - name: check slurm options in code
+        # default shell is "bash -e". The grep tool we use gives non-zero exit code if a pattern is not found.
+        # We do not want to mark this as error.
+        shell: bash --noprofile --norc {0}
+        run: |
+          source .github/workflows/check-slurm-long-options.sh
+
+          wikiRepo="${GITHUB_WORKSPACE}/../wiki"
+          git clone https://github.com/gqqnbig/shine-cluster.wiki.git $wikiRepo
+          output=$(checkLong "$wikiRepo")
+          if [[ -n "$output" ]]; then
+            echo "WIKI: The values of slurm long options must be introduced by an equal sign (=), not a space." >&2
+            echo "$output" >&2
+            exit 1
+          fi
+
+          output=$(checkLong "$GITHUB_WORKSPACE")
+          if [[ -n "$output" ]]; then
+            echo "REPO: The values of slurm long options must be introduced by an equal sign (=), not a space." >&2
+            echo "$output" >&2
+            exit 1
+          fi
       - name: Install dependencies
+        if : steps.changes.outputs.slurm == 'true'
         run: |
           sudo apt update
           sudo apt install -y slurm-wlm
 
       - name: Mock dependencies
+        if : steps.changes.outputs.slurm == 'true'
         run: |
           sudo touch /usr/bin/nvidia-smi
           sudo chmod +x /usr/bin/nvidia-smi
 
       - name: Systemd unit files
+        if : steps.changes.outputs.slurm == 'true'
         shell: bash {0}
         run: |
           # systemd will check if the executables refered by the service files exist
